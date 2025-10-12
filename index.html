@@ -89,6 +89,10 @@
     }
     </script>
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
+
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -103,6 +107,8 @@
 
         body {
             font-family: 'Inter', system-ui, sans-serif;
+            background: #000000;
+            min-height: 100vh;
         }
 
         ::-webkit-scrollbar {
@@ -110,16 +116,22 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #2a0a1e;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #aa336a, #d946a6);
+            background: linear-gradient(180deg, #aa336a, #c73594);
             border-radius: 6px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #8b2858, #c73594);
+            background: linear-gradient(180deg, #c73594, #d946a6);
+        }
+
+        /* Text Selection */
+        ::selection {
+            background: #aa336a;
+            color: #fff;
         }
 
         .gradient-text {
@@ -129,8 +141,14 @@
             background-clip: text;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.9);
+        .cream-card {
+            background: #f5f5dc;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-header {
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
@@ -138,20 +156,40 @@
         .status-category-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            background: #ffffff;
         }
 
         .status-category-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(199, 53, 148, 0.4);
+            border-color: #aa336a !important;
         }
 
         .status-code-item {
             transition: all 0.2s ease;
+            background: #ffffff;
         }
 
         .status-code-item:hover {
-            background: rgba(170, 51, 106, 0.05);
+            background: rgba(170, 51, 106, 0.1);
             transform: translateX(8px);
+            border-left-width: 6px !important;
+        }
+
+        .btn-primary {
+            background: #1e293b;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #1e293b;
+        }
+
+        .btn-primary:hover {
+            background: #000000;
+            border-color: #aa336a;
+            color: #aa336a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(170, 51, 106, 0.3);
         }
 
         .float-animation {
@@ -181,43 +219,85 @@
         .hidden {
             display: none;
         }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 50;
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+<body class="min-h-screen">
 
     <!-- Header -->
-    <header class="glass border-b border-indigo-100 sticky top-0 z-40 shadow-sm">
+    <header class="glass-header border-b border-gray-900 sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-6 py-6">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                    <div class="w-14 h-14 bg-gradient-to-r from-[#aa336a] to-[#c73594] rounded-2xl flex items-center justify-center shadow-lg float-animation">
                         <span class="material-icons text-white text-3xl">code</span>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-extrabold gradient-text">Status Code Check</h1>
-                        <p class="text-sm text-gray-600 font-medium">Complete HTTP Status Code Reference</p>
+                        <h1 class="text-3xl font-extrabold text-white">Status Code Check</h1>
+                        <p class="text-sm text-gray-300 font-medium">Complete HTTP Status Code Reference</p>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <a href="https://urlstatuschecker.com" target="_blank" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2">
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="/status-codes.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">All Codes</a>
+                    <a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">FAQ</a>
+                    <a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="btn-primary px-6 py-3 rounded-xl flex items-center gap-2">
                         <span class="material-icons text-sm">speed</span>
                         <span>Check URLs</span>
                     </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white">
+                    <span class="material-icons text-3xl">menu</span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-black z-50 p-6 md:hidden">
+        <button onclick="toggleMobileMenu()" class="text-white mb-8 float-right">
+            <span class="material-icons text-3xl">close</span>
+        </button>
+        <nav class="clear-both pt-12 space-y-4">
+            <a href="/status-codes.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">All Codes</a>
+            <a href="/faq.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">FAQ</a>
+            <a href="/blog" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">Blog</a>
+            <a href="https://urlstatuschecker.com" target="_blank" class="block btn-primary px-6 py-3 rounded-xl text-center mt-4">
+                Check URLs
+            </a>
+        </nav>
+    </div>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-6 py-12">
 
         <!-- Hero Section -->
-        <div class="text-center mb-16 fade-in">
+        <div class="cream-card p-12 text-center mb-16 fade-in">
             <h2 class="text-5xl font-extrabold text-gray-900 mb-4">
                 Complete HTTP Status Code Reference
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
                 Comprehensive guide to every HTTP status code with definitions, common causes, and solutions. Learn to troubleshoot and understand web server responses.
             </p>
 
@@ -229,7 +309,7 @@
                         type="text"
                         id="search-input"
                         placeholder="Search status codes (e.g., 404, 500, Not Found)..."
-                        class="w-full pl-12 pr-4 py-4 border-2 border-indigo-200 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all text-lg"
+                        class="w-full pl-12 pr-4 py-4 border-2 border-[#aa336a] rounded-2xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all text-lg"
                     />
                 </div>
             </div>
@@ -244,7 +324,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">1xx Informational</h3>
                 <p class="text-gray-600 mb-4">Request received, continuing process</p>
-                <a href="#1xx" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                <a href="/status-codes.html#1xx" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
                     View All 1xx Codes
                     <span class="material-icons text-sm">arrow_forward</span>
                 </a>
@@ -260,7 +340,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">2xx Success</h3>
                 <p class="text-gray-600 mb-4">Request successfully received and accepted</p>
-                <a href="#2xx" class="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
+                <a href="/status-codes.html#2xx" class="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
                     View All 2xx Codes
                     <span class="material-icons text-sm">arrow_forward</span>
                 </a>
@@ -276,7 +356,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">3xx Redirection</h3>
                 <p class="text-gray-600 mb-4">Further action needed to complete request</p>
-                <a href="#3xx" class="inline-flex items-center gap-2 text-yellow-600 font-semibold hover:gap-3 transition-all">
+                <a href="/status-codes.html#3xx" class="inline-flex items-center gap-2 text-yellow-600 font-semibold hover:gap-3 transition-all">
                     View All 3xx Codes
                     <span class="material-icons text-sm">arrow_forward</span>
                 </a>
@@ -292,7 +372,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">4xx Client Errors</h3>
                 <p class="text-gray-600 mb-4">Request contains bad syntax or cannot be fulfilled</p>
-                <a href="#4xx" class="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
+                <a href="/status-codes.html#4xx" class="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
                     View All 4xx Codes
                     <span class="material-icons text-sm">arrow_forward</span>
                 </a>
@@ -308,7 +388,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">5xx Server Errors</h3>
                 <p class="text-gray-600 mb-4">Server failed to fulfill a valid request</p>
-                <a href="#5xx" class="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all">
+                <a href="/status-codes.html#5xx" class="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all">
                     View All 5xx Codes
                     <span class="material-icons text-sm">arrow_forward</span>
                 </a>
@@ -317,27 +397,43 @@
                 </div>
             </div>
 
-            <!-- Blog/Resources -->
+            <!-- FAQ -->
             <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-purple-200">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <span class="material-icons text-white text-3xl">help_outline</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">FAQ</h3>
+                <p class="text-gray-600 mb-4">Common questions about HTTP status codes</p>
+                <a href="/faq.html" class="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                    View FAQs
+                    <span class="material-icons text-sm">arrow_forward</span>
+                </a>
+                <div class="mt-4 pt-4 border-t border-purple-100">
+                    <p class="text-sm text-gray-500">404 errors, redirects, server errors, and more</p>
+                </div>
+            </div>
+
+            <!-- Blog/Resources -->
+            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-indigo-200">
+                <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
                     <span class="material-icons text-white text-3xl">article</span>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">Blog & Guides</h3>
                 <p class="text-gray-600 mb-4">In-depth articles and troubleshooting guides</p>
-                <a href="/blog" class="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                <a href="/blog" class="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:gap-3 transition-all">
                     Read Articles
                     <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t border-purple-100">
+                <div class="mt-4 pt-4 border-t border-indigo-100">
                     <p class="text-sm text-gray-500">SEO tips, troubleshooting, best practices</p>
                 </div>
             </div>
         </div>
 
         <!-- Quick Reference Section -->
-        <div id="quick-reference" class="glass rounded-3xl shadow-2xl p-8 mb-12 border border-indigo-100">
+        <div id="quick-reference" class="cream-card p-8 mb-12">
             <h3 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span class="material-icons text-primary text-4xl">flash_on</span>
+                <span class="material-icons text-[#aa336a] text-4xl">flash_on</span>
                 Quick Reference - Most Common Status Codes
             </h3>
 
@@ -347,15 +443,15 @@
         </div>
 
         <!-- CTA Section -->
-        <div class="glass rounded-3xl shadow-2xl p-12 border-2 border-primary/20 text-center bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="cream-card p-12 text-center border-4 border-[#aa336a] border-dashed">
             <div class="max-w-3xl mx-auto">
                 <h3 class="text-4xl font-extrabold text-gray-900 mb-4">
                     Check Your URLs Now
                 </h3>
-                <p class="text-xl text-gray-600 mb-8">
+                <p class="text-xl text-gray-700 mb-8">
                     Use our free URL Status Checker to test up to 100 URLs at once, check DNS propagation, and identify issues instantly.
                 </p>
-                <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 btn-primary px-8 py-4 rounded-2xl text-lg">
                     <span class="material-icons">speed</span>
                     Try URL Status Checker
                     <span class="material-icons">arrow_forward</span>
@@ -366,43 +462,111 @@
     </main>
 
     <!-- Footer -->
-    <footer class="glass border-t border-indigo-100 mt-20">
+    <footer class="bg-black mt-20">
         <div class="max-w-7xl mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- SNAPIT SUITE -->
                 <div>
-                    <h4 class="font-bold text-gray-900 mb-4">Status Code Check</h4>
-                    <p class="text-gray-600 text-sm">Comprehensive HTTP status code reference and troubleshooting guide.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 mb-4">Categories</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#1xx" class="text-gray-600 hover:text-primary transition-colors">1xx Informational</a></li>
-                        <li><a href="#2xx" class="text-gray-600 hover:text-primary transition-colors">2xx Success</a></li>
-                        <li><a href="#3xx" class="text-gray-600 hover:text-primary transition-colors">3xx Redirection</a></li>
-                        <li><a href="#4xx" class="text-gray-600 hover:text-primary transition-colors">4xx Client Errors</a></li>
-                        <li><a href="#5xx" class="text-gray-600 hover:text-primary transition-colors">5xx Server Errors</a></li>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">SNAPIT SUITE</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Software</a></li>
+                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forms</a></li>
+                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Analytics</a></li>
+                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Agent</a></li>
                     </ul>
                 </div>
+
+                <!-- TOOLS & UTILITIES -->
                 <div>
-                    <h4 class="font-bold text-gray-900 mb-4">Tools</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="https://urlstatuschecker.com" class="text-gray-600 hover:text-primary transition-colors">URL Status Checker</a></li>
-                        <li><a href="/blog" class="text-gray-600 hover:text-primary transition-colors">Blog & Guides</a></li>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">TOOLS & UTILITIES</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="https://snapitburn.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Burn</a></li>
+                        <li><a href="https://snapitpolls.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Polls</a></li>
+                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT QR</a></li>
+                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT URL</a></li>
+                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">URL Status Checker</a></li>
+                        <li><a href="https://statuscodecheck.com" class="text-gray-300 hover:text-[#aa336a] transition-colors">Status Code Check</a></li>
                     </ul>
                 </div>
+
+                <!-- RESOURCES -->
                 <div>
-                    <h4 class="font-bold text-gray-900 mb-4">Legal</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="/privacy-policy.html" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms-of-service.html" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a></li>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">RESOURCES</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="https://snapitpdf.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">PDF Tools</a></li>
+                        <li><a href="https://snapitchimera.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Chimera</a></li>
+                        <li><a href="https://snapitforum.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forum</a></li>
+                        <li><a href="https://forumbuilder.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Forum Builder</a></li>
+                        <li><a href="https://snapitsoftware.com/api" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">API Documentation</a></li>
+                        <li><a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">FAQ</a></li>
+                        <li><a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors">Blog</a></li>
                     </ul>
+                </div>
+
+                <!-- LEGAL & SUPPORT -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">LEGAL & SUPPORT</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/terms-of-service.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Privacy Policy</a></li>
+                        <li><button onclick="openContactForm()" class="text-gray-300 hover:text-[#aa336a] transition-colors">Send Feedback</button></li>
+                    </ul>
+                    <p class="text-gray-400 text-xs mt-6 leading-relaxed">
+                        Create and share polls instantly. Get real-time results and insights.
+                    </p>
                 </div>
             </div>
-            <div class="border-t border-gray-200 pt-8 text-center text-sm text-gray-600">
-                <p>&copy; 2025 Status Code Check. All rights reserved.</p>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 SnapIT Software. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50" style="display: none;">
+        <div class="cream-card p-8 max-w-lg w-full mx-4 border-4 border-[#aa336a] relative">
+            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#aa336a]">
+                <span class="material-icons">close</span>
+            </button>
+
+            <h3 class="text-3xl font-bold text-gray-900 mb-2">Contact Us</h3>
+            <p class="text-gray-700 mb-6">Have a question or feedback? We'd love to hear from you!</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
+                <input type="hidden" name="access_key" value="ebfa8f9b-ca95-40f0-abeb-23155a5a0c9c">
+                <input type="hidden" name="subject" value="New Contact from Status Code Check">
+                <input type="hidden" name="redirect" value="https://statuscodecheck.com/?message=success">
+
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-900 mb-1">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        placeholder="Your name">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        placeholder="your@email.com">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-900 mb-1">Message</label>
+                    <textarea id="message" name="message" required rows="4"
+                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all resize-none"
+                        placeholder="Your message..."></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full btn-primary px-6 py-3 rounded-xl flex items-center justify-center gap-2">
+                    <span class="material-icons text-sm">send</span>
+                    <span>Send Message</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Status Codes Data -->
     <script src="/assets/status-codes-data.js"></script>
@@ -572,6 +736,45 @@
                 }
             });
         });
+    </script>
+
+    <!-- Contact Form Modal Functions -->
+    <script>
+        function openContactForm() {
+            document.getElementById('contactModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on background click
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactForm();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('contactModal').style.display === 'flex') {
+                closeContactForm();
+            }
+        });
+
+        // Show success message if redirected after form submission
+        if (window.location.search.includes('message=success')) {
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
     </script>
 
 </body>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terms of Service - Status Code Check</title>
+    <meta name="description" content="Terms of Service for Status Code Check. Read about the rules and regulations for using our website.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://statuscodecheck.com/terms-of-service.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/assets/styles.css?v=1.0.0">
+
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #000000; min-height: 100vh; }
+
+        ::selection { background: #aa336a; color: #fff; }
+
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #2a0a1e; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #aa336a, #c73594); border-radius: 6px; }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #c73594, #d946a6); }
+
+        .cream-card { background: #f5f5dc; border-radius: 24px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); }
+
+        .glass-header { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #aa336a 0%, #c73594 100%);
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(170, 51, 106, 0.5);
+        }
+
+        .float-animation { animation: float 4s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+
+        .legal-content h2 { font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 2rem; margin-bottom: 1rem; }
+        .legal-content h3 { font-size: 1.25rem; font-weight: 600; color: #374151; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .legal-content p { color: #4b5563; margin-bottom: 1rem; line-height: 1.75; }
+        .legal-content ul, .legal-content ol { color: #4b5563; margin-bottom: 1rem; padding-left: 2rem; line-height: 1.75; }
+        .legal-content li { margin-bottom: 0.5rem; }
+        .legal-content a { color: #aa336a; font-weight: 600; text-decoration: underline; }
+        .legal-content a:hover { color: #c73594; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="glass-header border-b border-gray-900 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-gradient-to-r from-[#aa336a] to-[#c73594] rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                        <span class="material-icons text-white text-3xl">code</span>
+                    </div>
+                    <div>
+                        <a href="/" class="text-3xl font-extrabold text-white hover:text-[#c73594] transition-colors">Status Code Check</a>
+                        <p class="text-sm text-gray-300 font-medium">Terms of Service</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="/" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">Home</a>
+                    <a href="/status-codes.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">All Codes</a>
+                    <a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">FAQ</a>
+                    <a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="btn-primary px-6 py-3 rounded-xl flex items-center gap-2">
+                        <span class="material-icons text-sm">speed</span>
+                        Check URLs
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white">
+                    <span class="material-icons text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-black z-50 p-6 md:hidden">
+        <button onclick="toggleMobileMenu()" class="text-white mb-8 float-right">
+            <span class="material-icons text-3xl">close</span>
+        </button>
+        <nav class="clear-both pt-12 space-y-4">
+            <a href="/" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">Home</a>
+            <a href="/status-codes.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">All Codes</a>
+            <a href="/faq.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">FAQ</a>
+            <a href="/blog" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">Blog</a>
+            <a href="https://urlstatuschecker.com" target="_blank" class="block btn-primary px-6 py-3 rounded-xl text-center mt-4">
+                Check URLs
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div class="cream-card p-8 md:p-12">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Terms of Service</h1>
+            <p class="text-gray-600 mb-8">Last updated: January 2025</p>
+
+            <div class="legal-content">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By accessing and using Status Code Check ("the Site"), located at statuscodecheck.com, you accept and agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Site.
+                </p>
+
+                <h2>2. Description of Service</h2>
+                <p>
+                    Status Code Check provides a comprehensive reference guide for HTTP status codes, including:
+                </p>
+                <ul>
+                    <li>Detailed explanations of HTTP status codes</li>
+                    <li>Common causes and solutions for status code errors</li>
+                    <li>Educational articles and guides</li>
+                    <li>Links to related tools and resources</li>
+                </ul>
+                <p>
+                    The Site is provided for informational and educational purposes only.
+                </p>
+
+                <h2>3. Use of the Site</h2>
+
+                <h3>Permitted Uses</h3>
+                <p>You may use the Site to:</p>
+                <ul>
+                    <li>Browse and read content about HTTP status codes</li>
+                    <li>Share links to specific status codes or pages</li>
+                    <li>Reference information for educational or professional purposes</li>
+                    <li>Copy information for personal, non-commercial use with proper attribution</li>
+                </ul>
+
+                <h3>Prohibited Uses</h3>
+                <p>You may not:</p>
+                <ul>
+                    <li>Use the Site for any unlawful purpose or in violation of these Terms</li>
+                    <li>Attempt to gain unauthorized access to the Site or its systems</li>
+                    <li>Interfere with or disrupt the Site's functionality</li>
+                    <li>Use automated systems (bots, scrapers) without explicit permission</li>
+                    <li>Reproduce, distribute, or commercially exploit content without permission</li>
+                    <li>Remove copyright, trademark, or other proprietary notices</li>
+                    <li>Transmit viruses, malware, or harmful code</li>
+                    <li>Impersonate any person or entity</li>
+                </ul>
+
+                <h2>4. Intellectual Property Rights</h2>
+                <p>
+                    All content on the Site, including text, graphics, logos, icons, images, and software, is the property of Status Code Check or its content suppliers and is protected by international copyright laws.
+                </p>
+                <p>
+                    You may not reproduce, modify, distribute, or republish content from the Site without written permission, except for personal, non-commercial use with proper attribution.
+                </p>
+
+                <h2>5. Third-Party Links and Services</h2>
+                <p>
+                    The Site may contain links to third-party websites and services, including:
+                </p>
+                <ul>
+                    <li>URL Status Checker (urlstatuschecker.com)</li>
+                    <li>SnapIT Software suite of tools</li>
+                    <li>External reference materials</li>
+                </ul>
+                <p>
+                    We are not responsible for the content, privacy policies, or practices of third-party sites. Use of third-party services is at your own risk and subject to their terms of service.
+                </p>
+
+                <h2>6. Disclaimer of Warranties</h2>
+                <p>
+                    THE SITE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+                </p>
+                <ul>
+                    <li>Implied warranties of merchantability</li>
+                    <li>Fitness for a particular purpose</li>
+                    <li>Non-infringement</li>
+                    <li>Accuracy, reliability, or completeness of information</li>
+                    <li>Uninterrupted or error-free service</li>
+                </ul>
+                <p>
+                    We do not warrant that the Site will meet your requirements or that any errors will be corrected.
+                </p>
+
+                <h2>7. Limitation of Liability</h2>
+                <p>
+                    TO THE FULLEST EXTENT PERMITTED BY LAW, STATUS CODE CHECK SHALL NOT BE LIABLE FOR:
+                </p>
+                <ul>
+                    <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+                    <li>Loss of profits, revenue, data, or use</li>
+                    <li>Damages resulting from your use or inability to use the Site</li>
+                    <li>Damages resulting from reliance on information provided on the Site</li>
+                    <li>Damages resulting from third-party content or services</li>
+                </ul>
+                <p>
+                    Our total liability shall not exceed $100 or the amount you paid to access the Site (if any), whichever is less.
+                </p>
+
+                <h2>8. Indemnification</h2>
+                <p>
+                    You agree to indemnify, defend, and hold harmless Status Code Check, its affiliates, officers, directors, employees, and agents from any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys' fees) arising from:
+                </p>
+                <ul>
+                    <li>Your use of the Site</li>
+                    <li>Your violation of these Terms</li>
+                    <li>Your violation of any rights of another person or entity</li>
+                    <li>Your submission of content or information to the Site</li>
+                </ul>
+
+                <h2>9. Accuracy of Information</h2>
+                <p>
+                    While we strive to provide accurate and up-to-date information about HTTP status codes, we make no guarantees about the accuracy, completeness, or currency of the content. Information is provided for general informational purposes and should not be relied upon as professional advice.
+                </p>
+                <p>
+                    Always consult official specifications (RFC documents) and professional resources for critical implementations.
+                </p>
+
+                <h2>10. Changes to the Site and Terms</h2>
+                <p>
+                    We reserve the right to:
+                </p>
+                <ul>
+                    <li>Modify, suspend, or discontinue the Site at any time without notice</li>
+                    <li>Update these Terms at any time by posting revised Terms</li>
+                    <li>Change or remove content without notice</li>
+                </ul>
+                <p>
+                    Your continued use of the Site after changes to these Terms constitutes acceptance of the revised Terms. We recommend reviewing these Terms periodically.
+                </p>
+
+                <h2>11. Privacy Policy</h2>
+                <p>
+                    Your use of the Site is also governed by our <a href="/privacy-policy.html">Privacy Policy</a>. Please review our Privacy Policy to understand our data collection and use practices.
+                </p>
+
+                <h2>12. Governing Law and Jurisdiction</h2>
+                <p>
+                    These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Status Code Check operates, without regard to conflict of law principles.
+                </p>
+                <p>
+                    Any disputes arising from these Terms or your use of the Site shall be resolved through binding arbitration or in courts located in the appropriate jurisdiction.
+                </p>
+
+                <h2>13. Severability</h2>
+                <p>
+                    If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+                </p>
+
+                <h2>14. Entire Agreement</h2>
+                <p>
+                    These Terms, together with our Privacy Policy, constitute the entire agreement between you and Status Code Check regarding your use of the Site and supersede all prior agreements and understandings.
+                </p>
+
+                <h2>15. Contact Information</h2>
+                <p>
+                    If you have any questions about these Terms, please contact us:
+                </p>
+                <ul>
+                    <li><strong>Website:</strong> <a href="https://statuscodecheck.com">statuscodecheck.com</a></li>
+                    <li><strong>Contact Form:</strong> <button onclick="openContactForm()" class="text-[#aa336a] font-semibold hover:underline">Send us a message</button></li>
+                </ul>
+
+                <h2>16. Acknowledgment</h2>
+                <p>
+                    BY USING THE SITE, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY THEM.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- SNAPIT SUITE -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">SNAPIT SUITE</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Software</a></li>
+                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forms</a></li>
+                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Analytics</a></li>
+                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Agent</a></li>
+                    </ul>
+                </div>
+
+                <!-- TOOLS & UTILITIES -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">TOOLS & UTILITIES</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="https://snapitburn.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Burn</a></li>
+                        <li><a href="https://snapitpolls.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Polls</a></li>
+                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT QR</a></li>
+                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT URL</a></li>
+                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">URL Status Checker</a></li>
+                        <li><a href="https://statuscodecheck.com" class="text-gray-300 hover:text-[#aa336a] transition-colors">Status Code Check</a></li>
+                    </ul>
+                </div>
+
+                <!-- RESOURCES -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">RESOURCES</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="https://snapitpdf.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">PDF Tools</a></li>
+                        <li><a href="https://snapitchimera.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Chimera</a></li>
+                        <li><a href="https://snapitforum.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forum</a></li>
+                        <li><a href="https://forumbuilder.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Forum Builder</a></li>
+                        <li><a href="https://snapitsoftware.com/api" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">API Documentation</a></li>
+                        <li><a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">FAQ</a></li>
+                        <li><a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- LEGAL & SUPPORT -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider">LEGAL & SUPPORT</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/terms-of-service.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Privacy Policy</a></li>
+                        <li><button onclick="openContactForm()" class="text-gray-300 hover:text-[#aa336a] transition-colors">Send Feedback</button></li>
+                    </ul>
+                    <p class="text-gray-400 text-xs mt-6 leading-relaxed">
+                        Complete HTTP status code reference with definitions, causes, and solutions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 SnapIT Software. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50" style="display: none;">
+        <div class="cream-card p-8 max-w-lg w-full mx-4 border-4 border-[#aa336a] relative">
+            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#aa336a]">
+                <span class="material-icons">close</span>
+            </button>
+
+            <h3 class="text-3xl font-bold text-gray-900 mb-2">Contact Us</h3>
+            <p class="text-gray-700 mb-6">Have a question or feedback? We'd love to hear from you!</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
+                <input type="hidden" name="access_key" value="ebfa8f9b-ca95-40f0-abeb-23155a5a0c9c">
+                <input type="hidden" name="subject" value="New Contact from Status Code Check">
+                <input type="hidden" name="redirect" value="https://statuscodecheck.com/terms-of-service.html?message=success">
+
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-900 mb-1">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        placeholder="Your name">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        placeholder="your@email.com">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-900 mb-1">Message</label>
+                    <textarea id="message" name="message" required rows="4"
+                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all resize-none"
+                        placeholder="Your message..."></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full btn-primary px-6 py-3 rounded-xl flex items-center justify-center gap-2">
+                    <span class="material-icons text-sm">send</span>
+                    <span>Send Message</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function openContactForm() {
+            document.getElementById('contactModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on background click
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactForm();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('contactModal').style.display === 'flex') {
+                closeContactForm();
+            }
+        });
+
+        // Show success message if redirected after form submission
+        if (window.location.search.includes('message=success')) {
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -223,9 +223,92 @@
             </div>
             <div class="border-t border-gray-200 pt-8 text-center text-sm text-gray-600">
                 <p>&copy; 2025 Status Code Check. All rights reserved.</p>
+                <p class="mt-2">
+                    <button onclick="openContactForm()" class="text-primary hover:underline font-medium">
+                        Contact Us
+                    </button>
+                </p>
             </div>
         </div>
     </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" style="display: none;">
+        <div class="glass rounded-3xl shadow-2xl p-8 max-w-lg w-full mx-4 border border-indigo-200 relative">
+            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <span class="material-icons">close</span>
+            </button>
+
+            <h3 class="text-3xl font-bold text-gray-900 mb-2">Contact Us</h3>
+            <p class="text-gray-600 mb-6">Have a question or feedback? We'd love to hear from you!</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
+                <input type="hidden" name="access_key" value="ebfa8f9b-ca95-40f0-abeb-23155a5a0c9c">
+                <input type="hidden" name="subject" value="New Contact from Status Code Check">
+                <input type="hidden" name="redirect" value="https://statuscodecheck.com/blog/?message=success">
+
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
+                        placeholder="Your name">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
+                        placeholder="your@email.com">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea id="message" name="message" required rows="4"
+                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all resize-none"
+                        placeholder="Your message..."></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <span class="material-icons text-sm">send</span>
+                    <span>Send Message</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Form Modal Functions -->
+    <script>
+        function openContactForm() {
+            document.getElementById('contactModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on background click
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactForm();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('contactModal').style.display === 'flex') {
+                closeContactForm();
+            }
+        });
+
+        // Show success message if redirected after form submission
+        if (window.location.search.includes('message=success')) {
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    </script>
 
 </body>
 </html>
