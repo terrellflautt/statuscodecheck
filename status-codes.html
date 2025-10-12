@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Complete HTTP Status Codes List - All 1xx, 2xx, 3xx, 4xx, 5xx Codes</title>
+    <meta name="description" content="Complete reference of all HTTP status codes with detailed explanations, causes, and solutions. From 100 Continue to 511 Network Authentication Required.">
+    <meta name="keywords" content="HTTP status codes list, complete status codes, all status codes, HTTP errors reference">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://statuscodecheck.com/status-codes.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Complete HTTP Status Codes List">
+    <meta property="og:description" content="Comprehensive reference of all HTTP status codes with detailed explanations, causes, and solutions.">
+    <meta property="og:url" content="https://statuscodecheck.com/status-codes.html">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/assets/styles.css?v=1.0.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #aa336a, #d946a6);
+            border-radius: 6px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #aa336a 0%, #d946a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .status-code-detail {
+            scroll-margin-top: 100px;
+        }
+
+        .status-code-detail:target {
+            animation: highlight 2s ease-in-out;
+        }
+
+        @keyframes highlight {
+            0%, 100% { background-color: transparent; }
+            50% { background-color: rgba(170, 51, 106, 0.1); }
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-link:hover {
+            background: rgba(170, 51, 106, 0.1);
+            transform: translateX(4px);
+        }
+
+        .sidebar-link.active {
+            background: rgba(170, 51, 106, 0.15);
+            font-weight: 600;
+            border-left: 3px solid #aa336a;
+        }
+
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="glass border-b border-indigo-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                        <span class="material-icons text-white text-3xl">code</span>
+                    </div>
+                    <div>
+                        <a href="/" class="text-3xl font-extrabold gradient-text hover:opacity-80 transition-opacity">Status Code Check</a>
+                        <p class="text-sm text-gray-600 font-medium">Complete HTTP Status Code Reference</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="/" class="text-gray-600 hover:text-primary transition-colors font-medium flex items-center gap-2">
+                        <span class="material-icons text-sm">home</span>
+                        Home
+                    </a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2">
+                        <span class="material-icons text-sm">speed</span>
+                        Check URLs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <!-- Sidebar Navigation -->
+            <div class="lg:col-span-1">
+                <div class="sidebar glass rounded-2xl shadow-lg p-6 border border-indigo-100">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Quick Jump</h3>
+                    <nav id="sidebar-nav" class="space-y-1">
+                        <!-- Will be populated by JavaScript -->
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:col-span-3">
+                <div class="mb-8">
+                    <h1 class="text-4xl font-extrabold text-gray-900 mb-4">All HTTP Status Codes</h1>
+                    <p class="text-lg text-gray-600">Comprehensive reference guide with definitions, causes, and solutions for every HTTP status code.</p>
+                </div>
+
+                <!-- Status Codes Container -->
+                <div id="status-codes-container" class="space-y-12">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <!-- Back to Top Button -->
+                <div class="mt-12 text-center">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all">
+                        <span class="material-icons">arrow_upward</span>
+                        Back to Top
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-indigo-100 mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Status Code Check</h4>
+                    <p class="text-gray-600 text-sm">Comprehensive HTTP status code reference and troubleshooting guide.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#1xx" class="text-gray-600 hover:text-primary transition-colors">1xx Informational</a></li>
+                        <li><a href="#2xx" class="text-gray-600 hover:text-primary transition-colors">2xx Success</a></li>
+                        <li><a href="#3xx" class="text-gray-600 hover:text-primary transition-colors">3xx Redirection</a></li>
+                        <li><a href="#4xx" class="text-gray-600 hover:text-primary transition-colors">4xx Client Errors</a></li>
+                        <li><a href="#5xx" class="text-gray-600 hover:text-primary transition-colors">5xx Server Errors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Tools</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://urlstatuschecker.com" class="text-gray-600 hover:text-primary transition-colors">URL Status Checker</a></li>
+                        <li><a href="/blog" class="text-gray-600 hover:text-primary transition-colors">Blog & Guides</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/privacy-policy.html" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 text-center text-sm text-gray-600">
+                <p>&copy; 2025 Status Code Check. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Status Codes Data -->
+    <script src="/assets/status-codes-data.js"></script>
+
+    <!-- Main Application Script -->
+    <script>
+        const categoryColors = {
+            '1xx': { color: 'blue', icon: 'info', gradient: 'from-blue-500 to-blue-600' },
+            '2xx': { color: 'green', icon: 'check_circle', gradient: 'from-green-500 to-green-600' },
+            '3xx': { color: 'yellow', icon: 'sync_alt', gradient: 'from-yellow-500 to-yellow-600' },
+            '4xx': { color: 'orange', icon: 'error_outline', gradient: 'from-orange-500 to-orange-600' },
+            '5xx': { color: 'red', icon: 'report_problem', gradient: 'from-red-500 to-red-600' }
+        };
+
+        function renderStatusCodes() {
+            const container = document.getElementById('status-codes-container');
+            const sidebarNav = document.getElementById('sidebar-nav');
+            let containerHTML = '';
+            let sidebarHTML = '';
+
+            Object.keys(statusCodesData).forEach(categoryKey => {
+                const category = statusCodesData[categoryKey];
+                const theme = categoryColors[categoryKey];
+
+                // Add category section
+                containerHTML += `
+                    <div id="${categoryKey}" class="status-code-detail">
+                        <div class="glass rounded-3xl shadow-2xl p-8 border-2 border-${theme.color}-200">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br ${theme.gradient} rounded-2xl flex items-center justify-center shadow-lg">
+                                    <span class="material-icons text-white text-3xl">${theme.icon}</span>
+                                </div>
+                                <div>
+                                    <h2 class="text-3xl font-extrabold text-gray-900">${categoryKey} ${category.name}</h2>
+                                    <p class="text-gray-600">${category.description}</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                `;
+
+                // Add sidebar category
+                sidebarHTML += `
+                    <div class="mb-4">
+                        <a href="#${categoryKey}" class="sidebar-link block px-3 py-2 rounded-lg text-sm font-bold text-${theme.color}-600">
+                            ${categoryKey} ${category.name}
+                        </a>
+                        <div class="ml-2 mt-1 space-y-1">
+                `;
+
+                // Add each status code in category
+                Object.keys(category.codes).forEach(codeNum => {
+                    const code = category.codes[codeNum];
+
+                    // Main content
+                    containerHTML += `
+                        <div id="${codeNum}" class="status-code-detail bg-white rounded-2xl p-6 border border-${theme.color}-100">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-1">${codeNum} ${code.name}</h3>
+                                    <p class="text-gray-600 text-lg">${code.description}</p>
+                                </div>
+                                <div class="ml-4">
+                                    <span class="inline-flex items-center justify-center px-4 py-2 bg-${theme.color}-100 rounded-xl">
+                                        <span class="text-xl font-bold text-${theme.color}-600">${codeNum}</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                        <span class="material-icons text-sm text-${theme.color}-600">schedule</span>
+                                        When It Occurs
+                                    </h4>
+                                    <p class="text-gray-600">${code.whenItOccurs}</p>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                        <span class="material-icons text-sm text-${theme.color}-600">warning</span>
+                                        Common Causes
+                                    </h4>
+                                    <ul class="list-disc list-inside space-y-1 text-gray-600">
+                                        ${code.commonCauses.map(cause => `<li>${cause}</li>`).join('')}
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                        <span class="material-icons text-sm text-${theme.color}-600">build</span>
+                                        How to Fix
+                                    </h4>
+                                    <ul class="list-disc list-inside space-y-1 text-gray-600">
+                                        ${code.howToFix.map(fix => `<li>${fix}</li>`).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="pt-4 border-t border-gray-200">
+                                    <p class="text-sm text-gray-500">
+                                        <strong>Related Codes:</strong> ${code.relatedCodes.join(', ')}
+                                    </p>
+                                </div>
+
+                                <div class="pt-2">
+                                    <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                                        <span class="material-icons text-sm">speed</span>
+                                        Check if your URLs return ${codeNum}
+                                        <span class="material-icons text-sm">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    // Sidebar link
+                    sidebarHTML += `
+                        <a href="#${codeNum}" class="sidebar-link block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-${theme.color}-600" data-code="${codeNum}">
+                            ${codeNum} ${code.name}
+                        </a>
+                    `;
+                });
+
+                containerHTML += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                sidebarHTML += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = containerHTML;
+            sidebarNav.innerHTML = sidebarHTML;
+
+            // Update active sidebar link on scroll
+            updateActiveSidebarLink();
+        }
+
+        function updateActiveSidebarLink() {
+            // Get all status code sections
+            const sections = document.querySelectorAll('.status-code-detail[id]');
+            const sidebarLinks = document.querySelectorAll('.sidebar-link[data-code]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-code') === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Handle direct navigation to specific code from URL hash
+        function handleHashNavigation() {
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const element = document.querySelector(window.location.hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStatusCodes();
+            handleHashNavigation();
+
+            // Handle hash changes (back/forward navigation)
+            window.addEventListener('hashchange', handleHashNavigation);
+        });
+    </script>
+
+</body>
+</html>

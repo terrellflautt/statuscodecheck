@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Status Code Check - Complete HTTP Status Code Reference & Directory</title>
+    <meta name="description" content="Comprehensive HTTP status code reference guide with definitions, causes, and solutions for every status code. Learn about 1xx, 2xx, 3xx, 4xx, and 5xx status codes with examples and fixes.">
+    <meta name="keywords" content="HTTP status codes, 404 error, 500 error, status code reference, HTTP error codes, web development, API status codes, troubleshooting">
+    <meta name="author" content="Status Code Check">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://statuscodecheck.com">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Status Code Check - Complete HTTP Status Code Reference">
+    <meta property="og:description" content="Comprehensive guide to all HTTP status codes with definitions, causes, and solutions. Learn to troubleshoot 404, 500, and other errors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://statuscodecheck.com">
+    <meta property="og:image" content="https://statuscodecheck.com/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Status Code Check - HTTP Status Code Reference">
+    <meta name="twitter:description" content="Complete guide to HTTP status codes with definitions, causes, and solutions.">
+    <meta name="twitter:image" content="https://statuscodecheck.com/og-image.png">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Status Code Check",
+      "alternateName": "HTTP Status Code Reference",
+      "url": "https://statuscodecheck.com",
+      "description": "Comprehensive HTTP status code reference guide with definitions, causes, and solutions for every status code from 1xx to 5xx.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://statuscodecheck.com/#search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Status Code Check",
+        "url": "https://statuscodecheck.com"
+      }
+    }
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a 404 error?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 404 error means 'Not Found' - the server cannot find the requested resource. This usually happens when a page has been deleted, moved without a redirect, or the URL was typed incorrectly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a 500 error?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 500 Internal Server Error means the server encountered an unexpected condition that prevented it from fulfilling the request. Common causes include server-side code errors, database connection failures, or insufficient server resources."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do 2xx status codes mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2xx status codes indicate success. They mean the request was successfully received, understood, and accepted by the server. Common examples include 200 (OK), 201 (Created), and 204 (No Content)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between 301 and 302 redirects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 301 redirect is permanent and tells search engines to update their index, while a 302 redirect is temporary and search engines should keep the original URL indexed. Use 301 for permanent URL changes and 302 for temporary redirects."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS - Production Build -->
+    <link rel="stylesheet" href="/assets/styles.css?v=1.0.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #aa336a, #d946a6);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #8b2858, #c73594);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #aa336a 0%, #d946a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .status-category-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .status-category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+        }
+
+        .status-code-item {
+            transition: all 0.2s ease;
+        }
+
+        .status-code-item:hover {
+            background: rgba(170, 51, 106, 0.05);
+            transform: translateX(8px);
+        }
+
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="glass border-b border-indigo-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                        <span class="material-icons text-white text-3xl">code</span>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-extrabold gradient-text">Status Code Check</h1>
+                        <p class="text-sm text-gray-600 font-medium">Complete HTTP Status Code Reference</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://urlstatuschecker.com" target="_blank" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2">
+                        <span class="material-icons text-sm">speed</span>
+                        <span>Check URLs</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <div class="text-center mb-16 fade-in">
+            <h2 class="text-5xl font-extrabold text-gray-900 mb-4">
+                Complete HTTP Status Code Reference
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Comprehensive guide to every HTTP status code with definitions, common causes, and solutions. Learn to troubleshoot and understand web server responses.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <span class="material-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">search</span>
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search status codes (e.g., 404, 500, Not Found)..."
+                        class="w-full pl-12 pr-4 py-4 border-2 border-indigo-200 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all text-lg"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Code Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- 1xx Informational -->
+            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-blue-200">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <span class="material-icons text-white text-3xl">info</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">1xx Informational</h3>
+                <p class="text-gray-600 mb-4">Request received, continuing process</p>
+                <a href="#1xx" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                    View All 1xx Codes
+                    <span class="material-icons text-sm">arrow_forward</span>
+                </a>
+                <div class="mt-4 pt-4 border-t border-blue-100">
+                    <p class="text-sm text-gray-500">Common: 100 Continue, 101 Switching Protocols</p>
+                </div>
+            </div>
+
+            <!-- 2xx Success -->
+            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-green-200">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <span class="material-icons text-white text-3xl">check_circle</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">2xx Success</h3>
+                <p class="text-gray-600 mb-4">Request successfully received and accepted</p>
+                <a href="#2xx" class="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
+                    View All 2xx Codes
+                    <span class="material-icons text-sm">arrow_forward</span>
+                </a>
+                <div class="mt-4 pt-4 border-t border-green-100">
+                    <p class="text-sm text-gray-500">Common: 200 OK, 201 Created, 204 No Content</p>
+                </div>
+            </div>
+
+            <!-- 3xx Redirection -->
+            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-yellow-200">
+                <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <span class="material-icons text-white text-3xl">sync_alt</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">3xx Redirection</h3>
+                <p class="text-gray-600 mb-4">Further action needed to complete request</p>
+                <a href="#3xx" class="inline-flex items-center gap-2 text-yellow-600 font-semibold hover:gap-3 transition-all">
+                    View All 3xx Codes
+                    <span class="material-icons text-sm">arrow_forward</span>
+                </a>
+                <div class="mt-4 pt-4 border-t border-yellow-100">
+                    <p class="text-sm text-gray-500">Common: 301 Moved, 302 Found, 304 Not Modified</p>
+                </div>
+            </div>
+
+            <!-- 4xx Client Errors -->
+            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-orange-200">
+                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <span class="material-icons text-white text-3xl">error_outline</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">4xx Client Errors</h3>
+                <p class="text-gray-600 mb-4">Request contains bad syntax or cannot be fulfilled</p>
+                <a href="#4xx" class="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
+                    View All 4xx Codes
+                    <span class="material-icons text-sm">arrow_forward</span>
+                </a>
+                <div class="mt-4 pt-4 border-t border-orange-100">
+                    <p class="text-sm text-gray-500">Common: 400 Bad Request, 404 Not Found, 403 Forbidden</p>
+                </div>
+            </div>
+
+            <!-- 5xx Server Errors -->
+            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-red-200">
+                <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <span class="material-icons text-white text-3xl">report_problem</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">5xx Server Errors</h3>
+                <p class="text-gray-600 mb-4">Server failed to fulfill a valid request</p>
+                <a href="#5xx" class="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all">
+                    View All 5xx Codes
+                    <span class="material-icons text-sm">arrow_forward</span>
+                </a>
+                <div class="mt-4 pt-4 border-t border-red-100">
+                    <p class="text-sm text-gray-500">Common: 500 Internal Error, 502 Bad Gateway, 503 Unavailable</p>
+                </div>
+            </div>
+
+            <!-- Blog/Resources -->
+            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-purple-200">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <span class="material-icons text-white text-3xl">article</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Blog & Guides</h3>
+                <p class="text-gray-600 mb-4">In-depth articles and troubleshooting guides</p>
+                <a href="/blog" class="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                    Read Articles
+                    <span class="material-icons text-sm">arrow_forward</span>
+                </a>
+                <div class="mt-4 pt-4 border-t border-purple-100">
+                    <p class="text-sm text-gray-500">SEO tips, troubleshooting, best practices</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference Section -->
+        <div id="quick-reference" class="glass rounded-3xl shadow-2xl p-8 mb-12 border border-indigo-100">
+            <h3 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span class="material-icons text-primary text-4xl">flash_on</span>
+                Quick Reference - Most Common Status Codes
+            </h3>
+
+            <div id="status-codes-list" class="space-y-6">
+                <!-- Status codes will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="glass rounded-3xl shadow-2xl p-12 border-2 border-primary/20 text-center bg-gradient-to-br from-purple-50 to-pink-50">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-4xl font-extrabold text-gray-900 mb-4">
+                    Check Your URLs Now
+                </h3>
+                <p class="text-xl text-gray-600 mb-8">
+                    Use our free URL Status Checker to test up to 100 URLs at once, check DNS propagation, and identify issues instantly.
+                </p>
+                <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <span class="material-icons">speed</span>
+                    Try URL Status Checker
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-indigo-100 mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Status Code Check</h4>
+                    <p class="text-gray-600 text-sm">Comprehensive HTTP status code reference and troubleshooting guide.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#1xx" class="text-gray-600 hover:text-primary transition-colors">1xx Informational</a></li>
+                        <li><a href="#2xx" class="text-gray-600 hover:text-primary transition-colors">2xx Success</a></li>
+                        <li><a href="#3xx" class="text-gray-600 hover:text-primary transition-colors">3xx Redirection</a></li>
+                        <li><a href="#4xx" class="text-gray-600 hover:text-primary transition-colors">4xx Client Errors</a></li>
+                        <li><a href="#5xx" class="text-gray-600 hover:text-primary transition-colors">5xx Server Errors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Tools</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://urlstatuschecker.com" class="text-gray-600 hover:text-primary transition-colors">URL Status Checker</a></li>
+                        <li><a href="/blog" class="text-gray-600 hover:text-primary transition-colors">Blog & Guides</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/privacy-policy.html" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 text-center text-sm text-gray-600">
+                <p>&copy; 2025 Status Code Check. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Status Codes Data -->
+    <script src="/assets/status-codes-data.js"></script>
+
+    <!-- Main Application Script -->
+    <script>
+        // Load most common status codes for quick reference
+        const commonCodes = [
+            { category: '2xx', code: '200', color: 'green' },
+            { category: '2xx', code: '201', color: 'green' },
+            { category: '2xx', code: '204', color: 'green' },
+            { category: '3xx', code: '301', color: 'yellow' },
+            { category: '3xx', code: '302', color: 'yellow' },
+            { category: '3xx', code: '304', color: 'yellow' },
+            { category: '4xx', code: '400', color: 'orange' },
+            { category: '4xx', code: '401', color: 'orange' },
+            { category: '4xx', code: '403', color: 'orange' },
+            { category: '4xx', code: '404', color: 'orange' },
+            { category: '4xx', code: '422', color: 'orange' },
+            { category: '4xx', code: '429', color: 'orange' },
+            { category: '5xx', code: '500', color: 'red' },
+            { category: '5xx', code: '502', color: 'red' },
+            { category: '5xx', code: '503', color: 'red' },
+            { category: '5xx', code: '504', color: 'red' }
+        ];
+
+        function renderCommonCodes() {
+            const container = document.getElementById('status-codes-list');
+            let html = '';
+
+            commonCodes.forEach(item => {
+                const categoryData = statusCodesData[item.category];
+                const codeData = categoryData.codes[item.code];
+
+                const colorClasses = {
+                    'green': 'border-green-200 hover:border-green-400',
+                    'yellow': 'border-yellow-200 hover:border-yellow-400',
+                    'orange': 'border-orange-200 hover:border-orange-400',
+                    'red': 'border-red-200 hover:border-red-400'
+                };
+
+                html += `
+                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-6 py-4 rounded-r-xl cursor-pointer" data-code="${item.code}">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h4 class="text-2xl font-bold text-gray-900 mb-2">
+                                    ${item.code} ${codeData.name}
+                                </h4>
+                                <p class="text-gray-600 mb-2">${codeData.description}</p>
+                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                                    Learn More
+                                    <span class="material-icons text-sm">arrow_forward</span>
+                                </a>
+                            </div>
+                            <div class="ml-4">
+                                <span class="inline-flex items-center justify-center w-12 h-12 bg-${item.color}-100 rounded-xl">
+                                    <span class="text-2xl font-bold text-${item.color}-600">${item.code}</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Add click handlers
+            document.querySelectorAll('.status-code-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const code = this.getAttribute('data-code');
+                    window.location.href = `/status-codes.html#${code}`;
+                });
+            });
+        }
+
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+
+            if (query.length === 0) {
+                renderCommonCodes();
+                return;
+            }
+
+            const container = document.getElementById('status-codes-list');
+            let results = [];
+
+            // Search through all status codes
+            Object.keys(statusCodesData).forEach(category => {
+                const categoryData = statusCodesData[category];
+                Object.keys(categoryData.codes).forEach(code => {
+                    const codeData = categoryData.codes[code];
+                    const searchText = `${code} ${codeData.name} ${codeData.description}`.toLowerCase();
+
+                    if (searchText.includes(query)) {
+                        results.push({ category, code, data: codeData, color: categoryData.color });
+                    }
+                });
+            });
+
+            if (results.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <span class="material-icons text-gray-300 text-6xl mb-4">search_off</span>
+                        <p class="text-xl text-gray-500">No status codes found matching "${query}"</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Render search results
+            let html = `<p class="text-sm text-gray-500 mb-4">Found ${results.length} result${results.length !== 1 ? 's' : ''}</p>`;
+
+            results.forEach(item => {
+                const colorClasses = {
+                    'blue': 'border-blue-200 hover:border-blue-400',
+                    'green': 'border-green-200 hover:border-green-400',
+                    'yellow': 'border-yellow-200 hover:border-yellow-400',
+                    'orange': 'border-orange-200 hover:border-orange-400',
+                    'red': 'border-red-200 hover:border-red-400'
+                };
+
+                html += `
+                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-6 py-4 rounded-r-xl cursor-pointer mb-4" data-code="${item.code}">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h4 class="text-2xl font-bold text-gray-900 mb-2">
+                                    ${item.code} ${item.data.name}
+                                </h4>
+                                <p class="text-gray-600 mb-2">${item.data.description}</p>
+                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                                    Learn More
+                                    <span class="material-icons text-sm">arrow_forward</span>
+                                </a>
+                            </div>
+                            <div class="ml-4">
+                                <span class="inline-flex items-center justify-center px-3 py-2 bg-${item.color}-100 rounded-xl">
+                                    <span class="text-lg font-bold text-${item.color}-600">${item.category}</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Add click handlers
+            document.querySelectorAll('.status-code-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const code = this.getAttribute('data-code');
+                    window.location.href = `/status-codes.html#${code}`;
+                });
+            });
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', renderCommonCodes);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

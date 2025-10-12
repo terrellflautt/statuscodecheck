@@ -1,0 +1,11 @@
+{
+  "name": "statuscodecheck",
+  "version": "1.0.0",
+  "description": "Comprehensive HTTP Status Code Reference",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
