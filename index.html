@@ -107,7 +107,7 @@
 
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: #f5f5dc;
+            background: #f9fafb;
             min-height: 100vh;
         }
 
@@ -116,35 +116,49 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #2a0a1e;
+            background: #f9fafb;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #aa336a, #c73594);
+            background: #ec4899;
             border-radius: 6px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #c73594, #d946a6);
+            background: #db2777;
         }
 
         /* Text Selection */
         ::selection {
-            background: #aa336a;
+            background: #ec4899;
             color: #fff;
         }
 
+        .hero-gradient {
+            background: linear-gradient(135deg, #374151, #1f2937);
+        }
+
         .gradient-text {
-            background: linear-gradient(135deg, #aa336a 0%, #d946a6 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .cream-card {
+        .bg-cream {
             background: #f5f5dc;
+        }
+
+        .border-3 {
+            border-width: 3px;
+        }
+
+        .cream-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .glass-header {
@@ -161,8 +175,8 @@
 
         .status-category-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(199, 53, 148, 0.4);
-            border-color: #aa336a !important;
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.4);
+            border-color: #ec4899 !important;
         }
 
         .status-code-item {
@@ -171,25 +185,23 @@
         }
 
         .status-code-item:hover {
-            background: rgba(170, 51, 106, 0.1);
+            background: rgba(236, 72, 153, 0.1);
             transform: translateX(8px);
             border-left-width: 6px !important;
         }
 
         .btn-primary {
-            background: #1e293b;
+            background: #000000;
             color: white;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid #1e293b;
+            border: 2px solid #000000;
         }
 
         .btn-primary:hover {
-            background: #000000;
-            border-color: #aa336a;
-            color: #aa336a;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(170, 51, 106, 0.3);
+            background: white;
+            color: #ec4899;
+            border-color: #ec4899;
         }
 
         .float-animation {
@@ -222,11 +234,13 @@
 
         /* Mobile Menu */
         .mobile-menu {
+            display: none;
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
 
         .mobile-menu.active {
+            display: block;
             transform: translateX(0);
         }
 
@@ -242,237 +256,265 @@
 <body class="min-h-screen">
 
     <!-- Header -->
-    <header class="glass-header border-b border-gray-900 sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-6 py-6">
+    <header class="bg-white z-40 shadow-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-gradient-to-r from-[#aa336a] to-[#c73594] rounded-2xl flex items-center justify-center shadow-lg float-animation">
-                        <span class="material-icons text-white text-3xl">code</span>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
+                        <span class="material-icons text-white text-2xl">code</span>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-extrabold text-white">Status Code Check</h1>
-                        <p class="text-sm text-gray-300 font-medium">Complete HTTP Status Code Reference</p>
+                        <h1 class="text-2xl font-black text-[#ec4899] tracking-tight">Status Code Check</h1>
                     </div>
                 </div>
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="/status-codes.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">All Codes</a>
-                    <a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">FAQ</a>
-                    <a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">Blog</a>
-                    <a href="https://urlstatuschecker.com" target="_blank" class="btn-primary px-6 py-3 rounded-xl flex items-center gap-2">
+                    <a href="/status-codes.html" class="text-gray-600 hover:text-[#ec4899] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">All Codes</a>
+                    <a href="/faq.html" class="text-gray-600 hover:text-[#ec4899] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">FAQ</a>
+                    <a href="/blog" class="text-gray-600 hover:text-[#ec4899] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="text-white px-5 py-2 rounded-lg flex items-center gap-2 text-sm font-bold hover:shadow-xl transition-all btn-primary">
                         <span class="material-icons text-sm">speed</span>
                         <span>Check URLs</span>
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-white">
-                    <span class="material-icons text-3xl">menu</span>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-600 hover:text-[#ec4899] transition-colors p-2 rounded-lg">
+                    <span class="material-icons text-2xl">menu</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-gray-900 z-50 p-6 md:hidden">
-        <button onclick="toggleMobileMenu()" class="text-white mb-8 float-right">
-            <span class="material-icons text-3xl">close</span>
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-auto w-auto min-w-[200px] max-w-[280px] bg-white shadow-2xl z-50 p-4 md:hidden rounded-l-2xl border-l-4 border-[#ec4899]">
+        <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-[#ec4899] mb-4 float-right">
+            <span class="material-icons text-2xl">close</span>
         </button>
-        <nav class="clear-both pt-12 space-y-4">
-            <a href="/status-codes.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">All Codes</a>
-            <a href="/faq.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">FAQ</a>
-            <a href="/blog" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">Blog</a>
-            <a href="https://urlstatuschecker.com" target="_blank" class="block btn-primary px-6 py-3 rounded-xl text-center mt-4">
+        <nav class="clear-both pt-8 space-y-2">
+            <a href="/status-codes.html" class="block text-gray-900 hover:text-[#ec4899] transition-colors font-semibold py-2 px-3 rounded-lg hover:bg-gray-50">All Codes</a>
+            <a href="/faq.html" class="block text-gray-900 hover:text-[#ec4899] transition-colors font-semibold py-2 px-3 rounded-lg hover:bg-gray-50">FAQ</a>
+            <a href="/blog" class="block text-gray-900 hover:text-[#ec4899] transition-colors font-semibold py-2 px-3 rounded-lg hover:bg-gray-50">Blog</a>
+            <a href="https://urlstatuschecker.com" target="_blank" class="block btn-primary px-4 py-2 rounded-xl text-center mt-4 text-sm">
                 Check URLs
             </a>
         </nav>
     </div>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-6 py-12">
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-8 sm:py-10 md:py-14 px-4 sm:px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-3 leading-tight text-white">
+                HTTP Status Code Directory
+            </h1>
 
-        <!-- Hero Section -->
-        <div class="cream-card p-12 text-center mb-16 fade-in">
-            <h2 class="text-5xl font-extrabold text-gray-900 mb-4">
-                Complete HTTP Status Code Reference
-            </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-                Comprehensive guide to every HTTP status code with definitions, common causes, and solutions. Learn to troubleshoot and understand web server responses.
+            <p class="text-sm sm:text-base md:text-lg text-white/75 max-w-2xl mx-auto mb-6 px-4">
+                Instant definitions, causes, and solutions for all HTTP status codes
             </p>
 
             <!-- Search Bar -->
-            <div class="max-w-2xl mx-auto">
+            <div class="max-w-2xl mx-auto px-2">
                 <div class="relative">
-                    <span class="material-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">search</span>
+                    <span class="material-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg sm:text-xl">search</span>
                     <input
                         type="text"
                         id="search-input"
-                        placeholder="Search status codes (e.g., 404, 500, Not Found)..."
-                        class="w-full pl-12 pr-4 py-4 border-2 border-[#aa336a] rounded-2xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all text-lg"
+                        placeholder="Search: 404, 500, server error..."
+                        class="w-full pl-12 sm:pl-14 pr-4 sm:pr-6 py-3 sm:py-4 bg-white border-2 border-white rounded-xl focus:border-white focus:ring-4 focus:ring-white/20 transition-all text-sm sm:text-base font-medium shadow-xl text-gray-900"
                     />
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
 
         <!-- Status Code Categories -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             <!-- 1xx Informational -->
-            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-blue-200">
-                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                    <span class="material-icons text-white text-3xl">info</span>
+            <div onclick="window.location.href='/status-codes.html#1xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-[#1e3a8a] hover:border-[#ec4899]">
+                <div class="w-20 h-20 bg-[#1e3a8a] rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">1xx Informational</h3>
-                <p class="text-gray-600 mb-4">Request received, continuing process</p>
-                <a href="/status-codes.html#1xx" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
-                    View All 1xx Codes
-                    <span class="material-icons text-sm">arrow_forward</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">1xx Informational</h3>
+                <p class="text-gray-600 mb-4 text-sm">Request received, continuing process</p>
+                <a href="/status-codes.html#1xx" class="inline-flex items-center gap-2 text-[#1e3a8a] hover:text-[#ec4899] font-bold transition-all text-sm">
+                    View All Codes →
                 </a>
-                <div class="mt-4 pt-4 border-t border-blue-100">
-                    <p class="text-sm text-gray-500">Common: 100 Continue, 101 Switching Protocols</p>
+                <div class="mt-4 pt-4 border-t-2 border-gray-200">
+                    <p class="text-xs text-gray-500 font-medium">100 Continue, 101 Switching Protocols</p>
                 </div>
             </div>
 
             <!-- 2xx Success -->
-            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-green-200">
-                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                    <span class="material-icons text-white text-3xl">check_circle</span>
+            <div onclick="window.location.href='/status-codes.html#2xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-green-400 hover:border-[#ec4899]">
+                <div class="w-20 h-20 bg-green-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">2xx Success</h3>
-                <p class="text-gray-600 mb-4">Request successfully received and accepted</p>
-                <a href="/status-codes.html#2xx" class="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
-                    View All 2xx Codes
-                    <span class="material-icons text-sm">arrow_forward</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">2xx Success</h3>
+                <p class="text-gray-600 mb-4 text-sm">Request successfully received and accepted</p>
+                <a href="/status-codes.html#2xx" class="inline-flex items-center gap-2 text-green-600 hover:text-[#ec4899] font-bold transition-all text-sm">
+                    View All Codes →
                 </a>
-                <div class="mt-4 pt-4 border-t border-green-100">
-                    <p class="text-sm text-gray-500">Common: 200 OK, 201 Created, 204 No Content</p>
+                <div class="mt-4 pt-4 border-t-2 border-gray-200">
+                    <p class="text-xs text-gray-500 font-medium">200 OK, 201 Created, 204 No Content</p>
                 </div>
             </div>
 
             <!-- 3xx Redirection -->
-            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-yellow-200">
-                <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                    <span class="material-icons text-white text-3xl">sync_alt</span>
+            <div onclick="window.location.href='/status-codes.html#3xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-yellow-400 hover:border-[#ec4899]">
+                <div class="w-20 h-20 bg-yellow-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">3xx Redirection</h3>
-                <p class="text-gray-600 mb-4">Further action needed to complete request</p>
-                <a href="/status-codes.html#3xx" class="inline-flex items-center gap-2 text-yellow-600 font-semibold hover:gap-3 transition-all">
-                    View All 3xx Codes
-                    <span class="material-icons text-sm">arrow_forward</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">3xx Redirection</h3>
+                <p class="text-gray-600 mb-4 text-sm">Further action needed to complete request</p>
+                <a href="/status-codes.html#3xx" class="inline-flex items-center gap-2 text-yellow-600 hover:text-[#ec4899] font-bold transition-all text-sm">
+                    View All Codes →
                 </a>
-                <div class="mt-4 pt-4 border-t border-yellow-100">
-                    <p class="text-sm text-gray-500">Common: 301 Moved, 302 Found, 304 Not Modified</p>
+                <div class="mt-4 pt-4 border-t-2 border-gray-200">
+                    <p class="text-xs text-gray-500 font-medium">301 Moved, 302 Found, 304 Not Modified</p>
                 </div>
             </div>
 
             <!-- 4xx Client Errors -->
-            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-orange-200">
-                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                    <span class="material-icons text-white text-3xl">error_outline</span>
+            <div onclick="window.location.href='/status-codes.html#4xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-orange-400 hover:border-[#ec4899]">
+                <div class="w-20 h-20 bg-orange-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">4xx Client Errors</h3>
-                <p class="text-gray-600 mb-4">Request contains bad syntax or cannot be fulfilled</p>
-                <a href="/status-codes.html#4xx" class="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
-                    View All 4xx Codes
-                    <span class="material-icons text-sm">arrow_forward</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">4xx Client Errors</h3>
+                <p class="text-gray-600 mb-4 text-sm">Request contains bad syntax or cannot be fulfilled</p>
+                <a href="/status-codes.html#4xx" class="inline-flex items-center gap-2 text-orange-600 hover:text-[#ec4899] font-bold transition-all text-sm">
+                    View All Codes →
                 </a>
-                <div class="mt-4 pt-4 border-t border-orange-100">
-                    <p class="text-sm text-gray-500">Common: 400 Bad Request, 404 Not Found, 403 Forbidden</p>
+                <div class="mt-4 pt-4 border-t-2 border-gray-200">
+                    <p class="text-xs text-gray-500 font-medium">400 Bad Request, 404 Not Found, 403 Forbidden</p>
                 </div>
             </div>
 
             <!-- 5xx Server Errors -->
-            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-red-200">
-                <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                    <span class="material-icons text-white text-3xl">report_problem</span>
+            <div onclick="window.location.href='/status-codes.html#5xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-red-400 hover:border-[#ec4899]">
+                <div class="w-20 h-20 bg-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">5xx Server Errors</h3>
-                <p class="text-gray-600 mb-4">Server failed to fulfill a valid request</p>
-                <a href="/status-codes.html#5xx" class="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all">
-                    View All 5xx Codes
-                    <span class="material-icons text-sm">arrow_forward</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">5xx Server Errors</h3>
+                <p class="text-gray-600 mb-4 text-sm">Server failed to fulfill a valid request</p>
+                <a href="/status-codes.html#5xx" class="inline-flex items-center gap-2 text-red-600 hover:text-[#ec4899] font-bold transition-all text-sm">
+                    View All Codes →
                 </a>
-                <div class="mt-4 pt-4 border-t border-red-100">
-                    <p class="text-sm text-gray-500">Common: 500 Internal Error, 502 Bad Gateway, 503 Unavailable</p>
+                <div class="mt-4 pt-4 border-t-2 border-gray-200">
+                    <p class="text-xs text-gray-500 font-medium">500 Internal Error, 502 Bad Gateway, 503 Unavailable</p>
                 </div>
             </div>
 
             <!-- FAQ -->
-            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-purple-200">
-                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                    <span class="material-icons text-white text-3xl">help_outline</span>
+            <div onclick="window.location.href='/faq.html'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-[#ec4899] hover:border-[#db2777]">
+                <div class="w-20 h-20 bg-[#ec4899] rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">FAQ</h3>
-                <p class="text-gray-600 mb-4">Common questions about HTTP status codes</p>
-                <a href="/faq.html" class="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
-                    View FAQs
-                    <span class="material-icons text-sm">arrow_forward</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">FAQ</h3>
+                <p class="text-gray-600 mb-4 text-sm">Common questions about HTTP status codes</p>
+                <a href="/faq.html" class="inline-flex items-center gap-2 text-[#ec4899] hover:text-[#db2777] font-bold transition-all text-sm">
+                    View FAQs →
                 </a>
-                <div class="mt-4 pt-4 border-t border-purple-100">
-                    <p class="text-sm text-gray-500">404 errors, redirects, server errors, and more</p>
+                <div class="mt-4 pt-4 border-t-2 border-gray-200">
+                    <p class="text-sm text-gray-500 font-medium">404 errors, redirects, server errors, and more</p>
                 </div>
             </div>
 
             <!-- Blog/Resources -->
-            <div class="status-category-card glass rounded-3xl shadow-xl p-8 border-2 border-indigo-200">
-                <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                    <span class="material-icons text-white text-3xl">article</span>
+            <div onclick="window.location.href='/blog'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-[#1e3a8a] hover:border-[#ec4899]">
+                <div class="w-20 h-20 bg-[#1e3a8a] rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Blog & Guides</h3>
-                <p class="text-gray-600 mb-4">In-depth articles and troubleshooting guides</p>
-                <a href="/blog" class="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:gap-3 transition-all">
-                    Read Articles
-                    <span class="material-icons text-sm">arrow_forward</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Blog & Guides</h3>
+                <p class="text-gray-600 mb-4 text-sm">In-depth articles and troubleshooting guides</p>
+                <a href="/blog" class="inline-flex items-center gap-2 text-[#1e3a8a] hover:text-[#ec4899] font-bold transition-all text-sm">
+                    View Articles →
                 </a>
-                <div class="mt-4 pt-4 border-t border-indigo-100">
-                    <p class="text-sm text-gray-500">SEO tips, troubleshooting, best practices</p>
+                <div class="mt-4 pt-4 border-t-2 border-gray-200">
+                    <p class="text-sm text-gray-500 font-medium">SEO tips, troubleshooting, best practices</p>
                 </div>
             </div>
         </div>
 
         <!-- Quick Reference Section -->
-        <div id="quick-reference" class="cream-card p-8 mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span class="material-icons text-[#aa336a] text-4xl">flash_on</span>
-                Quick Reference - Most Common Status Codes
+        <div id="quick-reference" class="cream-card p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+                <span class="material-icons text-[#ec4899] text-3xl sm:text-4xl">flash_on</span>
+                <span>Quick Reference - Most Common Codes</span>
             </h3>
 
-            <div id="status-codes-list" class="space-y-6">
+            <div id="status-codes-list" class="space-y-4 sm:space-y-6">
                 <!-- Status codes will be dynamically loaded here -->
             </div>
         </div>
 
         <!-- CTA Section -->
-        <div class="cream-card p-12 text-center border-4 border-[#aa336a] border-dashed">
+        <div class="bg-white p-6 sm:p-8 md:p-12 text-center rounded-2xl shadow-lg border-2 border-[#ec4899]">
             <div class="max-w-3xl mx-auto">
-                <h3 class="text-4xl font-extrabold text-gray-900 mb-4">
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 sm:mb-4">
                     Check Your URLs Now
                 </h3>
-                <p class="text-xl text-gray-700 mb-8">
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 px-2">
                     Use our free URL Status Checker to test up to 100 URLs at once, check DNS propagation, and identify issues instantly.
                 </p>
-                <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 btn-primary px-8 py-4 rounded-2xl text-lg">
-                    <span class="material-icons">speed</span>
-                    Try URL Status Checker
-                    <span class="material-icons">arrow_forward</span>
+                <a href="https://urlstatuschecker.com" target="_blank" class="btn-primary inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:shadow-xl transition-all">
+                    <span class="material-icons text-lg sm:text-xl">speed</span>
+                    <span>Try URL Status Checker →</span>
                 </a>
             </div>
         </div>
 
     </main>
 
+    <!-- Stats Section -->
+    <div class="bg-gray-100 border-t border-gray-200 py-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-12 text-center">
+                <div>
+                    <div class="text-2xl font-bold text-[#ec4899]">60+</div>
+                    <div class="text-xs text-gray-600 font-medium">Status Codes</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-[#ec4899]">5</div>
+                    <div class="text-xs text-gray-600 font-medium">Categories</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-[#ec4899]">100%</div>
+                    <div class="text-xs text-gray-600 font-medium">Free Forever</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 mt-20">
+    <footer class="bg-black mt-0">
         <div class="max-w-7xl mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <!-- SNAPIT SUITE -->
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">SNAPIT SUITE</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Software</a></li>
-                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forms</a></li>
-                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Analytics</a></li>
-                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Agent</a></li>
+                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Software</a></li>
+                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Forms</a></li>
+                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Analytics</a></li>
+                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Agent</a></li>
                     </ul>
                 </div>
 
@@ -480,12 +522,12 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">TOOLS & UTILITIES</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitburn.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Burn</a></li>
-                        <li><a href="https://snapitpolls.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Polls</a></li>
-                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT QR</a></li>
-                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT URL</a></li>
-                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">URL Status Checker</a></li>
-                        <li><a href="https://statuscodecheck.com" class="text-gray-300 hover:text-[#aa336a] transition-colors">Status Code Check</a></li>
+                        <li><a href="https://burn.snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Burn</a></li>
+                        <li><a href="https://polls.snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Polls</a></li>
+                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT QR</a></li>
+                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT URL</a></li>
+                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">URL Status Checker</a></li>
+                        <li><a href="https://statuscodecheck.com" class="text-[#ec4899] font-semibold">Status Code Check</a></li>
                     </ul>
                 </div>
 
@@ -493,13 +535,12 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">RESOURCES</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitpdf.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">PDF Tools</a></li>
-                        <li><a href="https://snapitchimera.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Chimera</a></li>
-                        <li><a href="https://snapitforum.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forum</a></li>
-                        <li><a href="https://forumbuilder.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Forum Builder</a></li>
-                        <li><a href="https://snapitsoftware.com/api" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">API Documentation</a></li>
-                        <li><a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">FAQ</a></li>
-                        <li><a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors">Blog</a></li>
+                        <li><a href="https://pdf.snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">PDF Tools</a></li>
+                        <li><a href="https://chimera.snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">Chimera</a></li>
+                        <li><a href="https://forum.snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Forum</a></li>
+                        <li><a href="https://forums.snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">Forum Builder</a></li>
+                        <li><a href="/status-codes.html" class="text-gray-300 hover:text-[#ec4899] transition-colors">API Documentation</a></li>
+                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ec4899] transition-colors">SnapIT Soft</a></li>
                     </ul>
                 </div>
 
@@ -507,9 +548,9 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">LEGAL & SUPPORT</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="/terms-of-service.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Privacy Policy</a></li>
-                        <li><button onclick="openContactForm()" class="text-gray-300 hover:text-[#aa336a] transition-colors">Send Feedback</button></li>
+                        <li><a href="/terms-of-service.html" class="text-gray-300 hover:text-[#ec4899] transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="text-gray-300 hover:text-[#ec4899] transition-colors">Privacy Policy</a></li>
+                        <li><button onclick="openContactForm()" class="text-gray-300 hover:text-[#ec4899] transition-colors">Send Feedback</button></li>
                     </ul>
                     <p class="text-gray-400 text-xs mt-6 leading-relaxed">
                         Create and share polls instantly. Get real-time results and insights.
@@ -525,8 +566,8 @@
 
     <!-- Contact Form Modal -->
     <div id="contactModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 hidden items-center justify-center z-50" style="display: none;">
-        <div class="cream-card p-8 max-w-lg w-full mx-4 border-4 border-[#aa336a] relative">
-            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#aa336a]">
+        <div class="cream-card p-8 max-w-lg w-full mx-4 border-4 border-[#ec4899] relative">
+            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#ec4899]">
                 <span class="material-icons">close</span>
             </button>
 
@@ -541,21 +582,21 @@
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-900 mb-1">Name</label>
                     <input type="text" id="name" name="name" required
-                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        class="w-full px-4 py-2 border-2 border-[#ec4899] rounded-xl focus:border-[#ec4899] focus:ring-4 focus:ring-[#ec4899]/20 transition-all"
                         placeholder="Your name">
                 </div>
 
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
                     <input type="email" id="email" name="email" required
-                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        class="w-full px-4 py-2 border-2 border-[#ec4899] rounded-xl focus:border-[#ec4899] focus:ring-4 focus:ring-[#ec4899]/20 transition-all"
                         placeholder="your@email.com">
                 </div>
 
                 <div>
                     <label for="message" class="block text-sm font-medium text-gray-900 mb-1">Message</label>
                     <textarea id="message" name="message" required rows="4"
-                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all resize-none"
+                        class="w-full px-4 py-2 border-2 border-[#ec4899] rounded-xl focus:border-[#ec4899] focus:ring-4 focus:ring-[#ec4899]/20 transition-all resize-none"
                         placeholder="Your message..."></textarea>
                 </div>
 
@@ -616,9 +657,8 @@
                                     ${item.code} ${codeData.name}
                                 </h4>
                                 <p class="text-gray-600 mb-2">${codeData.description}</p>
-                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
-                                    Learn More
-                                    <span class="material-icons text-sm">arrow_forward</span>
+                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm transition-all">
+                                    Learn More →
                                 </a>
                             </div>
                             <div class="ml-4">
@@ -697,9 +737,8 @@
                                     ${item.code} ${item.data.name}
                                 </h4>
                                 <p class="text-gray-600 mb-2">${item.data.description}</p>
-                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
-                                    Learn More
-                                    <span class="material-icons text-sm">arrow_forward</span>
+                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm transition-all">
+                                    Learn More →
                                 </a>
                             </div>
                             <div class="ml-4">
