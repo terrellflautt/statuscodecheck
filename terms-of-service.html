@@ -24,19 +24,19 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', system-ui, sans-serif; background: #000000; min-height: 100vh; }
 
-        ::selection { background: #aa336a; color: #fff; }
+        ::selection { background: #ff006e; color: #fff; }
 
         ::-webkit-scrollbar { width: 12px; }
         ::-webkit-scrollbar-track { background: #2a0a1e; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #aa336a, #c73594); border-radius: 6px; }
-        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #c73594, #d946a6); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #ff006e, #ff006e); border-radius: 6px; }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #ff006e, #ff006e); }
 
         .cream-card { background: #f5f5dc; border-radius: 24px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); }
 
         .glass-header { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); }
 
         .btn-primary {
-            background: linear-gradient(135deg, #aa336a 0%, #c73594 100%);
+            background: linear-gradient(135deg, #ff006e 0%, #ff006e 100%);
             color: white;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -58,8 +58,8 @@
         .legal-content p { color: #4b5563; margin-bottom: 1rem; line-height: 1.75; }
         .legal-content ul, .legal-content ol { color: #4b5563; margin-bottom: 1rem; padding-left: 2rem; line-height: 1.75; }
         .legal-content li { margin-bottom: 0.5rem; }
-        .legal-content a { color: #aa336a; font-weight: 600; text-decoration: underline; }
-        .legal-content a:hover { color: #c73594; }
+        .legal-content a { color: #ff006e; font-weight: 600; text-decoration: underline; }
+        .legal-content a:hover { color: #ff006e; }
     </style>
 </head>
 <body class="min-h-screen">
@@ -69,21 +69,21 @@
         <div class="max-w-7xl mx-auto px-6 py-6">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-gradient-to-r from-[#aa336a] to-[#c73594] rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                    <div class="w-14 h-14 bg-gradient-to-r from-[#ff006e] to-[#ff006e] rounded-2xl flex items-center justify-center shadow-lg float-animation">
                         <span class="material-icons text-white text-3xl">code</span>
                     </div>
                     <div>
-                        <a href="/" class="text-3xl font-extrabold text-white hover:text-[#c73594] transition-colors">Status Code Check</a>
+                        <a href="/" class="text-3xl font-extrabold text-white hover:text-[#ff006e] transition-colors">Status Code Check</a>
                         <p class="text-sm text-gray-300 font-medium">Terms of Service</p>
                     </div>
                 </div>
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="/" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">Home</a>
-                    <a href="/status-codes.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">All Codes</a>
-                    <a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">FAQ</a>
-                    <a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors font-medium">Blog</a>
+                    <a href="/" class="text-gray-300 hover:text-[#ff006e] transition-colors font-medium">Home</a>
+                    <a href="/status-codes.html" class="text-gray-300 hover:text-[#ff006e] transition-colors font-medium">All Codes</a>
+                    <a href="/faq.html" class="text-gray-300 hover:text-[#ff006e] transition-colors font-medium">FAQ</a>
+                    <a href="/blog" class="text-gray-300 hover:text-[#ff006e] transition-colors font-medium">Blog</a>
                     <a href="https://urlstatuschecker.com" target="_blank" class="btn-primary px-6 py-3 rounded-xl flex items-center gap-2">
                         <span class="material-icons text-sm">speed</span>
                         Check URLs
@@ -104,10 +104,10 @@
             <span class="material-icons text-3xl">close</span>
         </button>
         <nav class="clear-both pt-12 space-y-4">
-            <a href="/" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">Home</a>
-            <a href="/status-codes.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">All Codes</a>
-            <a href="/faq.html" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">FAQ</a>
-            <a href="/blog" class="block text-gray-300 hover:text-[#aa336a] transition-colors font-medium py-2">Blog</a>
+            <a href="/" class="block text-gray-300 hover:text-[#ff006e] transition-colors font-medium py-2">Home</a>
+            <a href="/status-codes.html" class="block text-gray-300 hover:text-[#ff006e] transition-colors font-medium py-2">All Codes</a>
+            <a href="/faq.html" class="block text-gray-300 hover:text-[#ff006e] transition-colors font-medium py-2">FAQ</a>
+            <a href="/blog" class="block text-gray-300 hover:text-[#ff006e] transition-colors font-medium py-2">Blog</a>
             <a href="https://urlstatuschecker.com" target="_blank" class="block btn-primary px-6 py-3 rounded-xl text-center mt-4">
                 Check URLs
             </a>
@@ -276,7 +276,7 @@
                 </p>
                 <ul>
                     <li><strong>Website:</strong> <a href="https://statuscodecheck.com">statuscodecheck.com</a></li>
-                    <li><strong>Contact Form:</strong> <button onclick="openContactForm()" class="text-[#aa336a] font-semibold hover:underline">Send us a message</button></li>
+                    <li><strong>Contact Form:</strong> <button onclick="openContactForm()" class="text-[#ff006e] font-semibold hover:underline">Send us a message</button></li>
                 </ul>
 
                 <h2>16. Acknowledgment</h2>
@@ -295,10 +295,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">SNAPIT SUITE</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Software</a></li>
-                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forms</a></li>
-                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Analytics</a></li>
-                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Agent</a></li>
+                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT Software</a></li>
+                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT Forms</a></li>
+                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT Analytics</a></li>
+                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT Agent</a></li>
                     </ul>
                 </div>
 
@@ -306,12 +306,12 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">TOOLS & UTILITIES</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitburn.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Burn</a></li>
-                        <li><a href="https://snapitpolls.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Polls</a></li>
-                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT QR</a></li>
-                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT URL</a></li>
-                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">URL Status Checker</a></li>
-                        <li><a href="https://statuscodecheck.com" class="text-gray-300 hover:text-[#aa336a] transition-colors">Status Code Check</a></li>
+                        <li><a href="https://snapitburn.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT Burn</a></li>
+                        <li><a href="https://snapitpolls.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT Polls</a></li>
+                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT QR</a></li>
+                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT URL</a></li>
+                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">URL Status Checker</a></li>
+                        <li><a href="https://statuscodecheck.com" class="text-gray-300 hover:text-[#ff006e] transition-colors">Status Code Check</a></li>
                     </ul>
                 </div>
 
@@ -319,13 +319,13 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">RESOURCES</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitpdf.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">PDF Tools</a></li>
-                        <li><a href="https://snapitchimera.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Chimera</a></li>
-                        <li><a href="https://snapitforum.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">SnapIT Forum</a></li>
-                        <li><a href="https://forumbuilder.com" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">Forum Builder</a></li>
-                        <li><a href="https://snapitsoftware.com/api" target="_blank" class="text-gray-300 hover:text-[#aa336a] transition-colors">API Documentation</a></li>
-                        <li><a href="/faq.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">FAQ</a></li>
-                        <li><a href="/blog" class="text-gray-300 hover:text-[#aa336a] transition-colors">Blog</a></li>
+                        <li><a href="https://snapitpdf.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">PDF Tools</a></li>
+                        <li><a href="https://snapitchimera.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">Chimera</a></li>
+                        <li><a href="https://snapitforum.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">SnapIT Forum</a></li>
+                        <li><a href="https://forumbuilder.com" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">Forum Builder</a></li>
+                        <li><a href="https://snapitsoftware.com/api" target="_blank" class="text-gray-300 hover:text-[#ff006e] transition-colors">API Documentation</a></li>
+                        <li><a href="/faq.html" class="text-gray-300 hover:text-[#ff006e] transition-colors">FAQ</a></li>
+                        <li><a href="/blog" class="text-gray-300 hover:text-[#ff006e] transition-colors">Blog</a></li>
                     </ul>
                 </div>
 
@@ -333,9 +333,9 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm tracking-wider">LEGAL & SUPPORT</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="/terms-of-service.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="text-gray-300 hover:text-[#aa336a] transition-colors">Privacy Policy</a></li>
-                        <li><button onclick="openContactForm()" class="text-gray-300 hover:text-[#aa336a] transition-colors">Send Feedback</button></li>
+                        <li><a href="/terms-of-service.html" class="text-gray-300 hover:text-[#ff006e] transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="text-gray-300 hover:text-[#ff006e] transition-colors">Privacy Policy</a></li>
+                        <li><button onclick="openContactForm()" class="text-gray-300 hover:text-[#ff006e] transition-colors">Send Feedback</button></li>
                     </ul>
                     <p class="text-gray-400 text-xs mt-6 leading-relaxed">
                         Complete HTTP status code reference with definitions, causes, and solutions.
@@ -351,8 +351,8 @@
 
     <!-- Contact Form Modal -->
     <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50" style="display: none;">
-        <div class="cream-card p-8 max-w-lg w-full mx-4 border-4 border-[#aa336a] relative">
-            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#aa336a]">
+        <div class="cream-card p-8 max-w-lg w-full mx-4 border-4 border-[#ff006e] relative">
+            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#ff006e]">
                 <span class="material-icons">close</span>
             </button>
 
@@ -367,21 +367,21 @@
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-900 mb-1">Name</label>
                     <input type="text" id="name" name="name" required
-                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        class="w-full px-4 py-2 border-2 border-[#ff006e] rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all"
                         placeholder="Your name">
                 </div>
 
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
                     <input type="email" id="email" name="email" required
-                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all"
+                        class="w-full px-4 py-2 border-2 border-[#ff006e] rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all"
                         placeholder="your@email.com">
                 </div>
 
                 <div>
                     <label for="message" class="block text-sm font-medium text-gray-900 mb-1">Message</label>
                     <textarea id="message" name="message" required rows="4"
-                        class="w-full px-4 py-2 border-2 border-[#aa336a] rounded-xl focus:border-[#c73594] focus:ring-4 focus:ring-[#aa336a]/20 transition-all resize-none"
+                        class="w-full px-4 py-2 border-2 border-[#ff006e] rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all resize-none"
                         placeholder="Your message..."></textarea>
                 </div>
 
