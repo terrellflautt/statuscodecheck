@@ -35,7 +35,7 @@
         body {
             font-family: 'Inter', system-ui, sans-serif;
             scroll-behavior: smooth;
-            background: #f9fafb;
+            background: linear-gradient(180deg, #faf0e6 0%, #ffffff 100%);
             min-height: 100vh;
         }
 
@@ -49,11 +49,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #f9fafb;
+            background: #faf0e6;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #ff006e;
+            background: linear-gradient(180deg, #ff006e 0%, #ff4081 100%);
             border-radius: 6px;
         }
 
@@ -151,31 +151,32 @@
 <body class="min-h-screen">
 
     <!-- Header -->
-    <header class="bg-white z-40 shadow-md border-b border-gray-200 sticky top-0">
-        <div class="max-w-7xl mx-auto px-6 py-3">
+    <header style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 2px solid rgba(255, 0, 110, 0.1);" class="sticky top-0 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, #ff006e 0%, #ff006e 100%);">
-                        <span class="material-icons text-white text-2xl">code</span>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);" onmouseover="this.style.boxShadow='0 0 20px rgba(255, 0, 110, 0.6), 0 0 40px rgba(255, 0, 110, 0.4)';" onmouseout="this.style.boxShadow='';">
+                        <span class="material-icons text-white text-2xl sm:text-3xl">code</span>
                     </div>
                     <div>
-                        <a href="/" class="text-2xl font-black text-[#ff006e] tracking-tight hover:text-[#ff006e] transition-colors">Status Code Check</a>
+                        <a href="/" class="text-xl sm:text-2xl md:text-3xl font-black tracking-tight" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 50%, #ff006e 100%); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Status Code Check</a>
+                        <p class="text-xs text-gray-500 font-semibold hidden sm:block">HTTP Status Directory</p>
                     </div>
                 </div>
 
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center gap-4">
-                    <a href="/" class="text-gray-600 hover:text-[#ff006e] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">Home</a>
-                    <a href="/faq.html" class="text-gray-600 hover:text-[#ff006e] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">FAQ</a>
-                    <a href="/blog" class="text-gray-600 hover:text-[#ff006e] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">Blog</a>
-                    <a href="https://urlstatuschecker.com" target="_blank" class="text-white px-5 py-2 rounded-lg flex items-center gap-2 text-sm font-bold hover:shadow-xl transition-all btn-primary">
+                <div class="hidden md:flex items-center gap-2 lg:gap-4">
+                    <a href="/" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">Home</a>
+                    <a href="/faq.html" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">FAQ</a>
+                    <a href="/blog" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="text-white px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold transition-all btn-primary">
                         <span class="material-icons text-sm">speed</span>
                         <span>Check URLs</span>
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-600 hover:text-[#ff006e] transition-colors p-2 rounded-lg">
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 hover:text-[#ff006e] transition-colors p-2 rounded-xl hover:bg-pink-50">
                     <span class="material-icons text-2xl">menu</span>
                 </button>
             </div>
@@ -236,67 +237,77 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black mt-20">
+    <footer style="background: #000000; margin-top: 80px; position: relative;">
+        <!-- Gradient line at top -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #ff006e, transparent);"></div>
+
         <div class="max-w-7xl mx-auto px-6 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <!-- SNAPIT SUITE -->
                 <div>
                     <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">SNAPIT SUITE</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
+                    <div class="w-16 h-1 bg-gradient-to-r from-[#ff006e] to-[#ff4081] mb-4 rounded-full"></div>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Software</a></li>
-                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Forms</a></li>
-                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Analytics</a></li>
-                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Agent</a></li>
+                        <li><a href="https://snapitsoftware.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Software</a></li>
+                        <li><a href="https://snapitforms.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Forms</a></li>
+                        <li><a href="https://snapitanalytics.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Analytics</a></li>
+                        <li><a href="https://snapitagent.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Agent</a></li>
                     </ul>
                 </div>
 
                 <!-- TOOLS & UTILITIES -->
                 <div>
                     <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">TOOLS & UTILITIES</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
+                    <div class="w-16 h-1 bg-gradient-to-r from-[#ff006e] to-[#ff4081] mb-4 rounded-full"></div>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitburn.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Burn</a></li>
-                        <li><a href="https://snapitpolls.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Polls</a></li>
-                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT QR</a></li>
-                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT URL</a></li>
-                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">URL Status Checker</a></li>
-                        <li><a href="https://statuscodecheck.com" class="text-[#ff006e] font-semibold">Status Code Check</a></li>
+                        <li><a href="https://burn.snapitsoftware.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Burn</a></li>
+                        <li><a href="https://polls.snapitsoftware.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Polls</a></li>
+                        <li><a href="https://snapitqr.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT QR</a></li>
+                        <li><a href="https://snapiturl.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT URL</a></li>
+                        <li><a href="https://urlstatuschecker.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">URL Status Checker</a></li>
+                        <li><a href="https://statuscodecheck.com" style="color: #ff006e; font-weight: 600; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.transform='translateX(5px)';" onmouseout="this.style.transform='translateX(0)';">Status Code Check</a></li>
                     </ul>
                 </div>
 
                 <!-- RESOURCES -->
                 <div>
                     <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">RESOURCES</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
+                    <div class="w-16 h-1 bg-gradient-to-r from-[#ff006e] to-[#ff4081] mb-4 rounded-full"></div>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitpdf.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">PDF Tools</a></li>
-                        <li><a href="https://snapitchimera.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">Chimera</a></li>
-                        <li><a href="https://snapitforum.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Forum</a></li>
-                        <li><a href="https://forumbuilder.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">Forum Builder</a></li>
-                        <li><a href="https://snapitsoftware.com/api" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">API Documentation</a></li>
-                        <li><a href="/faq.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">FAQ</a></li>
-                        <li><a href="/blog" class="text-gray-400 hover:text-[#ff006e] transition-colors">Blog</a></li>
+                        <li><a href="https://pdf.snapitsoftware.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">PDF Tools</a></li>
+                        <li><a href="https://forum.snapitsoftware.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Forum</a></li>
+                        <li><a href="https://forums.snapitsoftware.com" target="_blank" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Forum Builder</a></li>
+                        <li><a href="/status-codes.html" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">All Status Codes</a></li>
+                        <li><a href="/faq.html" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">FAQ</a></li>
                     </ul>
                 </div>
 
                 <!-- LEGAL & SUPPORT -->
                 <div>
                     <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">LEGAL & SUPPORT</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
+                    <div class="w-16 h-1 bg-gradient-to-r from-[#ff006e] to-[#ff4081] mb-4 rounded-full"></div>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="/terms-of-service.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">Privacy Policy</a></li>
-                        <li><button onclick="openContactForm()" class="text-gray-400 hover:text-[#ff006e] transition-colors">Send Feedback</button></li>
+                        <li><a href="/terms-of-service.html" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" style="color: #ffffff; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Privacy Policy</a></li>
+                        <li><button onclick="openContactForm()" style="color: #ffffff; transition: all 0.3s ease; display: inline-block; background: none; border: none; padding: 0; cursor: pointer; font-size: inherit;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Send Feedback</button></li>
                     </ul>
-                    <p class="text-gray-400 text-xs mt-6 leading-relaxed">
-                        Complete HTTP status code reference with definitions, causes, and solutions.
-                    </p>
+                    <div class="mt-6 p-4 rounded-xl" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(255, 64, 129, 0.05)); border: 1px solid rgba(255, 0, 110, 0.2);">
+                        <p class="text-white text-xs leading-relaxed font-medium">
+                            Complete HTTP status code reference with definitions, causes, and solutions.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-500 text-sm">&copy; 2025 SnapIT Software. All rights reserved.</p>
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-sm">&copy; 2025 SnapIT Software. All rights reserved.</p>
+                    <div class="flex items-center gap-4">
+                        <a href="https://urlstatuschecker.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors text-sm font-semibold">Check URLs</a>
+                        <span class="text-gray-600">•</span>
+                        <a href="/" class="text-gray-400 hover:text-[#ff006e] transition-colors text-sm font-semibold">Home</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

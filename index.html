@@ -107,7 +107,7 @@
 
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: #f9fafb;
+            background: linear-gradient(180deg, #faf0e6 0%, #ffffff 100%);
             min-height: 100vh;
         }
 
@@ -116,11 +116,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #f9fafb;
+            background: #faf0e6;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #ff006e;
+            background: linear-gradient(180deg, #ff006e 0%, #ff4081 100%);
             border-radius: 6px;
         }
 
@@ -135,18 +135,44 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #374151, #1f2937);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, transparent, rgba(255, 0, 110, 0.08), transparent, transparent);
+            animation: shimmer 20s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0.5; }
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #ff006e 0%, #ff006e 100%);
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 50%, #ff006e 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 4s ease infinite;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
         .bg-cream {
-            background: #f5f5dc;
+            background: #faf0e6;
         }
 
         .border-3 {
@@ -154,77 +180,153 @@
         }
 
         .cream-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(255, 0, 110, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 110, 0.1);
         }
 
         .glass-header {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 0, 110, 0.1);
         }
 
         .status-category-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             cursor: pointer;
             background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 110, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .status-category-card:hover::before {
+            left: 100%;
         }
 
         .status-category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.4);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 0, 110, 0.25), 0 10px 20px rgba(0, 0, 0, 0.1);
             border-color: #ff006e !important;
         }
 
         .status-code-item {
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: #ffffff;
+            position: relative;
+        }
+
+        .status-code-item::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 0;
+            background: #ff006e;
+            transition: height 0.3s ease;
+        }
+
+        .status-code-item:hover::after {
+            height: 80%;
         }
 
         .status-code-item:hover {
-            background: rgba(236, 72, 153, 0.1);
-            transform: translateX(8px);
-            border-left-width: 6px !important;
+            background: linear-gradient(90deg, rgba(255, 0, 110, 0.03), transparent);
+            transform: translateX(12px);
+            box-shadow: 0 4px 12px rgba(255, 0, 110, 0.15);
         }
 
         .btn-primary {
-            background: #000000;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: white;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: #ff006e;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary:hover {
-            background: white;
-            color: #ff006e;
             border-color: #ff006e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 110, 0.4);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
         }
 
         .float-animation {
-            animation: float 4s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-20px); }
         }
 
         .fade-in {
-            animation: fadeIn 0.6s ease-in-out;
+            animation: fadeIn 0.8s ease-in-out;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        .scale-in {
+            animation: scaleIn 0.5s ease-in-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -236,7 +338,7 @@
         .mobile-menu {
             display: none;
             transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .mobile-menu.active {
@@ -244,43 +346,89 @@
             transform: translateX(0);
         }
 
-        /* Dark mode toggle */
-        .dark-mode-toggle {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 50;
+        /* Quick Nav Pills */
+        .quick-nav {
+            position: sticky;
+            top: 80px;
+            z-index: 30;
+            margin-bottom: 2rem;
+        }
+
+        .nav-pill {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-pill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-pill:hover::before {
+            left: 100%;
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(255, 0, 110, 0.3);
+        }
+
+        /* Pulse effect for important elements */
+        .pulse-effect {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 110, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 0, 110, 0);
+            }
+        }
+
+        /* Glow effect */
+        .glow-on-hover:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.6), 0 0 40px rgba(255, 0, 110, 0.4);
         }
     </style>
 </head>
 <body class="min-h-screen">
 
     <!-- Header -->
-    <header class="bg-white z-40 shadow-md border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-6 py-3">
+    <header class="glass-header sticky top-0 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, #ff006e 0%, #ff006e 100%);">
-                        <span class="material-icons text-white text-2xl">code</span>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shadow-xl glow-on-hover transition-all duration-300" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                        <span class="material-icons text-white text-2xl sm:text-3xl">code</span>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-black text-[#ff006e] tracking-tight">Status Code Check</h1>
+                        <h1 class="text-xl sm:text-2xl md:text-3xl font-black gradient-text tracking-tight">Status Code Check</h1>
+                        <p class="text-xs text-gray-500 font-semibold hidden sm:block">HTTP Status Directory</p>
                     </div>
                 </div>
 
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center gap-4">
-                    <a href="/status-codes.html" class="text-gray-600 hover:text-[#ff006e] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">All Codes</a>
-                    <a href="/faq.html" class="text-gray-600 hover:text-[#ff006e] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">FAQ</a>
-                    <a href="/blog" class="text-gray-600 hover:text-[#ff006e] transition-colors font-semibold text-sm px-3 py-2 rounded-lg">Blog</a>
-                    <a href="https://urlstatuschecker.com" target="_blank" class="text-white px-5 py-2 rounded-lg flex items-center gap-2 text-sm font-bold hover:shadow-xl transition-all btn-primary">
+                <div class="hidden md:flex items-center gap-2 lg:gap-4">
+                    <a href="/status-codes.html" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">All Codes</a>
+                    <a href="/faq.html" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">FAQ</a>
+                    <a href="/blog" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="text-white px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold transition-all btn-primary">
                         <span class="material-icons text-sm">speed</span>
                         <span>Check URLs</span>
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-600 hover:text-[#ff006e] transition-colors p-2 rounded-lg">
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 hover:text-[#ff006e] transition-colors p-2 rounded-xl hover:bg-pink-50">
                     <span class="material-icons text-2xl">menu</span>
                 </button>
             </div>
@@ -303,26 +451,54 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-gradient text-white py-8 sm:py-10 md:py-14 px-4 sm:px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-3 leading-tight text-white">
-                HTTP Status Code Directory
+    <section class="hero-gradient text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 text-center relative">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="inline-block mb-4">
+                <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold text-white border border-white/20">
+                    <span class="w-2 h-2 bg-[#ff006e] rounded-full pulse-effect"></span>
+                    Complete HTTP Reference Guide
+                </span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white scale-in">
+                HTTP Status Code<br/>
+                <span class="gradient-text" style="-webkit-text-fill-color: white; background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Directory</span>
             </h1>
 
-            <p class="text-sm sm:text-base md:text-lg text-white/75 max-w-2xl mx-auto mb-6 px-4">
-                Instant definitions, causes, and solutions for all HTTP status codes
+            <p class="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 sm:mb-10 px-4 leading-relaxed">
+                Instant definitions, causes, and solutions for all HTTP status codes. <br class="hidden sm:block"/>
+                Your complete reference for web development and troubleshooting.
             </p>
 
             <!-- Search Bar -->
             <div class="max-w-2xl mx-auto px-2">
-                <div class="relative">
-                    <span class="material-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg sm:text-xl">search</span>
-                    <input
-                        type="text"
-                        id="search-input"
-                        placeholder="Search: 404, 500, server error..."
-                        class="w-full pl-12 sm:pl-14 pr-4 sm:pr-6 py-3 sm:py-4 bg-white border-2 border-white rounded-xl focus:border-white focus:ring-4 focus:ring-white/20 transition-all text-sm sm:text-base font-medium shadow-xl text-gray-900"
-                    />
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#ff006e] to-[#ff4081] rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                    <div class="relative">
+                        <span class="material-icons absolute left-5 top-1/2 transform -translate-y-1/2 text-[#ff006e] text-xl sm:text-2xl">search</span>
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Search: 404, 500, server error, redirect..."
+                            class="w-full pl-14 sm:pl-16 pr-6 py-4 sm:py-5 bg-white border-3 border-white rounded-2xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/30 transition-all text-sm sm:text-base font-semibold shadow-2xl text-gray-900 placeholder-gray-400"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-8 mt-8 sm:mt-12">
+                <div class="text-center fade-in">
+                    <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">60+</div>
+                    <div class="text-xs sm:text-sm text-white/70 font-semibold">Status Codes</div>
+                </div>
+                <div class="text-center fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">5</div>
+                    <div class="text-xs sm:text-sm text-white/70 font-semibold">Categories</div>
+                </div>
+                <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">100%</div>
+                    <div class="text-xs sm:text-sm text-white/70 font-semibold">Free Forever</div>
                 </div>
             </div>
         </div>
@@ -331,8 +507,21 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
 
+        <!-- Search Results Section (Initially Hidden) -->
+        <div id="search-results" class="hidden mb-8 sm:mb-12">
+            <div class="cream-card p-4 sm:p-6 md:p-8">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3">
+                    <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">search</span>
+                    <span id="search-results-title">Search Results</span>
+                </h3>
+                <div id="search-results-list" class="space-y-3 sm:space-y-4">
+                    <!-- Search results will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+
         <!-- Status Code Categories -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div id="category-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             <!-- 1xx Informational -->
             <div onclick="window.location.href='/status-codes.html#1xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-[#1e3a8a] hover:border-[#ff006e]">
                 <div class="w-20 h-20 bg-[#1e3a8a] rounded-xl flex items-center justify-center mb-4 shadow-lg">
@@ -455,161 +644,224 @@
 
         <!-- Quick Reference Section -->
         <div id="quick-reference" class="cream-card p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
-            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
-                <span class="material-icons text-[#ff006e] text-3xl sm:text-4xl">flash_on</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3">
+                <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">flash_on</span>
                 <span>Quick Reference - Most Common Codes</span>
             </h3>
 
-            <div id="status-codes-list" class="space-y-4 sm:space-y-6">
+            <div id="status-codes-list" class="space-y-3 sm:space-y-4">
                 <!-- Status codes will be dynamically loaded here -->
             </div>
         </div>
 
         <!-- CTA Section -->
-        <div class="bg-white p-6 sm:p-8 md:p-12 text-center rounded-2xl shadow-lg border-2 border-[#ff006e]">
-            <div class="max-w-3xl mx-auto">
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 sm:mb-4">
-                    Check Your URLs Now
-                </h3>
-                <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 px-2">
-                    Use our free URL Status Checker to test up to 100 URLs at once, check DNS propagation, and identify issues instantly.
-                </p>
-                <a href="https://urlstatuschecker.com" target="_blank" class="btn-primary inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:shadow-xl transition-all">
-                    <span class="material-icons text-lg sm:text-xl">speed</span>
-                    <span>Try URL Status Checker →</span>
-                </a>
+        <div class="cream-card overflow-hidden shadow-2xl" style="border: 3px solid #ff006e;">
+            <div class="p-6 sm:p-10 md:p-12 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <!-- Badge -->
+                    <div class="inline-block mb-4 sm:mb-6">
+                        <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#ff006e] to-[#ff4081] rounded-full text-sm sm:text-base font-bold text-white shadow-lg">
+                            <span class="material-icons text-lg">speed</span>
+                            Professional URL Testing Tool
+                        </span>
+                    </div>
+
+                    <h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 sm:mb-5 leading-tight">
+                        Check Your URLs<br/>
+                        <span class="gradient-text">Instantly & Free</span>
+                    </h3>
+
+                    <p class="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
+                        Test up to 100 URLs at once, check DNS propagation, analyze redirect chains, and identify issues in seconds with our powerful free tool.
+                    </p>
+
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-6 sm:mb-8 max-w-2xl mx-auto">
+                        <div class="bg-white rounded-xl p-4 sm:p-5 border-2 border-[#ff006e]/20 shadow-md">
+                            <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">100</div>
+                            <div class="text-sm font-bold text-gray-700">URLs Per Check</div>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 sm:p-5 border-2 border-[#ff006e]/20 shadow-md">
+                            <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">DNS</div>
+                            <div class="text-sm font-bold text-gray-700">Propagation Check</div>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 sm:p-5 border-2 border-[#ff006e]/20 shadow-md">
+                            <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">∞</div>
+                            <div class="text-sm font-bold text-gray-700">Unlimited Checks</div>
+                        </div>
+                    </div>
+
+                    <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold transition-all shadow-xl hover:shadow-2xl" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%); color: white;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 110, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.3)';">
+                        <span class="material-icons text-xl sm:text-2xl">speed</span>
+                        <span>Try URL Status Checker Free</span>
+                        <span class="material-icons text-xl sm:text-2xl">arrow_forward</span>
+                    </a>
+
+                    <p class="text-gray-600 text-sm sm:text-base mt-5 font-semibold">
+                        No signup required • Free forever • Instant results
+                    </p>
+                </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Stats Section -->
-    <div class="bg-gray-100 border-t border-gray-200 py-8">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-12 text-center">
-                <div>
-                    <div class="text-2xl font-bold text-[#ff006e]">60+</div>
-                    <div class="text-xs text-gray-600 font-medium">Status Codes</div>
-                </div>
-                <div>
-                    <div class="text-2xl font-bold text-[#ff006e]">5</div>
-                    <div class="text-xs text-gray-600 font-medium">Categories</div>
-                </div>
-                <div>
-                    <div class="text-2xl font-bold text-[#ff006e]">100%</div>
-                    <div class="text-xs text-gray-600 font-medium">Free Forever</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
-    <footer class="bg-black mt-0">
-        <div class="max-w-7xl mx-auto px-6 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer style="background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%); margin-top: 80px; position: relative;">
+        <!-- Gradient line at top -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, #ff006e, #ff4081, #ff006e, transparent);"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+            <!-- Main Brand Section -->
+            <div class="text-center mb-10 sm:mb-12 pb-8 border-b border-gray-800">
+                <div class="inline-flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-xl" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                        <span class="material-icons text-white text-2xl">code</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-black gradient-text">Status Code Check</h3>
+                </div>
+                <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
+                    Professional HTTP status code reference and URL checking tools for developers worldwide.
+                </p>
+            </div>
+
+            <!-- Links Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10">
                 <!-- SNAPIT SUITE -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">SNAPIT SUITE</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Software</a></li>
-                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Forms</a></li>
-                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Analytics</a></li>
-                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Agent</a></li>
+                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
+                        <span style="color: #ff006e;">●</span> SNAPIT SUITE
+                    </h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Software</a></li>
+                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Forms</a></li>
+                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Analytics</a></li>
+                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Agent</a></li>
                     </ul>
                 </div>
 
                 <!-- TOOLS & UTILITIES -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">TOOLS & UTILITIES</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="https://burn.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Burn</a></li>
-                        <li><a href="https://polls.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Polls</a></li>
-                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT QR</a></li>
-                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT URL</a></li>
-                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">URL Status Checker</a></li>
-                        <li><a href="https://statuscodecheck.com" class="text-[#ff006e] font-semibold">Status Code Check</a></li>
+                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
+                        <span style="color: #ff006e;">●</span> TOOLS
+                    </h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="https://burn.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Burn</a></li>
+                        <li><a href="https://polls.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Polls</a></li>
+                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT QR</a></li>
+                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT URL</a></li>
+                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-[#ff006e] hover:text-[#ff4081] transition-all duration-300 hover:translate-x-1 inline-block font-bold">URL Status Checker</a></li>
                     </ul>
                 </div>
 
                 <!-- RESOURCES -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">RESOURCES</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="https://pdf.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">PDF Tools</a></li>
-                        <li><a href="https://chimera.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">Chimera</a></li>
-                        <li><a href="https://forum.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Forum</a></li>
-                        <li><a href="https://forums.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">Forum Builder</a></li>
-                        <li><a href="/status-codes.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">API Documentation</a></li>
-                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Soft</a></li>
+                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
+                        <span style="color: #ff006e;">●</span> RESOURCES
+                    </h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="/status-codes.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">All Status Codes</a></li>
+                        <li><a href="/faq.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">FAQ</a></li>
+                        <li><a href="/blog" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Blog</a></li>
+                        <li><a href="https://pdf.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">PDF Tools</a></li>
+                        <li><a href="https://forum.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Forum</a></li>
                     </ul>
                 </div>
 
                 <!-- LEGAL & SUPPORT -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">LEGAL & SUPPORT</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="/terms-of-service.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">Privacy Policy</a></li>
-                        <li><button onclick="openContactForm()" class="text-gray-400 hover:text-[#ff006e] transition-colors">Send Feedback</button></li>
+                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
+                        <span style="color: #ff006e;">●</span> SUPPORT
+                    </h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="/terms-of-service.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Privacy Policy</a></li>
+                        <li><button onclick="openContactForm()" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block bg-transparent border-0 p-0 cursor-pointer text-xs sm:text-sm">Send Feedback</button></li>
                     </ul>
-                    <p class="text-gray-400 text-xs mt-6 leading-relaxed">
-                        Create and share polls instantly. Get real-time results and insights.
-                    </p>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-500 text-sm">&copy; 2025 SnapIT Software. All rights reserved.</p>
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-6 sm:pt-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+                    <p class="text-gray-500 text-xs sm:text-sm">
+                        &copy; 2025 SnapIT Software. All rights reserved.
+                    </p>
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <a href="https://urlstatuschecker.com" target="_blank" class="text-gray-500 hover:text-[#ff006e] transition-all text-xs sm:text-sm font-semibold">Check URLs</a>
+                        <span class="text-gray-700">•</span>
+                        <a href="/status-codes.html" class="text-gray-500 hover:text-[#ff006e] transition-all text-xs sm:text-sm font-semibold">Browse Codes</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Contact Form Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 hidden items-center justify-center z-50" style="display: none;">
-        <div class="cream-card p-8 max-w-lg w-full mx-4 border-4 border-[#ff006e] relative">
-            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#ff006e]">
-                <span class="material-icons">close</span>
+    <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden items-center justify-center z-50 p-4" style="display: none;" onclick="if(event.target === this) closeContactForm();" oncontextmenu="event.preventDefault(); closeContactForm();">
+        <div class="cream-card p-8 sm:p-10 max-w-lg w-full relative overflow-hidden scale-in" style="border: 3px solid #ff006e;">
+            <!-- Animated background -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#ff006e] to-[#ff4081]" style="animation: shimmer 8s infinite;"></div>
+            </div>
+
+            <!-- Close button -->
+            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#ff006e] transition-all hover:rotate-90 duration-300 z-10">
+                <span class="material-icons text-3xl">close</span>
             </button>
 
-            <h3 class="text-3xl font-bold text-gray-900 mb-2">Contact Us</h3>
-            <p class="text-gray-700 mb-6">Have a question or feedback? We'd love to hear from you!</p>
-
-            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
-                <input type="hidden" name="access_key" value="ebfa8f9b-ca95-40f0-abeb-23155a5a0c9c">
-                <input type="hidden" name="subject" value="New Contact from Status Code Check">
-                <input type="hidden" name="redirect" value="https://statuscodecheck.com/?message=success">
-
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-900 mb-1">Name</label>
-                    <input type="text" id="name" name="name" required
-                        class="w-full px-4 py-2 border-2 border-[#ff006e] rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all"
-                        placeholder="Your name">
+            <div class="relative z-10">
+                <!-- Icon -->
+                <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 glow-on-hover" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                    <span class="material-icons text-white text-3xl">mail</span>
                 </div>
 
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full px-4 py-2 border-2 border-[#ff006e] rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all"
-                        placeholder="your@email.com">
-                </div>
+                <h3 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2">
+                    <span class="gradient-text">Get In Touch</span>
+                </h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">Have a question or feedback? We'd love to hear from you!</p>
 
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-900 mb-1">Message</label>
-                    <textarea id="message" name="message" required rows="4"
-                        class="w-full px-4 py-2 border-2 border-[#ff006e] rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all resize-none"
-                        placeholder="Your message..."></textarea>
-                </div>
+                <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
+                    <input type="hidden" name="access_key" value="ebfa8f9b-ca95-40f0-abeb-23155a5a0c9c">
+                    <input type="hidden" name="subject" value="New Contact from Status Code Check">
+                    <input type="hidden" name="redirect" value="https://statuscodecheck.com/?message=success">
 
-                <button type="submit"
-                    class="w-full btn-primary px-6 py-3 rounded-xl flex items-center justify-center gap-2">
-                    <span class="material-icons text-sm">send</span>
-                    <span>Send Message</span>
-                </button>
-            </form>
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-gray-900 mb-2">Name *</label>
+                        <input type="text" id="name" name="name" required autocomplete="name"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all font-medium"
+                            placeholder="Your name">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-gray-900 mb-2">Email *</label>
+                        <input type="email" id="email" name="email" required autocomplete="email"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all font-medium"
+                            placeholder="your@email.com">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-bold text-gray-900 mb-2">Message *</label>
+                        <textarea id="message" name="message" required rows="4" autocomplete="off"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all resize-none font-medium"
+                            placeholder="Your message..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full px-6 py-4 rounded-xl flex items-center justify-center gap-2 text-white font-bold text-base transition-all shadow-lg hover:shadow-xl"
+                        style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); border: 2px solid #000000;"
+                        onmouseover="this.style.borderColor='#ff006e'; this.style.transform='translateY(-2px)';"
+                        onmouseout="this.style.borderColor='#000000'; this.style.transform='translateY(0)';">
+                        <span class="material-icons text-lg">send</span>
+                        <span>Send Message</span>
+                    </button>
+
+                    <p class="text-center text-xs text-gray-500 mt-3">
+                        We'll respond within 24 hours • Your privacy is protected
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -654,20 +906,20 @@
                 };
 
                 html += `
-                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-6 py-4 rounded-r-xl cursor-pointer" data-code="${item.code}">
+                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-5 py-3 rounded-r-xl cursor-pointer" data-code="${item.code}">
                         <div class="flex items-start justify-between">
                             <div class="flex-1">
-                                <h4 class="text-2xl font-bold text-gray-900 mb-2">
+                                <h4 class="text-lg font-bold text-gray-900 mb-1">
                                     ${item.code} ${codeData.name}
                                 </h4>
-                                <p class="text-gray-600 mb-2">${codeData.description}</p>
-                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm transition-all">
+                                <p class="text-sm text-gray-600 mb-1">${codeData.description}</p>
+                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-1 text-primary font-semibold text-xs transition-all">
                                     Learn More →
                                 </a>
                             </div>
-                            <div class="ml-4">
-                                <span class="inline-flex items-center justify-center w-12 h-12 bg-${item.color}-100 rounded-xl">
-                                    <span class="text-2xl font-bold text-${item.color}-600">${item.code}</span>
+                            <div class="ml-3">
+                                <span class="inline-flex items-center justify-center w-10 h-10 bg-${item.color}-100 rounded-xl">
+                                    <span class="text-lg font-bold text-${item.color}-600">${item.code}</span>
                                 </span>
                             </div>
                         </div>
@@ -689,13 +941,20 @@
         // Search functionality
         document.getElementById('search-input').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
+            const searchResultsSection = document.getElementById('search-results');
+            const searchResultsContainer = document.getElementById('search-results-list');
+            const categoryCardsSection = document.getElementById('category-cards');
+            const quickReferenceSection = document.getElementById('quick-reference');
 
             if (query.length === 0) {
+                // No search query - show category cards and quick reference, hide search results
+                searchResultsSection.classList.add('hidden');
+                categoryCardsSection.classList.remove('hidden');
+                quickReferenceSection.classList.remove('hidden');
                 renderCommonCodes();
                 return;
             }
 
-            const container = document.getElementById('status-codes-list');
             let results = [];
 
             // Search through all status codes
@@ -711,8 +970,13 @@
                 });
             });
 
+            // Show search results section, hide category cards
+            searchResultsSection.classList.remove('hidden');
+            categoryCardsSection.classList.add('hidden');
+            quickReferenceSection.classList.add('hidden');
+
             if (results.length === 0) {
-                container.innerHTML = `
+                searchResultsContainer.innerHTML = `
                     <div class="text-center py-12">
                         <span class="material-icons text-gray-300 text-6xl mb-4">search_off</span>
                         <p class="text-xl text-gray-500">No status codes found matching "${query}"</p>
@@ -722,7 +986,7 @@
             }
 
             // Render search results
-            let html = `<p class="text-sm text-gray-500 mb-4">Found ${results.length} result${results.length !== 1 ? 's' : ''}</p>`;
+            let html = `<p class="text-sm text-gray-500 mb-4">Found ${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"</p>`;
 
             results.forEach(item => {
                 const colorClasses = {
@@ -734,20 +998,20 @@
                 };
 
                 html += `
-                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-6 py-4 rounded-r-xl cursor-pointer mb-4" data-code="${item.code}">
+                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-5 py-3 rounded-r-xl cursor-pointer mb-3" data-code="${item.code}">
                         <div class="flex items-start justify-between">
                             <div class="flex-1">
-                                <h4 class="text-2xl font-bold text-gray-900 mb-2">
+                                <h4 class="text-lg font-bold text-gray-900 mb-1">
                                     ${item.code} ${item.data.name}
                                 </h4>
-                                <p class="text-gray-600 mb-2">${item.data.description}</p>
-                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-2 text-primary font-semibold text-sm transition-all">
+                                <p class="text-sm text-gray-600 mb-1">${item.data.description}</p>
+                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-1 text-primary font-semibold text-xs transition-all">
                                     Learn More →
                                 </a>
                             </div>
-                            <div class="ml-4">
-                                <span class="inline-flex items-center justify-center px-3 py-2 bg-${item.color}-100 rounded-xl">
-                                    <span class="text-lg font-bold text-${item.color}-600">${item.category}</span>
+                            <div class="ml-3">
+                                <span class="inline-flex items-center justify-center px-2 py-1 bg-${item.color}-100 rounded-xl">
+                                    <span class="text-sm font-bold text-${item.color}-600">${item.category}</span>
                                 </span>
                             </div>
                         </div>
@@ -755,7 +1019,7 @@
                 `;
             });
 
-            container.innerHTML = html;
+            searchResultsContainer.innerHTML = html;
 
             // Add click handlers
             document.querySelectorAll('.status-code-item').forEach(item => {

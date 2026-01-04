@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Pricing - URL Status Checker | Professional HTTP Monitoring Plans</title>
+    <meta name="description" content="Simple, transparent pricing for professional HTTP status monitoring. From free plans to enterprise solutions. Monitor unlimited URLs, get instant alerts, and check DNS propagation.">
+    <meta name="keywords" content="URL monitoring pricing, HTTP checker plans, website uptime monitoring cost, API monitoring pricing">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://urlstatuschecker.com/pricing.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pricing - URL Status Checker">
+    <meta property="og:description" content="Professional HTTP monitoring plans starting free. Enterprise-grade features for developers and DevOps teams.">
+    <meta property="og:url" content="https://urlstatuschecker.com/pricing.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(180deg, #faf0e6 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+
+        ::selection {
+            background: #ff006e;
+            color: #fff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #faf0e6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ff006e 0%, #ff4081 100%);
+            border-radius: 6px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 50%, #ff006e 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 4s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 0, 110, 0.1);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 110, 0.1), transparent);
+            animation: shimmer 8s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(255, 0, 110, 0.1);
+            border: 2px solid rgba(255, 0, 110, 0.1);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 110, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 0, 110, 0.25);
+            border-color: #ff006e;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #ff006e;
+            box-shadow: 0 20px 60px rgba(255, 0, 110, 0.3);
+        }
+
+        .pricing-card.featured::after {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);
+            color: white;
+            padding: 5px 40px;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid #000000;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: #ff006e;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            border-color: #ff006e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 110, 0.4);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-upgrade {
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);
+            border: none;
+        }
+
+        .btn-upgrade:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 12px 28px rgba(255, 0, 110, 0.5);
+        }
+
+        .toggle-switch {
+            background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+            width: 72px;
+            height: 36px;
+            border-radius: 18px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(36px);
+        }
+
+        .feature-check {
+            color: #10b981;
+        }
+
+        .feature-cross {
+            color: #ef4444;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header sticky top-0 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                        <span class="material-icons text-white text-2xl sm:text-3xl">speed</span>
+                    </div>
+                    <div>
+                        <a href="/" class="text-xl sm:text-2xl md:text-3xl font-black gradient-text tracking-tight">URL Status Checker</a>
+                        <p class="text-xs text-gray-500 font-semibold hidden sm:block">Professional HTTP & DNS Tool</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="/docs.html" class="hidden sm:block text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">Docs</a>
+                    <a href="/pricing.html" class="text-[#ff006e] font-bold text-sm px-4 py-2 rounded-xl bg-pink-50">Pricing</a>
+                    <button onclick="window.location.href='/'" class="btn-primary px-4 sm:px-6 py-2 rounded-xl text-sm font-bold flex items-center gap-2">
+                        <span>Sign In</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 text-center relative">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="inline-block mb-4">
+                <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold text-white border border-white/20">
+                    <span class="material-icons text-sm">local_offer</span>
+                    Simple, Transparent Pricing
+                </span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                Plans That Scale<br/>
+                <span class="gradient-text" style="-webkit-text-fill-color: white; background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">With Your Business</span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 sm:mb-10 px-4 leading-relaxed">
+                From hobbyists to enterprise teams. Start free and upgrade as you grow.<br class="hidden sm:block"/>
+                No credit card required to start.
+            </p>
+
+            <!-- Billing Toggle -->
+            <div class="flex justify-center items-center gap-4 mb-8">
+                <span class="text-lg font-bold text-white/70" id="monthly-label">Monthly</span>
+                <div class="toggle-switch" id="billing-toggle" onclick="toggleBilling()">
+                    <div class="toggle-slider"></div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-lg font-bold text-white" id="yearly-label">Yearly</span>
+                    <span class="px-3 py-1 bg-green-500 text-white text-xs font-black rounded-full">Save 25%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+
+        <!-- Free & Paid Tiers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12" id="pricing-grid">
+            <!-- Pricing cards will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Enterprise Section -->
+        <div class="pricing-card featured p-8 sm:p-12 text-center mb-12">
+            <div class="max-w-4xl mx-auto">
+                <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                    <span class="material-icons text-white text-4xl">business</span>
+                </div>
+
+                <h3 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4">Enterprise</h3>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Custom solutions for large organizations. Dedicated support, SLA guarantees, and unlimited monitoring.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-[#ff006e] mb-2">Unlimited</div>
+                        <div class="text-sm text-gray-600">URLs & Checks</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-[#ff006e] mb-2">99.9%</div>
+                        <div class="text-sm text-gray-600">SLA Uptime</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-[#ff006e] mb-2">24/7</div>
+                        <div class="text-sm text-gray-600">Priority Support</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-[#ff006e] mb-2">Custom</div>
+                        <div class="text-sm text-gray-600">API Limits</div>
+                    </div>
+                </div>
+
+                <button onclick="openContactForm()" class="btn-primary px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center gap-3">
+                    <span>Contact Sales</span>
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Features Comparison -->
+        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border-2 border-gray-100 mb-12">
+            <h3 class="text-3xl font-black text-center text-gray-900 mb-8">
+                <span class="gradient-text">Compare All Features</span>
+            </h3>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left" style="min-width: 800px;">
+                    <thead>
+                        <tr class="border-b-2 border-gray-200">
+                            <th class="pb-4 text-gray-900 font-bold">Feature</th>
+                            <th class="pb-4 text-center text-gray-900 font-bold">Free</th>
+                            <th class="pb-4 text-center text-gray-900 font-bold">Starter</th>
+                            <th class="pb-4 text-center text-gray-900 font-bold">Pro</th>
+                            <th class="pb-4 text-center text-gray-900 font-bold">Business</th>
+                            <th class="pb-4 text-center text-gray-900 font-bold">Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">URLs per check</td>
+                            <td class="py-4 text-center text-gray-600">100</td>
+                            <td class="py-4 text-center text-gray-600">200</td>
+                            <td class="py-4 text-center text-gray-600">500</td>
+                            <td class="py-4 text-center text-gray-600">2,000</td>
+                            <td class="py-4 text-center text-[#ff006e] font-bold">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">Daily checks</td>
+                            <td class="py-4 text-center text-gray-600">1,000</td>
+                            <td class="py-4 text-center text-gray-600">5,000</td>
+                            <td class="py-4 text-center text-gray-600">25,000</td>
+                            <td class="py-4 text-center text-gray-600">100,000</td>
+                            <td class="py-4 text-center text-[#ff006e] font-bold">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">Monitored URLs</td>
+                            <td class="py-4 text-center text-gray-600">10</td>
+                            <td class="py-4 text-center text-gray-600">50</td>
+                            <td class="py-4 text-center text-gray-600">200</td>
+                            <td class="py-4 text-center text-gray-600">1,000</td>
+                            <td class="py-4 text-center text-[#ff006e] font-bold">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">Check interval</td>
+                            <td class="py-4 text-center text-gray-600">30 min</td>
+                            <td class="py-4 text-center text-gray-600">15 min</td>
+                            <td class="py-4 text-center text-gray-600">5 min</td>
+                            <td class="py-4 text-center text-gray-600">1 min</td>
+                            <td class="py-4 text-center text-[#ff006e] font-bold">30 sec</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">API access</td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center text-gray-600">1K/day</td>
+                            <td class="py-4 text-center text-gray-600">10K/day</td>
+                            <td class="py-4 text-center text-gray-600">100K/day</td>
+                            <td class="py-4 text-center text-[#ff006e] font-bold">Custom</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">Email alerts</td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">SMS alerts</td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">Webhook notifications</td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">Status page</td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-cross text-sm">close</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                            <td class="py-4 text-center"><span class="material-icons feature-check text-sm">check</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-medium text-gray-700">Team members</td>
+                            <td class="py-4 text-center text-gray-600">1</td>
+                            <td class="py-4 text-center text-gray-600">3</td>
+                            <td class="py-4 text-center text-gray-600">10</td>
+                            <td class="py-4 text-center text-gray-600">50</td>
+                            <td class="py-4 text-center text-[#ff006e] font-bold">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 font-medium text-gray-700">Support</td>
+                            <td class="py-4 text-center text-gray-600">Community</td>
+                            <td class="py-4 text-center text-gray-600">Email</td>
+                            <td class="py-4 text-center text-gray-600">Priority</td>
+                            <td class="py-4 text-center text-gray-600">Priority</td>
+                            <td class="py-4 text-center text-[#ff006e] font-bold">24/7 Dedicated</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border-2 border-gray-100">
+            <h3 class="text-3xl font-black text-center text-gray-900 mb-8">
+                <span class="gradient-text">Frequently Asked Questions</span>
+            </h3>
+
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="border-b border-gray-200 pb-6">
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Can I change plans at any time?</h4>
+                    <p class="text-gray-600">Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately and we'll prorate any charges.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">What payment methods do you accept?</h4>
+                    <p class="text-gray-600">We accept all major credit cards (Visa, Mastercard, American Express) and ACH transfers for annual plans. Enterprise customers can pay via invoice.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Is there a free trial?</h4>
+                    <p class="text-gray-600">Our Free plan includes 1,000 daily checks with no credit card required. For paid plans, you can request a 14-day trial by contacting our sales team.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">What happens if I exceed my plan limits?</h4>
+                    <p class="text-gray-600">We'll send you a notification when you're approaching your limits. You can upgrade anytime to avoid service interruption. We don't charge overage fees.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Do you offer discounts for nonprofits or education?</h4>
+                    <p class="text-gray-600">Yes! We offer 50% discounts for verified nonprofits and educational institutions. Contact our sales team with your organization details.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #000000; margin-top: 80px; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #ff006e, transparent);"></div>
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="text-center mb-8">
+                <p class="text-gray-400 text-sm">&copy; 2025 SnapIT Software. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden items-center justify-center z-50 p-4" style="display: none;" onclick="if(event.target === this) closeContactForm();">
+        <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 24px; box-shadow: 0 10px 40px rgba(255, 0, 110, 0.1); border: 3px solid #ff006e;" class="p-8 sm:p-10 max-w-lg w-full relative">
+            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-[#ff006e] transition-all">
+                <span class="material-icons text-3xl">close</span>
+            </button>
+
+            <h3 class="text-3xl font-black text-gray-900 mb-4">
+                <span class="gradient-text">Contact Sales</span>
+            </h3>
+            <p class="text-gray-600 mb-6">Get in touch with our enterprise team for custom pricing and solutions.</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                <input type="hidden" name="access_key" value="ebfa8f9b-ca95-40f0-abeb-23155a5a0c9c">
+                <input type="hidden" name="subject" value="Enterprise Inquiry - URL Status Checker">
+
+                <div>
+                    <label for="company" class="block text-sm font-bold text-gray-900 mb-2">Company Name *</label>
+                    <input type="text" id="company" name="company" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all font-medium">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-bold text-gray-900 mb-2">Email *</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all font-medium">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-bold text-gray-900 mb-2">Tell us about your needs *</label>
+                    <textarea id="message" name="message" required rows="4" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#ff006e] focus:ring-4 focus:ring-[#ff006e]/20 transition-all resize-none font-medium"></textarea>
+                </div>
+
+                <button type="submit" class="w-full btn-primary px-6 py-4 rounded-xl text-white font-bold text-base">
+                    <span>Send Message</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Stripe Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden items-center justify-center z-50" style="display: none;">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 p-8 relative">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-500 hover:text-[#ff006e]">
+                <span class="material-icons">close</span>
+            </button>
+            <div id="checkout-message" class="text-center">
+                <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                    <span class="material-icons text-white text-3xl">sync</span>
+                </div>
+                <h3 class="text-2xl font-black text-gray-900 mb-2">Processing...</h3>
+                <p class="text-gray-600">Redirecting you to secure checkout...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Stripe configuration
+        const stripe = Stripe('pk_live_51Rn1ETROAbPuC5NwF4h3ybgj24JPO0Nz39f0uFHvXZ0Gt5gzWoasMjP09s16rfv2DVd8UqihGxx1Wyil0cqmIU6r00n9EI5ETs');
+
+        // Stripe Price IDs
+        const stripePrices = {
+            starter: {
+                monthly: 'price_1SIN0cROAbPuC5NwTFBPjNRY',
+                yearly: 'price_1SIN0yROAbPuC5NwdkLrLZLs'
+            },
+            pro: {
+                monthly: 'price_1SIN1sROAbPuC5NwHIwUr9hR',
+                yearly: 'price_1SIN1sROAbPuC5Nwomcr0tmG'
+            },
+            business: {
+                monthly: 'price_1SIN1uROAbPuC5NwE72HNij3',
+                yearly: 'price_1SIN1uROAbPuC5Nw0GX2FaGs'
+            },
+            ultimate: {
+                monthly: 'price_1SIN1zROAbPuC5NwrXXwmzvr',
+                yearly: 'price_1SIN1zROAbPuC5NwCiFYXy4r'
+            }
+        };
+
+        // Pricing data
+        const pricingTiers = [
+            {
+                id: 'free',
+                name: 'Free',
+                monthlyPrice: 0,
+                yearlyPrice: 0,
+                description: 'Perfect for personal projects',
+                features: [
+                    '1,000 URLs per day',
+                    '100 URLs per check',
+                    '10 monitored URLs',
+                    '30-minute check interval',
+                    'Basic DNS checking',
+                    'Community support'
+                ],
+                cta: 'Get Started Free',
+                popular: false
+            },
+            {
+                id: 'starter',
+                name: 'Starter',
+                monthlyPrice: 9,
+                yearlyPrice: 81,
+                description: 'For small teams & startups',
+                features: [
+                    '5,000 URLs per day',
+                    '200 URLs per check',
+                    '50 monitored URLs',
+                    '15-minute check interval',
+                    'Email alerts',
+                    'API access (1K/day)',
+                    'Email support',
+                    'Up to 3 team members'
+                ],
+                cta: 'Start Free Trial',
+                popular: false
+            },
+            {
+                id: 'pro',
+                name: 'Pro',
+                monthlyPrice: 29,
+                yearlyPrice: 261,
+                description: 'Most popular for growing businesses',
+                features: [
+                    '25,000 URLs per day',
+                    '500 URLs per check',
+                    '200 monitored URLs',
+                    '5-minute check interval',
+                    'Email & SMS alerts',
+                    'Webhook notifications',
+                    'API access (10K/day)',
+                    'Priority support',
+                    'Up to 10 team members',
+                    'Custom reports'
+                ],
+                cta: 'Start Free Trial',
+                popular: true
+            },
+            {
+                id: 'business',
+                name: 'Business',
+                monthlyPrice: 79,
+                yearlyPrice: 711,
+                description: 'For established companies',
+                features: [
+                    '100,000 URLs per day',
+                    '2,000 URLs per check',
+                    '1,000 monitored URLs',
+                    '1-minute check interval',
+                    'All alert types',
+                    'Public status page',
+                    'API access (100K/day)',
+                    'Priority support',
+                    'Up to 50 team members',
+                    'Custom integrations',
+                    'SLA guarantee'
+                ],
+                cta: 'Start Free Trial',
+                popular: false
+            },
+            {
+                id: 'ultimate',
+                name: 'Ultimate',
+                monthlyPrice: 199,
+                yearlyPrice: 1791,
+                description: 'Maximum power & performance',
+                features: [
+                    'Unlimited daily checks',
+                    '5,000 URLs per check',
+                    '5,000 monitored URLs',
+                    '30-second check interval',
+                    'All features included',
+                    'Dedicated account manager',
+                    'API access (500K/day)',
+                    '24/7 priority support',
+                    'Up to 100 team members',
+                    'White-label options',
+                    '99.9% SLA guarantee'
+                ],
+                cta: 'Start Free Trial',
+                popular: false
+            }
+        ];
+
+        let isYearly = false;
+
+        function toggleBilling() {
+            isYearly = !isYearly;
+            const toggle = document.getElementById('billing-toggle');
+            const monthlyLabel = document.getElementById('monthly-label');
+            const yearlyLabel = document.getElementById('yearly-label');
+
+            toggle.classList.toggle('active');
+
+            if (isYearly) {
+                monthlyLabel.style.color = 'rgba(255, 255, 255, 0.7)';
+                yearlyLabel.style.color = '#ffffff';
+            } else {
+                monthlyLabel.style.color = '#ffffff';
+                yearlyLabel.style.color = 'rgba(255, 255, 255, 0.7)';
+            }
+
+            renderPricing();
+        }
+
+        function renderPricing() {
+            const grid = document.getElementById('pricing-grid');
+            grid.innerHTML = '';
+
+            pricingTiers.forEach(tier => {
+                const price = isYearly ? tier.yearlyPrice : tier.monthlyPrice;
+                const savings = isYearly && tier.monthlyPrice > 0 ?
+                    `<div class="text-green-600 text-sm font-bold mb-4">Save $${(tier.monthlyPrice * 12 - tier.yearlyPrice)}/year</div>` : '';
+
+                const card = document.createElement('div');
+                card.className = `pricing-card p-8 ${tier.popular ? 'featured' : ''}`;
+                card.innerHTML = `
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-black text-gray-900 mb-2">${tier.name}</h3>
+                        <p class="text-gray-600 text-sm mb-4">${tier.description}</p>
+                        <div class="mb-2">
+                            <span class="text-5xl font-black text-gray-900">$${price}</span>
+                            ${tier.monthlyPrice > 0 ? `<span class="text-gray-500">/${isYearly ? 'year' : 'month'}</span>` : '<span class="text-gray-500">/forever</span>'}
+                        </div>
+                        ${savings}
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        ${tier.features.map(feature => `
+                            <li class="flex items-start gap-3">
+                                <span class="material-icons text-[#ff006e] text-sm mt-0.5">check_circle</span>
+                                <span class="text-gray-700 text-sm">${feature}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+
+                    <button onclick="${tier.id === 'free' ? 'window.location.href=\'/\'' : `startCheckout('${tier.id}')`}"
+                            class="w-full ${tier.popular ? 'btn-upgrade' : 'btn-primary'} px-6 py-4 rounded-xl text-white font-bold text-base flex items-center justify-center gap-2">
+                        <span>${tier.cta}</span>
+                        <span class="material-icons text-sm">arrow_forward</span>
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        async function startCheckout(tierId) {
+            const priceId = stripePrices[tierId][isYearly ? 'yearly' : 'monthly'];
+
+            // Show loading modal
+            document.getElementById('checkoutModal').style.display = 'flex';
+
+            try {
+                // In production, this would call your backend to create a checkout session
+                // For now, we'll redirect to Stripe directly
+                const { error } = await stripe.redirectToCheckout({
+                    lineItems: [{
+                        price: priceId,
+                        quantity: 1
+                    }],
+                    mode: 'subscription',
+                    successUrl: `${window.location.origin}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
+                    cancelUrl: `${window.location.origin}/pricing`,
+                    clientReferenceId: tierId
+                });
+
+                if (error) {
+                    console.error('Stripe error:', error);
+                    alert('There was an error processing your request. Please try again.');
+                    closeCheckoutModal();
+                }
+            } catch (err) {
+                console.error('Checkout error:', err);
+                alert('There was an error processing your request. Please try again.');
+                closeCheckoutModal();
+            }
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function openContactForm() {
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPricing();
+        });
+
+        // Close modals on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeContactForm();
+                closeCheckoutModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

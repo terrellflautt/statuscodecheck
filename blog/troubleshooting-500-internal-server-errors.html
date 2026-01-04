@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Troubleshooting 500 Internal Server Errors | Status Code Check</title>
+    <meta name="description" content="Step-by-step guide to diagnose and fix 500 Internal Server Errors. Learn common causes, debugging techniques, and solutions for server-side errors.">
+    <meta name="keywords" content="500 internal server error, fix 500 error, server error, http 500, troubleshoot server error">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://statuscodecheck.com/blog/troubleshooting-500-internal-server-errors.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Troubleshooting 500 Internal Server Errors">
+    <meta property="og:description" content="Step-by-step guide to diagnose and fix 500 Internal Server Errors.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statuscodecheck.com/blog/troubleshooting-500-internal-server-errors.html">
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Troubleshooting 500 Internal Server Errors",
+        "description": "Step-by-step guide to diagnose and fix 500 Internal Server Errors.",
+        "author": {
+            "@type": "Organization",
+            "name": "Status Code Check"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Status Code Check",
+            "url": "https://statuscodecheck.com"
+        },
+        "datePublished": "2025-01-05",
+        "dateModified": "2026-01-04"
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css?v=1.0.0">
+
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #ff006e 0%, #ff006e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .prose h2 { margin-top: 2rem; margin-bottom: 1rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.8; }
+        .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; }
+        .prose code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+        .error-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #22c55e;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ff006e, #ff4081);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="glass border-b border-indigo-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-4xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-2xl font-extrabold gradient-text">Status Code Check</a>
+                <div class="flex items-center gap-4">
+                    <a href="/blog" class="text-gray-600 hover:text-[#ff006e] transition-colors font-medium">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="bg-gradient-to-r from-[#ff006e] to-[#ff4081] text-white px-5 py-2 rounded-xl font-semibold hover:shadow-lg transition-all text-sm">
+                        Check URLs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-gray-500 mb-8">
+            <a href="/" class="hover:text-[#ff006e]">Home</a>
+            <span class="mx-2">/</span>
+            <a href="/blog" class="hover:text-[#ff006e]">Blog</a>
+            <span class="mx-2">/</span>
+            <span class="text-gray-700">500 Internal Server Errors</span>
+        </nav>
+
+        <article class="glass rounded-3xl shadow-xl p-8 md:p-12 border border-indigo-100">
+
+            <!-- Article Header -->
+            <header class="mb-8 pb-8 border-b border-gray-200">
+                <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                    <span class="material-icons text-xs">calendar_today</span>
+                    <time datetime="2025-01-05">January 5, 2025</time>
+                    <span class="mx-2">|</span>
+                    <span>6 min read</span>
+                    <span class="mx-2">|</span>
+                    <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-xs font-medium">5xx Errors</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+                    Troubleshooting 500 Internal Server Errors
+                </h1>
+                <p class="text-xl text-gray-600">
+                    A comprehensive guide to diagnosing and fixing the dreaded 500 error, from server logs to common causes and solutions.
+                </p>
+            </header>
+
+            <!-- Article Content -->
+            <div class="prose max-w-none text-gray-700">
+
+                <h2 class="text-2xl font-bold text-gray-900">What is a 500 Internal Server Error?</h2>
+                <p>
+                    A <strong>500 Internal Server Error</strong> is a generic HTTP status code indicating that something went wrong on the server, but the server can't be more specific about what the problem is.
+                </p>
+                <p>
+                    Unlike 404 errors (which tell you a page wasn't found), 500 errors don't reveal the actual cause. This makes them frustrating to debug, but also means there are several common places to look.
+                </p>
+
+                <div class="error-box">
+                    <p class="font-semibold text-red-800 mb-2">Why 500 Errors Are Critical</p>
+                    <p class="text-red-700 text-sm mb-0">
+                        500 errors completely block users from accessing your content. If search engine bots encounter them repeatedly, it can hurt your indexing and rankings.
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">Common Causes of 500 Errors</h2>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">1. Corrupted .htaccess File</h3>
+                <p>
+                    The <code>.htaccess</code> file controls server behavior for Apache servers. A syntax error or invalid directive will cause 500 errors site-wide.
+                </p>
+                <p><strong>Quick fix:</strong> Rename <code>.htaccess</code> to <code>.htaccess_backup</code> and see if the site loads.</p>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">2. PHP Errors or Timeouts</h3>
+                <p>
+                    Syntax errors in PHP code, memory limit exceeded, or scripts that take too long to execute can all trigger 500 errors.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">3. Incorrect File Permissions</h3>
+                <p>
+                    Files and directories need specific permissions. Typically:
+                </p>
+                <ul>
+                    <li>Files: <code>644</code></li>
+                    <li>Directories: <code>755</code></li>
+                    <li>PHP files should never be <code>777</code></li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">4. Plugin or Theme Conflicts (WordPress)</h3>
+                <p>
+                    Faulty plugins or themes are the #1 cause of 500 errors on WordPress sites, especially after updates.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">5. Database Connection Issues</h3>
+                <p>
+                    If your site can't connect to its database (wrong credentials, database server down, or corrupted tables), it may return 500.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">6. Server Resource Limits</h3>
+                <p>
+                    Exceeding your hosting plan's memory, CPU, or process limits can cause the server to error out.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-900">Step-by-Step Troubleshooting</h2>
+
+                <div class="my-6">
+                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                        <span class="step-number">1</span>
+                        Check Server Error Logs
+                    </h3>
+                    <p class="ml-11">
+                        The error log reveals the actual cause. Look in:
+                    </p>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded-xl overflow-x-auto text-sm my-4 ml-11"><code># Apache
+/var/log/apache2/error.log
+
+# Nginx
+/var/log/nginx/error.log
+
+# cPanel
+~/public_html/error_log</code></pre>
+                </div>
+
+                <div class="my-6">
+                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                        <span class="step-number">2</span>
+                        Test .htaccess
+                    </h3>
+                    <p class="ml-11">
+                        Temporarily rename or remove your <code>.htaccess</code> file:
+                    </p>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded-xl overflow-x-auto text-sm my-4 ml-11"><code>mv .htaccess .htaccess_backup</code></pre>
+                    <p class="ml-11">If the site works, the issue is in your <code>.htaccess</code>. Review it line by line.</p>
+                </div>
+
+                <div class="my-6">
+                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                        <span class="step-number">3</span>
+                        Increase PHP Memory Limit
+                    </h3>
+                    <p class="ml-11">
+                        Add to <code>php.ini</code>, <code>.htaccess</code>, or <code>wp-config.php</code>:
+                    </p>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded-xl overflow-x-auto text-sm my-4 ml-11"><code># php.ini
+memory_limit = 256M
+
+# .htaccess
+php_value memory_limit 256M
+
+# wp-config.php (WordPress)
+define('WP_MEMORY_LIMIT', '256M');</code></pre>
+                </div>
+
+                <div class="my-6">
+                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                        <span class="step-number">4</span>
+                        Check File Permissions
+                    </h3>
+                    <p class="ml-11">
+                        Reset permissions to standard values:
+                    </p>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded-xl overflow-x-auto text-sm my-4 ml-11"><code># Directories
+find /path/to/site -type d -exec chmod 755 {} \;
+
+# Files
+find /path/to/site -type f -exec chmod 644 {} \;</code></pre>
+                </div>
+
+                <div class="my-6">
+                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                        <span class="step-number">5</span>
+                        Disable Plugins (WordPress)
+                    </h3>
+                    <p class="ml-11">
+                        If you can't access wp-admin, rename the plugins folder via FTP:
+                    </p>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded-xl overflow-x-auto text-sm my-4 ml-11"><code>mv wp-content/plugins wp-content/plugins_backup</code></pre>
+                    <p class="ml-11">Then reactivate plugins one by one to find the culprit.</p>
+                </div>
+
+                <div class="my-6">
+                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                        <span class="step-number">6</span>
+                        Test Database Connection
+                    </h3>
+                    <p class="ml-11">
+                        Verify your database credentials are correct in your config file (<code>wp-config.php</code>, <code>.env</code>, etc.).
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">Preventing 500 Errors</h2>
+                <ul>
+                    <li><strong>Test changes in staging</strong> - Never push untested code to production</li>
+                    <li><strong>Keep backups</strong> - Daily backups let you quickly restore a working state</li>
+                    <li><strong>Monitor uptime</strong> - Get alerts when your site goes down</li>
+                    <li><strong>Update carefully</strong> - Test plugin/theme updates on staging first</li>
+                    <li><strong>Use error logging</strong> - Enable detailed logging to catch issues early</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p class="font-semibold text-green-800 mb-2">Monitor Your Site's Health</p>
+                    <p class="text-green-700 text-sm mb-3">
+                        Regularly check your important URLs for 500 errors before users report them. <a href="https://urlstatuschecker.com" target="_blank" class="underline font-semibold">URL Status Checker</a> can scan up to 100 URLs at once to find server errors.
+                    </p>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors">
+                        <span class="material-icons text-sm">speed</span>
+                        Check Your Site Now
+                    </a>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">Other 5xx Server Errors</h2>
+                <p>
+                    The 500 error is just one of several server-side error codes:
+                </p>
+                <ul>
+                    <li><strong>501 Not Implemented</strong> - Server doesn't support the request method</li>
+                    <li><strong>502 Bad Gateway</strong> - Server received invalid response from upstream</li>
+                    <li><strong>503 Service Unavailable</strong> - Server temporarily unavailable (maintenance/overload)</li>
+                    <li><strong>504 Gateway Timeout</strong> - Upstream server didn't respond in time</li>
+                </ul>
+                <p>
+                    <a href="/status-codes.html#5xx" class="text-[#ff006e] font-semibold hover:underline">View all 5xx error codes →</a>
+                </p>
+
+                <!-- CTA Section -->
+                <div class="mt-12 p-8 bg-gradient-to-br from-[#ff006e]/10 to-[#ff4081]/10 rounded-2xl border-2 border-[#ff006e]/20 text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Check Your Site for Server Errors</h3>
+                    <p class="text-gray-600 mb-6">
+                        Scan your important URLs in bulk to catch 500 errors before they hurt your SEO.
+                    </p>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-[#ff006e] to-[#ff4081] text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all">
+                        <span class="material-icons">speed</span>
+                        Scan Your URLs Free
+                    </a>
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Related Articles -->
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="/blog/understanding-404-errors-and-seo.html" class="glass rounded-2xl p-6 border border-indigo-100 hover:shadow-lg transition-all group">
+                    <span class="text-red-500 font-bold text-sm">CLIENT ERRORS</span>
+                    <h4 class="text-xl font-bold text-gray-900 mt-2 group-hover:text-[#ff006e] transition-colors">Understanding 404 Errors and SEO</h4>
+                    <p class="text-gray-600 mt-2 text-sm">Learn how to find and fix broken links on your website.</p>
+                </a>
+                <a href="/blog/301-vs-302-redirects-guide.html" class="glass rounded-2xl p-6 border border-indigo-100 hover:shadow-lg transition-all group">
+                    <span class="text-yellow-500 font-bold text-sm">REDIRECTS</span>
+                    <h4 class="text-xl font-bold text-gray-900 mt-2 group-hover:text-[#ff006e] transition-colors">301 vs 302 Redirects: A Complete Guide</h4>
+                    <p class="text-gray-600 mt-2 text-sm">Learn when to use permanent vs temporary redirects for SEO.</p>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-indigo-100 mt-20">
+        <div class="max-w-4xl mx-auto px-6 py-8 text-center">
+            <p class="text-gray-600 text-sm">
+                &copy; 2025 <a href="/" class="text-[#ff006e] font-semibold">Status Code Check</a>. All rights reserved.
+            </p>
+            <p class="text-gray-500 text-sm mt-2">
+                <a href="https://urlstatuschecker.com" target="_blank" class="hover:text-[#ff006e]">URL Status Checker</a>
+                <span class="mx-2">|</span>
+                <a href="/status-codes.html" class="hover:text-[#ff006e]">All Status Codes</a>
+                <span class="mx-2">|</span>
+                <a href="/blog" class="hover:text-[#ff006e]">Blog</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
