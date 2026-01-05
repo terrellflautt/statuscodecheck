@@ -296,7 +296,7 @@
             display: none;
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu - Only shows on small screens */
         .mobile-menu {
             display: none;
             transform: translateX(100%);
@@ -306,6 +306,14 @@
         .mobile-menu.active {
             display: block;
             transform: translateX(0);
+        }
+
+        /* Hide mobile menu on desktop (768px+) even if active */
+        @media (min-width: 768px) {
+            .mobile-menu,
+            .mobile-menu.active {
+                display: none !important;
+            }
         }
 
         /* Quick Nav Pills */
@@ -1035,6 +1043,14 @@
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('active');
         }
+
+        // Close mobile menu on window resize to desktop size
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.remove('active');
+            }
+        });
     </script>
 
 </body>

@@ -68,6 +68,7 @@
 
         .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
         .mobile-menu.active { transform: translateX(0); }
+        @media (min-width: 768px) { .mobile-menu, .mobile-menu.active { display: none !important; } }
 
         .error-code {
             font-size: 12rem;

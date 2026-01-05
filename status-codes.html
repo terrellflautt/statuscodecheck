@@ -146,6 +146,14 @@
         .mobile-menu.active {
             transform: translateX(0);
         }
+
+        /* Hide mobile menu on desktop (768px+) even if active */
+        @media (min-width: 768px) {
+            .mobile-menu,
+            .mobile-menu.active {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
