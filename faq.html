@@ -4,14 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Frequently Asked Questions - HTTP Status Codes FAQ | Status Code Check</title>
-    <meta name="description" content="Answers to common questions about HTTP status codes, error troubleshooting, redirects, and how to fix website errors.">
-    <meta name="keywords" content="HTTP status codes FAQ, status code questions, 404 error FAQ, website error help">
-    <meta name="robots" content="index, follow">
+    <!-- SEO Meta Tags - Optimized for "People Also Ask" -->
+    <title>HTTP Status Codes FAQ - 200 vs 201, 404 vs 402, 500 vs 502 vs 503 Explained | Status Code Check</title>
+    <meta name="description" content="Complete HTTP status code FAQ: What's the difference between 200, 201, 202? How to fix 404, 402, 500, 502, 503 errors? 301 vs 302 redirects explained. Expert answers with solutions.">
+    <meta name="keywords" content="HTTP status codes FAQ, 200 vs 201 vs 202, 404 vs 402 error, 500 vs 502 vs 503, 301 vs 302 redirect, status code questions, http error codes explained, fix 404 error, fix 500 error, http status code list">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://statuscodecheck.com/faq.html">
+    <meta name="author" content="Status Code Check">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="HTTP Status Codes FAQ - Complete Guide with Solutions">
+    <meta property="og:description" content="Expert answers to common HTTP status code questions. 200 vs 201, 404 vs 402, 500 vs 502 vs 503 explained with fixes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://statuscodecheck.com/faq.html">
+
+    <!-- FAQ Schema for Google Rich Results - "People Also Ask" -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is status code 200 vs 201 vs 202?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "200 OK means the request succeeded and the resource is returned. 201 Created means a new resource was successfully created (common after POST requests). 202 Accepted means the request was accepted but not yet processed - the server will handle it asynchronously. Use 200 for successful GET requests, 201 when creating new records, and 202 for queued operations like sending emails or processing uploads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is 404 and 402 error code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "404 Not Found means the server cannot find the requested resource - the page doesn't exist, was deleted, or the URL is wrong. 402 Payment Required is rarely used but indicates payment is needed to access the resource. While 404 is the most common client error (broken links, deleted pages), 402 is reserved for future use in digital payment systems. Most payment-related access issues use 403 Forbidden instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is error code 500 vs 503 vs 502?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "500 Internal Server Error is a generic catch-all for unexpected server-side errors (code bugs, database issues). 502 Bad Gateway means your server received an invalid response from an upstream server (backend down, proxy issues). 503 Service Unavailable means the server is temporarily overloaded or under maintenance. To fix: 500 = check server logs for code errors; 502 = verify backend/upstream servers are running; 503 = wait or increase server capacity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is error code 302 and 304?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "302 Found (Temporary Redirect) tells browsers to temporarily go to a different URL - the original URL is still valid. 304 Not Modified means the cached version is still current - no need to download again. 302 is for redirects (A/B tests, temporary maintenance pages), while 304 is for caching (saves bandwidth when content hasn't changed). For permanent URL changes, use 301 instead of 302."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between 301 and 302 redirects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "301 Moved Permanently tells search engines the URL has permanently changed - SEO value transfers to the new URL and browsers cache the redirect. 302 Found (Temporary Redirect) indicates a temporary move - search engines keep the original URL indexed and don't transfer full SEO value. Use 301 for: domain changes, URL restructuring, merging duplicate content. Use 302 for: A/B testing, geolocation redirects, temporary maintenance pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix 404 errors on my website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To fix 404 errors: 1) Check if the page exists - restore if accidentally deleted. 2) Set up 301 redirects from old URLs to new locations. 3) Fix broken internal links in navigation and content. 4) Update XML sitemap to remove dead URLs. 5) Use Google Search Console to find and prioritize high-traffic 404s. 6) Create a helpful custom 404 page with search and navigation. 7) Contact external sites linking to deleted pages to update their links."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does 403 Forbidden mean and how to fix it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "403 Forbidden means the server understands your request but refuses to authorize it - you don't have permission. Unlike 401 (needs authentication), 403 means even authenticated users are blocked. To fix: Check file permissions (644 for files, 755 for directories), review .htaccess rules for Deny directives, verify user role permissions, check if IP is blacklisted, disable WAF/firewall temporarily to test, ensure directory has an index file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do status codes matter for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Status codes directly impact SEO: 200 OK signals healthy indexable pages. 301 redirects pass ~90-99% of link equity to new URLs. 302 redirects don't transfer SEO value. 404 errors waste crawl budget and can de-index important pages. 5xx errors prevent indexing entirely - persistent 500s cause ranking drops. Redirect chains (301→301→301) dilute link equity with each hop. Google recommends monitoring status codes in Search Console to maintain healthy indexing."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://statuscodecheck.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://statuscodecheck.com/faq.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -19,382 +127,664 @@
 
     <style>
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(180deg, #faf0e6 0%, #ffffff 100%);
+        }
 
         .gradient-text {
-            background: linear-gradient(135deg, #ff006e 0%, #ff006e 100%);
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .glass {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
         }
 
         .faq-item {
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .faq-item:hover {
-            background: rgba(170, 51, 106, 0.05);
+            border-color: rgba(255, 0, 110, 0.2);
+            box-shadow: 0 4px 20px rgba(255, 0, 110, 0.1);
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease;
         }
 
         .faq-answer.active {
-            max-height: 1000px;
+            max-height: 2000px;
         }
 
-        .float-animation {
-            animation: float 4s ease-in-out infinite;
+        .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+        .quick-link {
+            transition: all 0.2s ease;
+        }
+
+        .quick-link:hover {
+            transform: translateX(4px);
+            color: #ff006e;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 0, 110, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 110, 0.4);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+<body class="min-h-screen">
 
     <!-- Header -->
-    <header class="glass border-b border-indigo-100 sticky top-0 z-40 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-6">
+    <header class="glass-header sticky top-0 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg float-animation">
-                        <span class="material-icons text-white text-3xl">code</span>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shadow-xl" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                        <span class="material-icons text-white text-2xl sm:text-3xl">code</span>
                     </div>
                     <div>
-                        <a href="/" class="text-3xl font-extrabold gradient-text hover:opacity-80 transition-opacity">Status Code Check</a>
-                        <p class="text-sm text-gray-600 font-medium">Frequently Asked Questions</p>
+                        <a href="/" class="text-xl sm:text-2xl md:text-3xl font-black gradient-text tracking-tight hover:opacity-80 transition-opacity">Status Code Check</a>
+                        <p class="text-xs text-gray-500 font-semibold hidden sm:block">HTTP Status Code FAQ</p>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <a href="/" class="text-gray-600 hover:text-primary transition-colors font-medium">Home</a>
-                    <a href="/status-codes.html" class="text-gray-600 hover:text-primary transition-colors font-medium">All Codes</a>
-                    <a href="https://urlstatuschecker.com" target="_blank" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all">
-                        Check URLs
+                <div class="hidden md:flex items-center gap-2 lg:gap-4">
+                    <a href="/" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">Home</a>
+                    <a href="/status-codes.html" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">All Codes</a>
+                    <a href="/blog/" class="text-gray-700 hover:text-[#ff006e] transition-all font-semibold text-sm px-4 py-2 rounded-xl hover:bg-pink-50">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="text-white px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold btn-primary">
+                        <span class="material-icons text-sm">bolt</span>
+                        <span>Check URLs</span>
                     </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-12">
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
 
-        <div class="text-center mb-12">
-            <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h1>
-            <p class="text-xl text-gray-600">
-                Everything you need to know about HTTP status codes, errors, and troubleshooting.
+        <!-- Hero Section -->
+        <div class="text-center mb-10 sm:mb-14">
+            <div class="inline-block mb-4">
+                <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#ff006e]/10 rounded-full text-xs sm:text-sm font-semibold text-[#ff006e]">
+                    <span class="material-icons text-sm">verified</span>
+                    Expert Answers • Updated January 2026
+                </span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">HTTP Status Codes FAQ</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                Clear answers to the most common questions about HTTP status codes, errors, and troubleshooting.
             </p>
         </div>
 
+        <!-- Quick Jump Navigation -->
+        <div class="glass rounded-2xl p-4 sm:p-6 mb-8 sm:mb-10 border border-[#ff006e]/10">
+            <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <span class="material-icons text-[#ff006e]">speed</span>
+                Quick Jump to Topic
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <a href="#success-codes" class="quick-link flex items-center gap-2 text-gray-700 text-sm font-medium">
+                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                    2xx Success Codes
+                </a>
+                <a href="#redirect-codes" class="quick-link flex items-center gap-2 text-gray-700 text-sm font-medium">
+                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                    3xx Redirects
+                </a>
+                <a href="#client-errors" class="quick-link flex items-center gap-2 text-gray-700 text-sm font-medium">
+                    <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+                    4xx Client Errors
+                </a>
+                <a href="#server-errors" class="quick-link flex items-center gap-2 text-gray-700 text-sm font-medium">
+                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                    5xx Server Errors
+                </a>
+            </div>
+        </div>
+
         <!-- FAQ Categories -->
-        <div class="space-y-8">
+        <div class="space-y-10 sm:space-y-12">
 
-            <!-- General Questions -->
-            <section>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <span class="material-icons text-primary text-3xl">help_outline</span>
-                    General Questions
-                </h2>
-
-                <div class="space-y-4">
-                    <!-- FAQ Item -->
-                    <div class="faq-item glass rounded-2xl border border-indigo-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">What is an HTTP status code?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed">
-                                An HTTP status code is a 3-digit number returned by a web server in response to a browser's request. It indicates whether the request was successful, redirected, encountered an error, or requires additional action. Status codes are grouped into five categories: 1xx (Informational), 2xx (Success), 3xx (Redirection), 4xx (Client Errors), and 5xx (Server Errors).
-                            </p>
-                        </div>
+            <!-- Most Asked Questions (Google "People Also Ask") -->
+            <section id="top-questions">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                        <span class="material-icons text-white">trending_up</span>
                     </div>
-
-                    <div class="faq-item glass rounded-2xl border border-indigo-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">Why do status codes matter for SEO?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                Status codes directly impact how search engines crawl and index your website. Here's why they matter:
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4">
-                                <li><strong>404 errors</strong> tell search engines a page doesn't exist, which can hurt rankings if it's a valuable page</li>
-                                <li><strong>301 redirects</strong> pass SEO value to the new URL, while 302 redirects don't</li>
-                                <li><strong>500 errors</strong> prevent indexing and can cause search engines to remove pages from results</li>
-                                <li><strong>200 OK</strong> signals healthy pages that should be indexed normally</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="faq-item glass rounded-2xl border border-indigo-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">How can I check what status code my website returns?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                You can check status codes several ways:
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4">
-                                <li>Use <a href="https://urlstatuschecker.com" class="text-primary font-semibold hover:underline">URL Status Checker</a> to test up to 100 URLs at once</li>
-                                <li>Open browser Developer Tools (F12) → Network tab → reload page → check Status column</li>
-                                <li>Use curl command: <code class="bg-gray-100 px-2 py-1 rounded">curl -I https://yoursite.com</code></li>
-                                <li>Use online tools like Redirect Checker or HTTP Status Checker</li>
-                            </ul>
-                        </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Most Asked Questions</h2>
+                        <p class="text-sm text-gray-500">Top questions from Google "People Also Ask"</p>
                     </div>
                 </div>
-            </section>
-
-            <!-- 404 Errors -->
-            <section>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <span class="material-icons text-orange-600 text-3xl">error_outline</span>
-                    404 Errors
-                </h2>
 
                 <div class="space-y-4">
-                    <div class="faq-item glass rounded-2xl border border-orange-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">What does 404 Not Found mean?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
+                    <!-- 200 vs 201 vs 202 -->
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What is status code 200 vs 201 vs 202?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
                         </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed">
-                                A 404 error means the server cannot find the requested resource. This happens when a page has been deleted, moved without a redirect, the URL is mistyped, or the link is broken. The page never existed at that URL, or it existed but no longer does. <a href="/status-codes.html#404" class="text-primary font-semibold hover:underline">Learn more about 404 errors →</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item glass rounded-2xl border border-orange-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">How do I fix 404 errors on my website?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                Fix 404 errors by:
-                            </p>
-                            <ol class="list-decimal list-inside text-gray-600 space-y-2 ml-4">
-                                <li>Check if the page still exists - restore it if it was accidentally deleted</li>
-                                <li>If the page moved, create a 301 redirect to the new location</li>
-                                <li>Fix broken internal links in your navigation, content, and sitemaps</li>
-                                <li>Update external links where possible (contact site owners)</li>
-                                <li>Create a custom 404 page with helpful navigation and search</li>
-                                <li>Monitor 404s in Google Search Console and fix high-traffic ones first</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="faq-item glass rounded-2xl border border-orange-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">Are 404 errors bad for SEO?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed">
-                                404 errors aren't inherently bad - they're a normal part of the web. However, they can hurt SEO if: (1) important pages with backlinks return 404, (2) you have many 404s from broken internal links, or (3) users land on 404s from search results. A few 404s from old or mistyped URLs won't harm your site. Focus on fixing 404s for pages that receive traffic, have backlinks, or are linked from your site.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Redirects -->
-            <section>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <span class="material-icons text-yellow-600 text-3xl">sync_alt</span>
-                    Redirects (301, 302, 307, 308)
-                </h2>
-
-                <div class="space-y-4">
-                    <div class="faq-item glass rounded-2xl border border-yellow-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">What's the difference between 301 and 302 redirects?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                <strong>301 (Moved Permanently)</strong>: Tells search engines the page has permanently moved. Search engines transfer ranking signals to the new URL and update their index.
-                            </p>
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                <strong>302 (Found / Temporary Redirect)</strong>: Indicates a temporary move. Search engines keep the original URL in their index and don't transfer full SEO value.
-                            </p>
-                            <p class="text-gray-600 leading-relaxed">
-                                <strong>When to use:</strong> Use 301 for permanent URL changes (rebranding, consolidating pages, fixing URL structure). Use 302 for temporary situations (A/B testing, seasonal pages, maintenance).
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item glass rounded-2xl border border-yellow-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">How many redirects in a chain is too many?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed">
-                                Best practice is to keep redirect chains to 1-2 hops maximum. Each redirect adds latency, and search engines may stop following after 3-5 redirects. For example, URL-A → URL-B → URL-C → URL-D is problematic. Instead, update all redirects to point directly to the final destination: URL-A → URL-D, URL-B → URL-D, URL-C → URL-D. This improves page speed and ensures search engines can reach your content.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item glass rounded-2xl border border-yellow-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">What is a redirect loop and how do I fix it?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                A redirect loop occurs when URL-A redirects to URL-B, which redirects back to URL-A (or through multiple URLs that eventually loop back). Browsers detect this and show an error like "too many redirects."
-                            </p>
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                <strong>Common causes:</strong>
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4 mb-3">
-                                <li>Conflicting redirect rules in .htaccess or nginx config</li>
-                                <li>Plugin or CMS settings creating circular redirects</li>
-                                <li>HTTP to HTTPS redirect conflicting with HTTPS to HTTP</li>
-                                <li>www to non-www redirect conflicting with opposite rule</li>
-                            </ul>
-                            <p class="text-gray-600 leading-relaxed">
-                                <strong>Fix:</strong> Review your redirect rules, disable conflicting plugins, clear server cache, and test redirects with curl or redirect checker tools.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Server Errors -->
-            <section>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <span class="material-icons text-red-600 text-3xl">report_problem</span>
-                    Server Errors (500, 502, 503, 504)
-                </h2>
-
-                <div class="space-y-4">
-                    <div class="faq-item glass rounded-2xl border border-red-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">What causes 500 Internal Server Error?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                A 500 error is a generic catch-all for server-side errors. Common causes include:
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4">
-                                <li>Syntax errors in server-side code (PHP, Python, Node.js, etc.)</li>
-                                <li>Database connection failures or query errors</li>
-                                <li>Insufficient server resources (memory, CPU, disk space)</li>
-                                <li>Incorrect file permissions (chmod issues)</li>
-                                <li>Corrupted .htaccess file or configuration errors</li>
-                                <li>Plugin or extension conflicts</li>
-                            </ul>
-                            <p class="text-gray-600 leading-relaxed mt-3">
-                                Check server error logs for specific details about what went wrong.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item glass rounded-2xl border border-red-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">What's the difference between 502, 503, and 504 errors?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <div class="space-y-3 text-gray-600">
-                                <div>
-                                    <strong class="text-gray-900">502 Bad Gateway:</strong> Your server (acting as a gateway/proxy) received an invalid response from an upstream server. Common with load balancers, reverse proxies, or when backend application servers are down.
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <div class="space-y-4 text-gray-600">
+                                <p class="leading-relaxed">
+                                    All three are <strong class="text-green-600">success codes (2xx)</strong>, but they indicate different outcomes:
+                                </p>
+                                <div class="grid gap-3">
+                                    <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-500">
+                                        <div class="font-bold text-green-700 mb-1">200 OK</div>
+                                        <p class="text-sm">The request succeeded. The resource is returned in the response body. <em>Most common success code for GET requests.</em></p>
+                                    </div>
+                                    <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-500">
+                                        <div class="font-bold text-green-700 mb-1">201 Created</div>
+                                        <p class="text-sm">A new resource was successfully created. <em>Used after POST requests that create new records (users, orders, posts).</em></p>
+                                    </div>
+                                    <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-500">
+                                        <div class="font-bold text-green-700 mb-1">202 Accepted</div>
+                                        <p class="text-sm">Request accepted but not yet processed. The server will handle it asynchronously. <em>Used for queued operations like sending emails, processing uploads, or batch jobs.</em></p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <strong class="text-gray-900">503 Service Unavailable:</strong> The server is temporarily unable to handle requests, usually due to maintenance, overload, or resource exhaustion. Often temporary.
-                                </div>
-                                <div>
-                                    <strong class="text-gray-900">504 Gateway Timeout:</strong> Your server didn't receive a timely response from an upstream server. The backend server is taking too long (slow queries, processing, or network issues).
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item glass rounded-2xl border border-red-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">How do server errors affect my website visitors?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed mb-3">
-                                Server errors (5xx) prevent visitors from accessing your content entirely. Impact includes:
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4">
-                                <li><strong>Lost conversions:</strong> Visitors can't complete purchases, sign-ups, or other actions</li>
-                                <li><strong>Poor user experience:</strong> Frustration leads to visitors leaving and not returning</li>
-                                <li><strong>SEO damage:</strong> If errors persist, search engines may de-index pages or lower rankings</li>
-                                <li><strong>Brand reputation:</strong> Frequent errors make your site appear unprofessional or unreliable</li>
-                                <li><strong>Revenue loss:</strong> Downtime directly impacts sales for e-commerce sites</li>
-                            </ul>
-                            <p class="text-gray-600 leading-relaxed mt-3">
-                                Monitoring tools and quick response times are essential to minimize impact.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Authentication & Permissions -->
-            <section>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <span class="material-icons text-[#ff006e] text-3xl">lock</span>
-                    Authentication & Permissions
-                </h2>
-
-                <div class="space-y-4">
-                    <div class="faq-item glass rounded-2xl border border-indigo-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">What's the difference between 401 and 403 errors?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
-                        </button>
-                        <div class="faq-answer px-6 pb-4">
-                            <div class="space-y-3 text-gray-600">
-                                <div>
-                                    <strong class="text-gray-900">401 Unauthorized:</strong> You need to authenticate (log in) to access this resource. Your credentials are either missing, invalid, or expired. The server is saying "who are you?"
-                                </div>
-                                <div>
-                                    <strong class="text-gray-900">403 Forbidden:</strong> You're authenticated, but you don't have permission to access this resource. Your identity is known, but you're not allowed. The server is saying "I know who you are, but you can't access this."
-                                </div>
-                                <p class="mt-3">
-                                    Think of it like a club: 401 = "Show me your ID" / 403 = "Your ID is valid, but you're not on the VIP list"
+                                <p class="text-sm bg-gray-50 p-3 rounded-lg">
+                                    <strong>Quick Rule:</strong> Use 200 for reads, 201 for creates, 202 for async operations.
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="faq-item glass rounded-2xl border border-indigo-100 overflow-hidden">
-                        <button class="faq-question w-full text-left px-6 py-4 flex items-center justify-between" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-bold text-gray-900">How do I fix 403 Forbidden errors?</h3>
-                            <span class="material-icons text-primary">expand_more</span>
+                    <!-- 404 vs 402 -->
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What is 404 and 402 error code?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
                         </button>
-                        <div class="faq-answer px-6 pb-4">
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <div class="space-y-4 text-gray-600">
+                                <p class="leading-relaxed">
+                                    Both are <strong class="text-orange-600">client error codes (4xx)</strong>, but they're very different:
+                                </p>
+                                <div class="grid gap-3">
+                                    <div class="bg-orange-50 rounded-xl p-4 border-l-4 border-orange-500">
+                                        <div class="font-bold text-orange-700 mb-1">404 Not Found <span class="text-xs font-normal">(Very Common)</span></div>
+                                        <p class="text-sm mb-2">The server cannot find the requested resource. The page doesn't exist, was deleted, or the URL is wrong.</p>
+                                        <p class="text-xs text-gray-500"><strong>Common causes:</strong> Deleted pages, typos in URLs, broken links, changed URL structure</p>
+                                    </div>
+                                    <div class="bg-orange-50 rounded-xl p-4 border-l-4 border-orange-400">
+                                        <div class="font-bold text-orange-700 mb-1">402 Payment Required <span class="text-xs font-normal">(Rarely Used)</span></div>
+                                        <p class="text-sm mb-2">Reserved for future use in digital payment systems. Indicates payment is needed to access the resource.</p>
+                                        <p class="text-xs text-gray-500"><strong>Note:</strong> Most payment-related access issues use 403 Forbidden instead. 402 is rarely implemented.</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm bg-gray-50 p-3 rounded-lg">
+                                    <strong>Key Difference:</strong> 404 = "Page doesn't exist" | 402 = "Pay to access" (rarely used)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 500 vs 502 vs 503 -->
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What is error code 500 vs 503 vs 502?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <div class="space-y-4 text-gray-600">
+                                <p class="leading-relaxed">
+                                    All three are <strong class="text-red-600">server errors (5xx)</strong>. Here's how to identify and fix each:
+                                </p>
+                                <div class="grid gap-3">
+                                    <div class="bg-red-50 rounded-xl p-4 border-l-4 border-red-500">
+                                        <div class="font-bold text-red-700 mb-1">500 Internal Server Error</div>
+                                        <p class="text-sm mb-2">Generic catch-all for unexpected server-side errors.</p>
+                                        <p class="text-xs"><strong>Causes:</strong> Code bugs, database errors, corrupted .htaccess, permission issues</p>
+                                        <p class="text-xs text-green-700 mt-1"><strong>Fix:</strong> Check server error logs for specific error messages</p>
+                                    </div>
+                                    <div class="bg-red-50 rounded-xl p-4 border-l-4 border-red-400">
+                                        <div class="font-bold text-red-700 mb-1">502 Bad Gateway</div>
+                                        <p class="text-sm mb-2">Your server received an invalid response from an upstream server.</p>
+                                        <p class="text-xs"><strong>Causes:</strong> Backend/app server down, proxy misconfiguration, overloaded upstream</p>
+                                        <p class="text-xs text-green-700 mt-1"><strong>Fix:</strong> Verify backend servers are running, check proxy/load balancer config</p>
+                                    </div>
+                                    <div class="bg-red-50 rounded-xl p-4 border-l-4 border-red-300">
+                                        <div class="font-bold text-red-700 mb-1">503 Service Unavailable</div>
+                                        <p class="text-sm mb-2">Server is temporarily unable to handle requests.</p>
+                                        <p class="text-xs"><strong>Causes:</strong> Maintenance mode, traffic overload, resource exhaustion</p>
+                                        <p class="text-xs text-green-700 mt-1"><strong>Fix:</strong> Wait for maintenance to end, or scale up server resources</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm bg-gray-50 p-3 rounded-lg">
+                                    <strong>Quick Reference:</strong> 500 = Code bug | 502 = Backend down | 503 = Overloaded/Maintenance
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 302 vs 304 -->
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What is error code 302 and 304?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <div class="space-y-4 text-gray-600">
+                                <p class="leading-relaxed">
+                                    Both are <strong class="text-yellow-600">3xx codes</strong>, but they serve different purposes:
+                                </p>
+                                <div class="grid gap-3">
+                                    <div class="bg-yellow-50 rounded-xl p-4 border-l-4 border-yellow-500">
+                                        <div class="font-bold text-yellow-700 mb-1">302 Found (Temporary Redirect)</div>
+                                        <p class="text-sm mb-2">The resource temporarily lives at a different URL. The browser should follow the redirect but keep the original URL for future requests.</p>
+                                        <p class="text-xs text-gray-500"><strong>Use for:</strong> A/B testing, geo-location redirects, temporary maintenance pages</p>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-xl p-4 border-l-4 border-blue-500">
+                                        <div class="font-bold text-blue-700 mb-1">304 Not Modified (Caching)</div>
+                                        <p class="text-sm mb-2">The cached version is still valid. No need to download the resource again - saves bandwidth and speeds up page loads.</p>
+                                        <p class="text-xs text-gray-500"><strong>How it works:</strong> Browser asks "has this changed?", server replies "no, use your cache"</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm bg-gray-50 p-3 rounded-lg">
+                                    <strong>Key Difference:</strong> 302 = "Go to this other URL temporarily" | 304 = "Use your cached version"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 301 vs 302 -->
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What's the difference between 301 and 302 redirects?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <div class="space-y-4 text-gray-600">
+                                <p class="leading-relaxed">
+                                    This distinction is <strong>critical for SEO</strong>:
+                                </p>
+                                <div class="grid gap-3">
+                                    <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-600">
+                                        <div class="font-bold text-green-700 mb-1">301 Moved Permanently</div>
+                                        <ul class="text-sm space-y-1 list-disc list-inside">
+                                            <li>URL has permanently changed</li>
+                                            <li>Search engines transfer ~90-99% of link equity (SEO value) to new URL</li>
+                                            <li>Browsers cache the redirect</li>
+                                            <li>Google updates index to new URL</li>
+                                        </ul>
+                                        <p class="text-xs text-green-700 mt-2"><strong>Use for:</strong> Domain changes, URL restructuring, merging duplicate pages</p>
+                                    </div>
+                                    <div class="bg-yellow-50 rounded-xl p-4 border-l-4 border-yellow-500">
+                                        <div class="font-bold text-yellow-700 mb-1">302 Found (Temporary)</div>
+                                        <ul class="text-sm space-y-1 list-disc list-inside">
+                                            <li>URL has temporarily changed</li>
+                                            <li>Search engines keep original URL indexed</li>
+                                            <li>Minimal SEO value transferred</li>
+                                            <li>Browsers don't cache (check each time)</li>
+                                        </ul>
+                                        <p class="text-xs text-yellow-700 mt-2"><strong>Use for:</strong> A/B testing, seasonal content, maintenance pages</p>
+                                    </div>
+                                </div>
+                                <div class="text-sm bg-red-50 p-3 rounded-lg border border-red-200">
+                                    <strong class="text-red-700">Common Mistake:</strong> Using 302 when you mean 301 loses SEO value. If the move is permanent, always use 301.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success Codes Section -->
+            <section id="success-codes">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-green-500">
+                        <span class="material-icons text-white">check_circle</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">2xx Success Codes</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What is an HTTP status code?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
                             <p class="text-gray-600 leading-relaxed mb-3">
-                                Common fixes for 403 errors:
+                                An HTTP status code is a 3-digit number returned by a web server in response to a browser's request. It indicates whether the request was successful, redirected, encountered an error, or requires additional action.
                             </p>
-                            <ol class="list-decimal list-inside text-gray-600 space-y-2 ml-4">
-                                <li><strong>Check file permissions:</strong> Ensure files are 644 and directories are 755</li>
-                                <li><strong>Review .htaccess rules:</strong> Look for Deny/Allow directives blocking access</li>
-                                <li><strong>Check user roles:</strong> Verify the authenticated user has required permissions</li>
-                                <li><strong>IP whitelist/blacklist:</strong> Ensure your IP isn't blocked</li>
-                                <li><strong>Firewall/WAF rules:</strong> Check if security tools are blocking legitimate requests</li>
-                                <li><strong>Index file:</strong> Ensure index.html or index.php exists in the directory</li>
+                            <div class="grid sm:grid-cols-2 gap-2 text-sm">
+                                <div class="flex items-center gap-2 p-2 bg-blue-50 rounded-lg">
+                                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                    <span><strong>1xx</strong> - Informational</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-green-50 rounded-lg">
+                                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                    <span><strong>2xx</strong> - Success</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-yellow-50 rounded-lg">
+                                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                                    <span><strong>3xx</strong> - Redirection</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-orange-50 rounded-lg">
+                                    <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                                    <span><strong>4xx</strong> - Client Errors</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-red-50 rounded-lg sm:col-span-2">
+                                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                    <span><strong>5xx</strong> - Server Errors</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What's the difference between 200 and 204?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <div class="space-y-3 text-gray-600">
+                                <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-500">
+                                    <div class="font-bold text-green-700 mb-1">200 OK</div>
+                                    <p class="text-sm">Request succeeded AND returns content in the response body.</p>
+                                </div>
+                                <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-400">
+                                    <div class="font-bold text-green-700 mb-1">204 No Content</div>
+                                    <p class="text-sm">Request succeeded but there's intentionally no content to return. Common for DELETE requests or form submissions that don't need a response.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Redirect Codes Section -->
+            <section id="redirect-codes">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-yellow-500">
+                        <span class="material-icons text-white">redo</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">3xx Redirects</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">How many redirects in a chain is too many?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed mb-3">
+                                Best practice: <strong>1-2 hops maximum</strong>. Each redirect adds latency and search engines may stop following after 3-5 redirects.
+                            </p>
+                            <div class="bg-red-50 p-3 rounded-lg text-sm mb-3">
+                                <strong class="text-red-700">Bad:</strong> A → B → C → D (3 hops, slow, loses SEO value)
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg text-sm">
+                                <strong class="text-green-700">Good:</strong> A → D, B → D, C → D (all point directly to final destination)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What is a redirect loop and how do I fix it?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed mb-3">
+                                A redirect loop occurs when URL-A redirects to URL-B, which redirects back to URL-A. Browsers detect this and show "ERR_TOO_MANY_REDIRECTS".
+                            </p>
+                            <p class="text-gray-700 font-semibold mb-2">Common causes:</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2 mb-3 text-sm">
+                                <li>Conflicting rules in .htaccess or nginx config</li>
+                                <li>HTTP→HTTPS redirect conflicting with HTTPS→HTTP</li>
+                                <li>www→non-www conflicting with non-www→www</li>
+                                <li>Plugin or CMS settings creating circular redirects</li>
+                            </ul>
+                            <p class="text-gray-700 font-semibold mb-2">How to fix:</p>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1 ml-2 text-sm">
+                                <li>Clear browser cookies and cache</li>
+                                <li>Review and consolidate redirect rules</li>
+                                <li>Disable conflicting plugins one by one</li>
+                                <li>Use curl -I to trace the redirect chain</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Client Errors Section -->
+            <section id="client-errors">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-orange-500">
+                        <span class="material-icons text-white">warning</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">4xx Client Errors</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">How do I fix 404 errors on my website?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <ol class="list-decimal list-inside text-gray-600 space-y-2 ml-2">
+                                <li><strong>Check if the page exists</strong> - restore if accidentally deleted</li>
+                                <li><strong>Set up 301 redirects</strong> from old URLs to new locations</li>
+                                <li><strong>Fix broken internal links</strong> in navigation and content</li>
+                                <li><strong>Update XML sitemap</strong> to remove dead URLs</li>
+                                <li><strong>Use Google Search Console</strong> to find and prioritize high-traffic 404s</li>
+                                <li><strong>Create a helpful 404 page</strong> with search and navigation</li>
+                                <li><strong>Contact external sites</strong> linking to deleted pages</li>
+                            </ol>
+                            <p class="text-sm text-gray-500 mt-3">
+                                Pro tip: Use <a href="https://urlstatuschecker.com" class="text-[#ff006e] font-semibold hover:underline">URL Status Checker</a> to scan your entire site for 404s.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What's the difference between 401 and 403 errors?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <div class="space-y-3 text-gray-600">
+                                <div class="bg-orange-50 rounded-xl p-4 border-l-4 border-orange-500">
+                                    <div class="font-bold text-orange-700 mb-1">401 Unauthorized</div>
+                                    <p class="text-sm">"Who are you?" - You need to authenticate (log in). Credentials are missing, invalid, or expired.</p>
+                                </div>
+                                <div class="bg-orange-50 rounded-xl p-4 border-l-4 border-orange-400">
+                                    <div class="font-bold text-orange-700 mb-1">403 Forbidden</div>
+                                    <p class="text-sm">"I know who you are, but you can't come in." - You're authenticated but don't have permission.</p>
+                                </div>
+                                <p class="text-sm bg-gray-50 p-3 rounded-lg">
+                                    <strong>Analogy:</strong> 401 = "Show me your ID" | 403 = "Your ID is valid, but you're not on the VIP list"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What does 429 Too Many Requests mean?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed mb-3">
+                                429 means you've hit a rate limit - the server is blocking you because you've made too many requests in a short time.
+                            </p>
+                            <p class="text-gray-700 font-semibold mb-2">Common causes:</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2 text-sm">
+                                <li>API rate limiting (too many API calls)</li>
+                                <li>Bot protection / DDoS mitigation</li>
+                                <li>Login attempt limits</li>
+                                <li>Aggressive web scraping</li>
+                            </ul>
+                            <p class="text-gray-700 font-semibold mt-3 mb-2">How to fix:</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2 text-sm">
+                                <li>Wait for the cooldown period (check Retry-After header)</li>
+                                <li>Implement exponential backoff in your code</li>
+                                <li>Request a higher rate limit from the API provider</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Server Errors Section -->
+            <section id="server-errors">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-red-500">
+                        <span class="material-icons text-white">error</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">5xx Server Errors</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What causes 500 Internal Server Error?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed mb-3">
+                                500 is a generic catch-all for server-side errors. The server encountered something unexpected and couldn't complete the request.
+                            </p>
+                            <p class="text-gray-700 font-semibold mb-2">Common causes:</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2 text-sm">
+                                <li>Syntax errors in server-side code (PHP, Python, Node.js)</li>
+                                <li>Database connection failures or query errors</li>
+                                <li>Insufficient server resources (memory, CPU, disk)</li>
+                                <li>Incorrect file permissions (chmod issues)</li>
+                                <li>Corrupted .htaccess file</li>
+                                <li>Plugin or extension conflicts</li>
+                            </ul>
+                            <p class="text-sm text-gray-500 mt-3">
+                                <strong>Always check server error logs</strong> for the specific error message.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">What is a 504 Gateway Timeout?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed mb-3">
+                                504 means your server (acting as a gateway/proxy) didn't receive a timely response from the upstream server. The backend is taking too long.
+                            </p>
+                            <p class="text-gray-700 font-semibold mb-2">Common causes:</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2 text-sm">
+                                <li>Slow database queries</li>
+                                <li>Backend server overloaded</li>
+                                <li>Network issues between servers</li>
+                                <li>Large file uploads/downloads timing out</li>
+                            </ul>
+                            <p class="text-gray-700 font-semibold mt-3 mb-2">How to fix:</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-2 text-sm">
+                                <li>Increase timeout settings in proxy/load balancer</li>
+                                <li>Optimize slow database queries</li>
+                                <li>Scale up backend server resources</li>
+                                <li>Implement request queuing for heavy operations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO Section -->
+            <section id="seo">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                        <span class="material-icons text-white">trending_up</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">SEO & Status Codes</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Why do status codes matter for SEO?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed mb-3">
+                                Status codes directly impact how search engines crawl, index, and rank your website:
+                            </p>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-500 font-bold">200</span>
+                                    <span class="text-gray-600">Signals healthy, indexable pages</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-500 font-bold">301</span>
+                                    <span class="text-gray-600">Passes ~90-99% of link equity to new URL</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-yellow-500 font-bold">302</span>
+                                    <span class="text-gray-600">Doesn't transfer SEO value (temporary)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-orange-500 font-bold">404</span>
+                                    <span class="text-gray-600">Wastes crawl budget, can de-index important pages</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 font-bold">5xx</span>
+                                    <span class="text-gray-600">Prevents indexing entirely, persistent errors hurt rankings</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm bg-gray-50 p-3 rounded-lg mt-3">
+                                <strong>Pro tip:</strong> Monitor status codes in Google Search Console to maintain healthy indexing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass rounded-2xl overflow-hidden">
+                        <button class="faq-question w-full text-left px-5 sm:px-6 py-4 flex items-center justify-between gap-4" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">How can I check my website's status codes?</h3>
+                            <span class="material-icons text-[#ff006e] flex-shrink-0 transition-transform">expand_more</span>
+                        </button>
+                        <div class="faq-answer px-5 sm:px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed mb-3">
+                                Several ways to check status codes:
+                            </p>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-2 ml-2">
+                                <li><strong><a href="https://urlstatuschecker.com" class="text-[#ff006e] hover:underline">URL Status Checker</a></strong> - Scan up to 100 URLs at once, free</li>
+                                <li><strong>Browser DevTools</strong> - Press F12 → Network tab → reload page</li>
+                                <li><strong>curl command</strong> - <code class="bg-gray-100 px-2 py-1 rounded text-sm">curl -I https://yoursite.com</code></li>
+                                <li><strong>Google Search Console</strong> - Coverage report shows crawl errors</li>
                             </ol>
                         </div>
                     </div>
@@ -404,131 +794,99 @@
         </div>
 
         <!-- CTA -->
-        <div class="mt-16 glass rounded-3xl shadow-2xl p-12 border-2 border-primary/20 text-center bg-gradient-to-br from-slate-50 to-pink-50">
-            <h3 class="text-4xl font-extrabold text-gray-900 mb-4">
-                Still Have Questions?
+        <div class="mt-12 sm:mt-16 glass rounded-3xl shadow-2xl p-8 sm:p-12 text-center" style="border: 3px solid #ff006e;">
+            <div class="inline-block mb-4">
+                <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+                    <span class="material-icons text-lg">bolt</span>
+                    Free URL Scanner
+                </span>
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+                Find Broken URLs<br/>
+                <span class="gradient-text">Before Your Users Do</span>
             </h3>
-            <p class="text-xl text-gray-600 mb-8">
-                Check your website's status codes now to identify and fix issues.
+            <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+                Scan 100 URLs instantly. Detect 404s, redirects, and server errors in seconds.
             </p>
-            <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                <span class="material-icons">speed</span>
-                Try URL Status Checker
+            <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 text-white px-8 py-4 rounded-xl font-bold text-lg btn-primary">
+                <span class="material-icons">bolt</span>
+                Scan My URLs Free
             </a>
+            <p class="text-gray-500 text-sm mt-4 font-medium">
+                ✓ No signup required • ✓ 100 URLs per scan • ✓ Instant results
+            </p>
         </div>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black mt-20">
-        <div class="max-w-7xl mx-auto px-6 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer style="background: #000000; margin-top: 80px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #ff006e, transparent);"></div>
+
+        <div style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 32px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px; margin-bottom: 48px;">
                 <!-- SNAPIT SUITE -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">SNAPIT SUITE</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Software</a></li>
-                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Forms</a></li>
-                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Analytics</a></li>
-                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Agent</a></li>
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        SNAPIT SUITE
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
+                    </h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="https://snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT Software</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitforms.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT Forms</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitanalytics.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT Analytics</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitagent.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT Agent</a></li>
                     </ul>
                 </div>
 
                 <!-- TOOLS & UTILITIES -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">TOOLS & UTILITIES</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitburn.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Burn</a></li>
-                        <li><a href="https://snapitpolls.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Polls</a></li>
-                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT QR</a></li>
-                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT URL</a></li>
-                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">URL Status Checker</a></li>
-                        <li><a href="https://statuscodecheck.com" class="text-[#ff006e] font-semibold">Status Code Check</a></li>
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        TOOLS & UTILITIES
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
+                    </h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="https://burn.snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT Burn</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://polls.snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT Polls</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitqr.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT QR</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapiturl.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">SnapIT URL</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://urlstatuschecker.com" target="_blank" style="color: #ff006e; text-decoration: none; font-size: 15px; font-weight: 600;">URL Status Checker</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">Status Code Check</a></li>
                     </ul>
                 </div>
 
                 <!-- RESOURCES -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">RESOURCES</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="https://snapitpdf.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">PDF Tools</a></li>
-                        <li><a href="https://snapitchimera.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">Chimera</a></li>
-                        <li><a href="https://snapitforum.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">SnapIT Forum</a></li>
-                        <li><a href="https://forumbuilder.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">Forum Builder</a></li>
-                        <li><a href="https://snapitsoftware.com/api" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-colors">API Documentation</a></li>
-                        <li><a href="/faq.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">FAQ</a></li>
-                        <li><a href="/blog" class="text-gray-400 hover:text-[#ff006e] transition-colors">Blog</a></li>
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        RESOURCES
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
+                    </h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="/status-codes.html" style="color: #ff006e; text-decoration: none; font-size: 15px; font-weight: 600;">All Status Codes</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/faq.html" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">FAQ</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/blog/" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">Blog & Guides</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://pdf.snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">PDF Tools</a></li>
                     </ul>
                 </div>
 
                 <!-- LEGAL & SUPPORT -->
                 <div>
-                    <h4 class="font-bold text-white mb-1 text-sm tracking-wider uppercase">LEGAL & SUPPORT</h4>
-                    <div class="w-12 h-0.5 bg-[#ff006e] mb-4"></div>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="/terms-of-service.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-[#ff006e] transition-colors">Privacy Policy</a></li>
-                        <li><button onclick="openContactForm()" class="text-gray-400 hover:text-[#ff006e] transition-colors">Send Feedback</button></li>
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        LEGAL & SUPPORT
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
+                    </h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="/terms-of-service.html" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">Terms of Service</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/privacy-policy.html" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: color 0.3s ease;" onmouseover="this.style.color='#ff006e'" onmouseout="this.style.color='#ffffff'">Privacy Policy</a></li>
                     </ul>
-                    <p class="text-gray-400 text-xs mt-6 leading-relaxed">
-                        Comprehensive HTTP status code reference and FAQ.
-                    </p>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-500 text-sm">&copy; 2025 SnapIT Software. All rights reserved.</p>
+            <div style="border-top: 1px solid #1a1a1a; padding-top: 32px; text-align: center;">
+                <p style="color: #666666; font-size: 14px; margin: 0;">&copy; 2025 <span style="color: #ff006e; font-weight: 600;">SnapIT Software</span>. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Contact Form Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" style="display: none;">
-        <div class="glass rounded-3xl shadow-2xl p-8 max-w-lg w-full mx-4 border border-indigo-200 relative">
-            <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                <span class="material-icons">close</span>
-            </button>
-
-            <h3 class="text-3xl font-bold text-gray-900 mb-2">Contact Us</h3>
-            <p class="text-gray-600 mb-6">Have a question or feedback? We'd love to hear from you!</p>
-
-            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
-                <input type="hidden" name="access_key" value="ebfa8f9b-ca95-40f0-abeb-23155a5a0c9c">
-                <input type="hidden" name="subject" value="New Contact from Status Code Check">
-                <input type="hidden" name="redirect" value="https://statuscodecheck.com/faq.html?message=success">
-
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                    <input type="text" id="name" name="name" required
-                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
-                        placeholder="Your name">
-                </div>
-
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
-                        placeholder="your@email.com">
-                </div>
-
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea id="message" name="message" required rows="4"
-                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all resize-none"
-                        placeholder="Your message..."></textarea>
-                </div>
-
-                <button type="submit"
-                    class="w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                    <span class="material-icons text-sm">send</span>
-                    <span>Send Message</span>
-                </button>
-            </form>
-        </div>
-    </div>
 
     <script>
         function toggleFAQ(button) {
@@ -545,46 +903,39 @@
             document.querySelectorAll('.faq-question .material-icons').forEach(item => {
                 if (item !== icon) {
                     item.textContent = 'expand_more';
+                    item.style.transform = 'rotate(0deg)';
                 }
             });
 
             // Toggle current FAQ
             answer.classList.toggle('active');
-            icon.textContent = answer.classList.contains('active') ? 'expand_less' : 'expand_more';
-        }
-    </script>
-
-    <!-- Contact Form Modal Functions -->
-    <script>
-        function openContactForm() {
-            document.getElementById('contactModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeContactForm() {
-            document.getElementById('contactModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on background click
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeContactForm();
+            if (answer.classList.contains('active')) {
+                icon.textContent = 'expand_less';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.textContent = 'expand_more';
+                icon.style.transform = 'rotate(0deg)';
             }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
 
-        // Close modal on ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && document.getElementById('contactModal').style.display === 'flex') {
-                closeContactForm();
+        // Open first FAQ in each section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstQuestions = document.querySelectorAll('#top-questions .faq-question');
+            if (firstQuestions.length > 0) {
+                toggleFAQ(firstQuestions[0]);
             }
         });
-
-        // Show success message if redirected after form submission
-        if (window.location.search.includes('message=success')) {
-            alert('Thank you for your message! We\'ll get back to you soon.');
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
     </script>
 
 </body>

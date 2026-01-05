@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How to Fix 502 Bad Gateway Error: Complete Guide (2026) | Status Code Check</title>
+    <meta name="description" content="Learn how to fix 502 Bad Gateway errors. Step-by-step troubleshooting for server overload, proxy issues, DNS problems, and more.">
+    <meta name="keywords" content="502 bad gateway, fix 502 error, bad gateway error, http 502, 502 error nginx">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://statuscodecheck.com/blog/how-to-fix-502-bad-gateway-error.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How to Fix 502 Bad Gateway Error: Complete Guide">
+    <meta property="og:description" content="Step-by-step guide to diagnose and fix 502 Bad Gateway errors on any website.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statuscodecheck.com/blog/how-to-fix-502-bad-gateway-error.html">
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Fix 502 Bad Gateway Error: Complete Guide",
+        "description": "Learn how to fix 502 Bad Gateway errors. Step-by-step troubleshooting for server overload, proxy issues, DNS problems, and more.",
+        "author": {"@type": "Organization", "name": "Status Code Check"},
+        "publisher": {"@type": "Organization", "name": "Status Code Check"},
+        "datePublished": "2026-01-05",
+        "dateModified": "2026-01-05"
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css?v=1.0.0">
+
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .prose h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+        .prose h3 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; }
+        .prose code { background: rgba(255, 0, 110, 0.1); padding: 0.2rem 0.5rem; border-radius: 0.3rem; font-size: 0.9em; color: #ff006e; }
+        .prose pre { background: #1e1e1e; color: #d4d4d4; padding: 1.5rem; border-radius: 1rem; overflow-x: auto; margin-bottom: 1.5rem; }
+        .prose pre code { background: none; color: inherit; padding: 0; }
+        .tip-box { background: linear-gradient(135deg, #fff5f8 0%, #ffe0eb 100%); border-left: 4px solid #ff006e; padding: 1.5rem; border-radius: 0 1rem 1rem 0; margin: 1.5rem 0; }
+        .warning-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 0 1rem 1rem 0; margin: 1.5rem 0; }
+    </style>
+</head>
+<body class="min-h-screen" style="background: #faf0e6;">
+
+    <!-- Header -->
+    <header class="glass border-b border-pink-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-4xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-md" style="background: #ff006e;">
+                        <span class="material-icons text-white">code</span>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Status Code Check</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <a href="/blog" class="text-gray-600 hover:text-pink-600 font-medium">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="text-white px-4 py-2 rounded-lg font-semibold transition-all hover:shadow-lg" style="background: #ff006e;">
+                        Check URLs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="max-w-4xl mx-auto px-6 py-4">
+        <ol class="flex items-center gap-2 text-sm text-gray-500">
+            <li><a href="/" class="hover:text-pink-600">Home</a></li>
+            <li><span class="material-icons text-xs">chevron_right</span></li>
+            <li><a href="/blog" class="hover:text-pink-600">Blog</a></li>
+            <li><span class="material-icons text-xs">chevron_right</span></li>
+            <li class="text-gray-900 font-medium">502 Bad Gateway Error</li>
+        </ol>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 pb-16">
+        <article class="glass rounded-3xl shadow-xl p-8 md:p-12 border border-pink-100">
+
+            <!-- Article Header -->
+            <header class="mb-10">
+                <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold text-white" style="background: #ff006e;">GUIDE</span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-icons text-xs">calendar_today</span>
+                        January 5, 2026
+                    </span>
+                    <span>7 min read</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                    How to Fix 502 Bad Gateway Error
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed mb-6">
+                    The 502 Bad Gateway error means a server acting as a gateway received an invalid response from an upstream server. Here's how to fix it.
+                </p>
+                <!-- Share Buttons -->
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-sm text-gray-400 font-medium mr-1">Share:</span>
+                    <button onclick="copyArticleLink()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-sm font-medium transition-all" title="Copy link">
+                        <span class="material-icons text-sm">link</span>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                    <button onclick="shareOnTwitter()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-[#1da1f2] hover:text-white text-gray-600 rounded-lg text-sm font-medium transition-all" title="Share on X/Twitter">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </button>
+                    <button onclick="shareOnLinkedIn()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-[#0077b5] hover:text-white text-gray-600 rounded-lg text-sm font-medium transition-all" title="Share on LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+                    </button>
+                    <button onclick="shareNative()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-[#ff006e] hover:text-white text-gray-600 rounded-lg text-sm font-medium transition-all sm:hidden" title="Share">
+                        <span class="material-icons text-sm">share</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="prose max-w-none text-gray-700">
+
+                <h2 class="text-2xl font-bold text-gray-900">What is a 502 Bad Gateway Error?</h2>
+                <p>
+                    A <strong>502 Bad Gateway</strong> error occurs when one server (acting as a gateway or proxy) receives an invalid response from another server it's trying to reach. This is a server-side error, meaning the problem is with the website's infrastructure, not your computer or connection.
+                </p>
+                <p>
+                    Common scenarios where you'll see 502 errors:
+                </p>
+                <ul class="list-disc">
+                    <li>A reverse proxy (like Nginx) can't reach the application server</li>
+                    <li>A CDN (like Cloudflare) can't connect to the origin server</li>
+                    <li>A load balancer receives a bad response from backend servers</li>
+                    <li>The upstream server is overloaded or crashed</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                        <span class="material-icons text-pink-600">lightbulb</span>
+                        Quick Check
+                    </p>
+                    <p class="text-gray-700 mb-0">
+                        Test if your site is returning 502 errors using our <a href="https://urlstatuschecker.com" target="_blank" class="text-pink-600 font-semibold hover:underline">free URL Status Checker</a>. Check multiple pages at once to see the scope of the problem.
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">Common Causes of 502 Bad Gateway</h2>
+
+                <ol class="list-decimal">
+                    <li><strong>Origin Server Down</strong> - The backend server crashed or stopped</li>
+                    <li><strong>Server Overload</strong> - Too many requests overwhelming the server</li>
+                    <li><strong>PHP-FPM Issues</strong> - PHP process manager not responding</li>
+                    <li><strong>Timeout Issues</strong> - Upstream server taking too long to respond</li>
+                    <li><strong>Firewall Blocking</strong> - Firewall rules blocking internal communication</li>
+                    <li><strong>DNS Problems</strong> - Incorrect DNS resolution between servers</li>
+                    <li><strong>Bad Deployment</strong> - Recent code deploy broke the application</li>
+                    <li><strong>Memory Exhaustion</strong> - Server ran out of RAM</li>
+                </ol>
+
+                <h2 class="text-2xl font-bold text-gray-900">How to Fix 502 Bad Gateway: For Visitors</h2>
+
+                <p>If you're just visiting a website and see a 502 error:</p>
+
+                <h3 class="text-xl font-bold text-gray-900">1. Refresh the Page</h3>
+                <p>Sometimes 502 errors are temporary. Wait a few seconds and refresh (Ctrl+F5 or Cmd+Shift+R for a hard refresh).</p>
+
+                <h3 class="text-xl font-bold text-gray-900">2. Clear Browser Cache</h3>
+                <p>Your browser might have cached a bad response. Clear your cache and cookies, then try again.</p>
+
+                <h3 class="text-xl font-bold text-gray-900">3. Try a Different Browser or Device</h3>
+                <p>Rule out browser-specific issues by trying another browser or your phone.</p>
+
+                <h3 class="text-xl font-bold text-gray-900">4. Check if the Site is Down for Everyone</h3>
+                <p>Use a service like <a href="https://urlstatuschecker.com" target="_blank" class="text-pink-600 hover:underline">URL Status Checker</a> to see if the site returns 502 from our servers too.</p>
+
+                <h2 class="text-2xl font-bold text-gray-900">How to Fix 502 Bad Gateway: For Website Owners</h2>
+
+                <h3 class="text-xl font-bold text-gray-900">1. Check if Your Origin Server is Running</h3>
+<pre><code># Check if web server is running
+sudo systemctl status nginx
+sudo systemctl status apache2
+
+# Check if application is running
+sudo systemctl status php-fpm
+pm2 status  # For Node.js apps
+
+# Restart if needed
+sudo systemctl restart nginx
+sudo systemctl restart php-fpm</code></pre>
+
+                <h3 class="text-xl font-bold text-gray-900">2. Check Server Logs</h3>
+<pre><code># Nginx error log
+sudo tail -f /var/log/nginx/error.log
+
+# Apache error log
+sudo tail -f /var/log/apache2/error.log
+
+# PHP-FPM log
+sudo tail -f /var/log/php-fpm/error.log
+
+# Application logs
+sudo tail -f /var/www/myapp/logs/error.log</code></pre>
+
+                <h3 class="text-xl font-bold text-gray-900">3. Check Server Resources</h3>
+<pre><code># Check CPU and memory usage
+htop
+free -m
+
+# Check disk space
+df -h
+
+# Check for zombie processes
+ps aux | grep -E 'Z|defunct'</code></pre>
+
+                <div class="warning-box">
+                    <p class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                        <span class="material-icons text-amber-600">warning</span>
+                        Memory Issues
+                    </p>
+                    <p class="text-gray-700 mb-0">
+                        If your server is out of memory, PHP-FPM and other processes will crash, causing 502 errors. Consider upgrading your server or optimizing your application.
+                    </p>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900">4. Check PHP-FPM Configuration</h3>
+                <p>Most 502 errors with PHP applications are caused by PHP-FPM issues:</p>
+<pre><code># Check PHP-FPM status
+sudo systemctl status php8.2-fpm
+
+# Edit PHP-FPM pool config
+sudo nano /etc/php/8.2/fpm/pool.d/www.conf
+
+# Important settings to check:
+pm = dynamic
+pm.max_children = 50
+pm.start_servers = 5
+pm.min_spare_servers = 5
+pm.max_spare_servers = 35
+pm.max_requests = 500
+
+# Restart after changes
+sudo systemctl restart php8.2-fpm</code></pre>
+
+                <h3 class="text-xl font-bold text-gray-900">5. Increase Timeout Values</h3>
+                <p>If your application is slow, increase proxy timeouts in Nginx:</p>
+<pre><code># In nginx.conf or site config
+location / {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_connect_timeout 60s;
+    proxy_send_timeout 60s;
+    proxy_read_timeout 60s;
+}
+
+# For PHP-FPM
+location ~ \.php$ {
+    fastcgi_read_timeout 300;
+    fastcgi_send_timeout 300;
+}</code></pre>
+
+                <h3 class="text-xl font-bold text-gray-900">6. Check Firewall Rules</h3>
+<pre><code># Check if internal ports are open
+sudo ufw status
+
+# Allow internal communication
+sudo ufw allow from 127.0.0.1
+
+# Check iptables
+sudo iptables -L -n</code></pre>
+
+                <h2 class="text-2xl font-bold text-gray-900">502 Error with Cloudflare</h2>
+                <p>If you're using Cloudflare and see a 502 error:</p>
+                <ul class="list-disc">
+                    <li><strong>Error 502</strong> - Cloudflare received a bad response from your origin</li>
+                    <li><strong>Error 521</strong> - Your origin server is down (Cloudflare-specific)</li>
+                    <li><strong>Error 522</strong> - Connection timed out to origin</li>
+                </ul>
+                <p>Solutions:</p>
+                <ol class="list-decimal">
+                    <li>Check your origin server is running</li>
+                    <li>Whitelist Cloudflare IP ranges in your firewall</li>
+                    <li>Temporarily enable "Development Mode" to bypass cache</li>
+                    <li>Check Cloudflare's system status page</li>
+                </ol>
+
+                <h2 class="text-2xl font-bold text-gray-900">502 vs Other 5xx Errors</h2>
+                <table class="w-full border-collapse my-6">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-200 p-3 text-left">Error</th>
+                            <th class="border border-gray-200 p-3 text-left">Meaning</th>
+                            <th class="border border-gray-200 p-3 text-left">Likely Cause</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-200 p-3"><code>500</code></td>
+                            <td class="border border-gray-200 p-3">Internal Server Error</td>
+                            <td class="border border-gray-200 p-3">Application code bug</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-200 p-3"><code>502</code></td>
+                            <td class="border border-gray-200 p-3">Bad Gateway</td>
+                            <td class="border border-gray-200 p-3">Upstream server issue</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-200 p-3"><code>503</code></td>
+                            <td class="border border-gray-200 p-3">Service Unavailable</td>
+                            <td class="border border-gray-200 p-3">Server overloaded/maintenance</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-200 p-3"><code>504</code></td>
+                            <td class="border border-gray-200 p-3">Gateway Timeout</td>
+                            <td class="border border-gray-200 p-3">Upstream server too slow</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="text-2xl font-bold text-gray-900">Preventing 502 Errors</h2>
+                <ul class="list-disc">
+                    <li><strong>Monitor your servers</strong> - Set up uptime monitoring to catch issues early</li>
+                    <li><strong>Scale appropriately</strong> - Add more server resources before you need them</li>
+                    <li><strong>Use health checks</strong> - Configure load balancers to detect unhealthy backends</li>
+                    <li><strong>Implement graceful restarts</strong> - Don't kill processes during deployments</li>
+                    <li><strong>Optimize your application</strong> - Slow code leads to timeouts and 502s</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                        <span class="material-icons text-pink-600">verified</span>
+                        Verify Your Fix
+                    </p>
+                    <p class="text-gray-700 mb-0">
+                        After making changes, use <a href="https://urlstatuschecker.com" target="_blank" class="text-pink-600 font-semibold hover:underline">URL Status Checker</a> to verify your site now returns 200 OK across all pages.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Related Articles</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="/blog/troubleshooting-500-internal-server-errors.html" class="p-4 bg-gray-50 rounded-xl hover:bg-pink-50 transition-colors">
+                        <span class="text-lg font-semibold text-gray-900">500 Internal Server Error</span>
+                        <p class="text-sm text-gray-600">Diagnose and fix server errors</p>
+                    </a>
+                    <a href="/blog/how-to-fix-403-forbidden-error.html" class="p-4 bg-gray-50 rounded-xl hover:bg-pink-50 transition-colors">
+                        <span class="text-lg font-semibold text-gray-900">403 Forbidden Error</span>
+                        <p class="text-sm text-gray-600">Fix access denied issues</p>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-6" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">Check Your Website's Status Codes</h2>
+            <p class="text-xl mb-8 opacity-90">Find 502 errors and other issues across all your pages instantly.</p>
+            <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-2 bg-white text-pink-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all">
+                <span class="material-icons">search</span>
+                Check URLs Free
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-pink-100 py-8 px-6">
+        <div class="max-w-4xl mx-auto text-center text-gray-600">
+            <p>&copy; 2026 Status Code Check. Part of the <a href="https://urlstatuschecker.com" class="text-pink-600 hover:underline">URL Status Checker</a> suite.</p>
+        </div>
+    </footer>
+
+    <!-- Share Functions -->
+    <script>
+        const articleTitle = document.querySelector('h1').textContent;
+        const articleUrl = window.location.href;
+
+        function copyArticleLink() {
+            navigator.clipboard.writeText(articleUrl).then(() => {
+                showToast('Link copied to clipboard!');
+            });
+        }
+
+        function shareOnTwitter() {
+            const text = encodeURIComponent(articleTitle);
+            const url = encodeURIComponent(articleUrl);
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=550,height=420');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(articleUrl);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+        }
+
+        function shareNative() {
+            if (navigator.share) {
+                navigator.share({
+                    title: articleTitle,
+                    url: articleUrl
+                });
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium z-50 animate-fade-in';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

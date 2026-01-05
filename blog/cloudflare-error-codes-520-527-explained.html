@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cloudflare Error Codes 520-527 Explained: Complete Fix Guide | Status Code Check</title>
+    <meta name="description" content="Learn what Cloudflare error codes 520, 521, 522, 523, 524, 525, 526, and 527 mean and how to fix them. Step-by-step troubleshooting for all Cloudflare 5xx errors.">
+    <meta name="keywords" content="cloudflare error 520, error 521, error 522, error 523, error 524, error 525, error 526, cloudflare errors, fix cloudflare">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://statuscodecheck.com/blog/cloudflare-error-codes-520-527-explained.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cloudflare Error Codes 520-527 Explained: Complete Fix Guide">
+    <meta property="og:description" content="Complete guide to diagnosing and fixing all Cloudflare 5xx error codes including 520, 521, 522, 523, 524, 525, 526, and 527.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statuscodecheck.com/blog/cloudflare-error-codes-520-527-explained.html">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/assets/styles.css?v=1.0.0">
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Cloudflare Error Codes 520-527 Explained: Complete Fix Guide",
+        "description": "Learn what Cloudflare error codes 520, 521, 522, 523, 524, 525, 526, and 527 mean and how to fix them.",
+        "author": {
+            "@type": "Organization",
+            "name": "Status Code Check"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Status Code Check",
+            "url": "https://statuscodecheck.com"
+        },
+        "datePublished": "2026-01-05",
+        "dateModified": "2026-01-05",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://statuscodecheck.com/blog/cloudflare-error-codes-520-527-explained.html"
+        }
+    }
+    </script>
+
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ff006e 0%, #ff006e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .prose h2 {
+            color: #111827;
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ff006e;
+            padding-bottom: 0.5rem;
+        }
+
+        .prose h3 {
+            color: #1f2937;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .prose p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .prose ul, .prose ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        .prose li {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .prose code {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .prose pre {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose pre code {
+            background: transparent;
+            padding: 0;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe0eb 100%);
+            border-left: 4px solid #ff006e;
+            padding: 1.25rem;
+            border-radius: 0 0.75rem 0.75rem 0;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.25rem;
+            border-radius: 0 0.75rem 0.75rem 0;
+            margin: 1.5rem 0;
+        }
+
+        .error-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .error-card:hover {
+            border-color: #ff006e;
+            box-shadow: 0 10px 30px -10px rgba(255, 0, 110, 0.2);
+        }
+
+        .error-code {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen" style="background: #faf0e6;">
+
+    <!-- Header -->
+    <header class="glass border-b border-pink-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                        <span class="material-icons text-white text-3xl">code</span>
+                    </div>
+                    <div>
+                        <a href="/" class="text-3xl font-extrabold gradient-text hover:opacity-80 transition-opacity">Status Code Check</a>
+                        <p class="text-sm text-gray-600 font-medium">Blog & Guides</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="/" class="text-gray-600 hover:text-primary transition-colors font-medium">Home</a>
+                    <a href="/status-codes.html" class="text-gray-600 hover:text-primary transition-colors font-medium">All Codes</a>
+                    <a href="/blog/" class="text-gray-600 hover:text-primary transition-colors font-medium">Blog</a>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all">
+                        Check URLs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+
+        <!-- Article Header -->
+        <article>
+            <header class="mb-10">
+                <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                    <a href="/blog/" class="hover:text-primary">Blog</a>
+                    <span class="material-icons text-xs">chevron_right</span>
+                    <span>Cloudflare Errors</span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                    Cloudflare Error Codes 520-527 Explained: Complete Fix Guide
+                </h1>
+
+                <div class="flex items-center gap-4 text-gray-500 mb-6">
+                    <div class="flex items-center gap-2">
+                        <span class="material-icons text-sm">calendar_today</span>
+                        <time datetime="2026-01-05">January 5, 2026</time>
+                    </div>
+                    <span>•</span>
+                    <div class="flex items-center gap-2">
+                        <span class="material-icons text-sm">schedule</span>
+                        <span>10 min read</span>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 border border-pink-100 shadow-lg">
+                    <div class="flex items-start gap-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-white text-3xl">cloud</span>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-gray-900 text-lg mb-2">What are Cloudflare 5xx Errors?</h2>
+                            <p class="text-gray-600">
+                                Cloudflare uses custom 5xx error codes (520-527, 530) to indicate issues between Cloudflare's edge servers and your origin server. These are not standard HTTP codes but Cloudflare-specific diagnostics that help identify connection problems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Share Buttons -->
+                <div class="flex items-center gap-2 flex-wrap mt-6">
+                    <span class="text-sm text-gray-400 font-medium mr-1">Share:</span>
+                    <button onclick="copyArticleLink()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-sm font-medium transition-all" title="Copy link">
+                        <span class="material-icons text-sm">link</span>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                    <button onclick="shareOnTwitter()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-[#1da1f2] hover:text-white text-gray-600 rounded-lg text-sm font-medium transition-all" title="Share on X/Twitter">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </button>
+                    <button onclick="shareOnLinkedIn()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-[#0077b5] hover:text-white text-gray-600 rounded-lg text-sm font-medium transition-all" title="Share on LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+                    </button>
+                    <button onclick="shareNative()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-[#ff006e] hover:text-white text-gray-600 rounded-lg text-sm font-medium transition-all sm:hidden" title="Share">
+                        <span class="material-icons text-sm">share</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="prose max-w-none">
+
+                <h2>Quick Reference: All Cloudflare Error Codes</h2>
+
+                <div class="overflow-x-auto my-6">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-3 text-left font-bold">Code</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-bold">Name</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-bold">Common Cause</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">520</td>
+                                <td class="border border-gray-300 px-4 py-2">Web Server Unknown Error</td>
+                                <td class="border border-gray-300 px-4 py-2">Empty or unexpected response from origin</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">521</td>
+                                <td class="border border-gray-300 px-4 py-2">Web Server Is Down</td>
+                                <td class="border border-gray-300 px-4 py-2">Origin server refused connection</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">522</td>
+                                <td class="border border-gray-300 px-4 py-2">Connection Timed Out</td>
+                                <td class="border border-gray-300 px-4 py-2">TCP handshake timeout</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">523</td>
+                                <td class="border border-gray-300 px-4 py-2">Origin Is Unreachable</td>
+                                <td class="border border-gray-300 px-4 py-2">DNS or routing issues</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">524</td>
+                                <td class="border border-gray-300 px-4 py-2">A Timeout Occurred</td>
+                                <td class="border border-gray-300 px-4 py-2">Origin took too long to respond</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">525</td>
+                                <td class="border border-gray-300 px-4 py-2">SSL Handshake Failed</td>
+                                <td class="border border-gray-300 px-4 py-2">SSL/TLS configuration mismatch</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">526</td>
+                                <td class="border border-gray-300 px-4 py-2">Invalid SSL Certificate</td>
+                                <td class="border border-gray-300 px-4 py-2">Origin SSL cert expired or invalid</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">527</td>
+                                <td class="border border-gray-300 px-4 py-2">Railgun Error</td>
+                                <td class="border border-gray-300 px-4 py-2">Railgun connection interrupted</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-mono font-bold">530</td>
+                                <td class="border border-gray-300 px-4 py-2">Site Frozen</td>
+                                <td class="border border-gray-300 px-4 py-2">1xxx error with 530 status</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 id="error-520">Error 520: Web Server Returned Unknown Error</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">520</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">Web Server Returned Unknown Error</h3>
+                            <p class="text-gray-500 text-sm m-0">Origin returned empty, unknown, or unexpected response</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 520 is a catch-all error that occurs when Cloudflare receives an empty, unknown, or unexpected response from your origin server.</p>
+
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Origin server crashed mid-response</li>
+                    <li>Response headers exceed 16KB limit</li>
+                    <li>Empty response body with 200 status</li>
+                    <li>Origin closed connection before responding</li>
+                    <li>Invalid HTTP response format</li>
+                </ul>
+
+                <h3>How to Fix</h3>
+                <ol>
+                    <li><strong>Check origin server logs</strong> for crashes or errors</li>
+                    <li><strong>Verify response headers</strong> are under 16KB</li>
+                    <li><strong>Test without Cloudflare</strong> by pausing Cloudflare or using hosts file</li>
+                    <li><strong>Check for mod_security or firewall blocks</strong></li>
+                    <li><strong>Ensure proper HTTP response format</strong></li>
+                </ol>
+
+                <pre><code># Check origin directly (bypass Cloudflare)
+curl -v -H "Host: yourdomain.com" http://YOUR_ORIGIN_IP/
+
+# Check response headers size
+curl -I https://yourdomain.com | wc -c</code></pre>
+
+                <h2 id="error-521">Error 521: Web Server Is Down</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">521</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">Web Server Is Down</h3>
+                            <p class="text-gray-500 text-sm m-0">Origin server actively refused the connection</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 521 means Cloudflare attempted to connect to your origin server, but the connection was actively refused. This typically means the web server process isn't running.</p>
+
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Web server (Apache/Nginx) not running</li>
+                    <li>Firewall blocking Cloudflare IPs</li>
+                    <li>Origin server overwhelmed</li>
+                    <li>iptables rules blocking connections</li>
+                    <li>Wrong port configured in Cloudflare</li>
+                </ul>
+
+                <h3>How to Fix</h3>
+
+                <pre><code># 1. Check if web server is running
+sudo systemctl status nginx
+sudo systemctl status apache2
+
+# 2. Restart web server if needed
+sudo systemctl restart nginx
+# or
+sudo systemctl restart apache2
+
+# 3. Check if port 80/443 is listening
+sudo netstat -tlnp | grep -E ':80|:443'
+
+# 4. Verify firewall allows Cloudflare IPs
+# Get Cloudflare IP ranges from:
+# https://www.cloudflare.com/ips-v4
+# https://www.cloudflare.com/ips-v6
+
+# 5. Allow Cloudflare IPs in iptables
+for ip in $(curl -s https://www.cloudflare.com/ips-v4); do
+    sudo iptables -A INPUT -p tcp -s $ip --dport 80 -j ACCEPT
+    sudo iptables -A INPUT -p tcp -s $ip --dport 443 -j ACCEPT
+done</code></pre>
+
+                <div class="tip-box">
+                    <div class="flex items-start gap-3">
+                        <span class="material-icons text-primary">lightbulb</span>
+                        <div>
+                            <strong class="text-gray-900">Pro Tip:</strong>
+                            <p class="text-gray-700 mt-1 mb-0">Always whitelist Cloudflare IP ranges in your firewall. These IPs change occasionally, so automate the update process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="error-522">Error 522: Connection Timed Out</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">522</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">Connection Timed Out</h3>
+                            <p class="text-gray-500 text-sm m-0">TCP handshake with origin server timed out</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 522 occurs when Cloudflare can't establish a TCP connection to your origin server within 15 seconds. Unlike 521, the connection isn't refused—it just doesn't complete.</p>
+
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Server overload (too many connections)</li>
+                    <li>Network issues between Cloudflare and origin</li>
+                    <li>Firewall silently dropping packets</li>
+                    <li>Origin IP address incorrect in Cloudflare DNS</li>
+                    <li>Keepalive settings too aggressive</li>
+                </ul>
+
+                <h3>How to Fix</h3>
+
+                <pre><code># 1. Check server load
+top -b -n 1 | head -10
+uptime
+
+# 2. Check connection limits
+cat /proc/sys/net/core/somaxconn
+cat /proc/sys/net/ipv4/tcp_max_syn_backlog
+
+# 3. Increase connection limits
+echo 65535 | sudo tee /proc/sys/net/core/somaxconn
+echo 65535 | sudo tee /proc/sys/net/ipv4/tcp_max_syn_backlog
+
+# 4. Check for packet drops
+netstat -s | grep -i drop
+netstat -s | grep -i overflow
+
+# 5. Verify DNS points to correct IP
+dig +short yourdomain.com</code></pre>
+
+                <p>In Cloudflare dashboard:</p>
+                <ol>
+                    <li>Go to DNS settings</li>
+                    <li>Verify A/AAAA records point to correct origin IP</li>
+                    <li>Check if you're using the right ports</li>
+                </ol>
+
+                <h2 id="error-523">Error 523: Origin Is Unreachable</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">523</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">Origin Is Unreachable</h3>
+                            <p class="text-gray-500 text-sm m-0">Cloudflare could not reach your origin server at all</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 523 means Cloudflare couldn't route to your origin server. This is typically a DNS or network routing issue.</p>
+
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>DNS records pointing to invalid IP</li>
+                    <li>Origin server IP changed but DNS not updated</li>
+                    <li>Routing issues at ISP/datacenter level</li>
+                    <li>Origin server completely offline</li>
+                </ul>
+
+                <h3>How to Fix</h3>
+                <ol>
+                    <li><strong>Verify DNS records</strong> in Cloudflare dashboard are correct</li>
+                    <li><strong>Ping your origin IP</strong> from multiple locations</li>
+                    <li><strong>Check if origin server is online</strong> via direct IP access</li>
+                    <li><strong>Contact hosting provider</strong> if server is unreachable</li>
+                </ol>
+
+                <pre><code># Test connectivity from multiple locations
+# Use tools like:
+# - https://check-host.net/check-ping
+# - https://www.uptrends.com/tools/ping-test
+
+# Verify your origin IP is correct
+curl -v http://YOUR_ORIGIN_IP/</code></pre>
+
+                <h2 id="error-524">Error 524: A Timeout Occurred</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">524</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">A Timeout Occurred</h3>
+                            <p class="text-gray-500 text-sm m-0">Origin server took too long to respond</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 524 means Cloudflare successfully connected to your origin, but the origin didn't respond with HTTP headers within 100 seconds (or your configured timeout).</p>
+
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Long-running PHP/Python/Node scripts</li>
+                    <li>Slow database queries</li>
+                    <li>Large file processing</li>
+                    <li>External API calls timing out</li>
+                    <li>Resource exhaustion on origin</li>
+                </ul>
+
+                <h3>How to Fix</h3>
+
+                <p>For Free/Pro plans, the timeout is 100 seconds. Business and Enterprise can increase this.</p>
+
+                <pre><code># 1. Check for slow queries
+# MySQL
+SHOW FULL PROCESSLIST;
+
+# 2. Check PHP execution time
+php -i | grep max_execution_time
+
+# 3. Increase PHP timeout (php.ini)
+max_execution_time = 300
+max_input_time = 300
+
+# 4. Increase Nginx timeout
+proxy_read_timeout 300s;
+proxy_connect_timeout 300s;
+proxy_send_timeout 300s;
+fastcgi_read_timeout 300s;</code></pre>
+
+                <div class="warning-box">
+                    <div class="flex items-start gap-3">
+                        <span class="material-icons text-yellow-600">warning</span>
+                        <div>
+                            <strong class="text-gray-900">Important:</strong>
+                            <p class="text-gray-700 mt-1 mb-0">If your application legitimately needs more than 100 seconds, consider using Cloudflare Workers, background jobs, or upgrading to Business/Enterprise for extended timeouts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="error-525">Error 525: SSL Handshake Failed</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">525</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">SSL Handshake Failed</h3>
+                            <p class="text-gray-500 text-sm m-0">Could not complete SSL/TLS handshake with origin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 525 occurs when Cloudflare can't establish an SSL/TLS connection with your origin server. The connection was made, but the SSL handshake failed.</p>
+
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Origin doesn't support SSL on port 443</li>
+                    <li>SSL/TLS version mismatch</li>
+                    <li>Cipher suite incompatibility</li>
+                    <li>SSL certificate not installed on origin</li>
+                    <li>SNI issues</li>
+                </ul>
+
+                <h3>How to Fix</h3>
+
+                <pre><code># 1. Test SSL connection to origin
+openssl s_client -connect YOUR_ORIGIN_IP:443 -servername yourdomain.com
+
+# 2. Check supported TLS versions
+nmap --script ssl-enum-ciphers -p 443 YOUR_ORIGIN_IP
+
+# 3. Verify certificate is installed
+openssl s_client -connect yourdomain.com:443 | openssl x509 -noout -dates</code></pre>
+
+                <p>In Cloudflare dashboard:</p>
+                <ol>
+                    <li>Go to SSL/TLS settings</li>
+                    <li>Try changing encryption mode to "Flexible" (temporarily)</li>
+                    <li>If Flexible works, fix your origin SSL configuration</li>
+                    <li>Then switch back to "Full" or "Full (Strict)"</li>
+                </ol>
+
+                <h2 id="error-526">Error 526: Invalid SSL Certificate</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">526</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">Invalid SSL Certificate</h3>
+                            <p class="text-gray-500 text-sm m-0">Origin SSL certificate is expired, self-signed, or invalid</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 526 means Cloudflare connected to your origin, but couldn't validate the SSL certificate. This only happens with "Full (Strict)" mode.</p>
+
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>SSL certificate expired</li>
+                    <li>Self-signed certificate (not trusted)</li>
+                    <li>Certificate doesn't match hostname</li>
+                    <li>Missing intermediate certificates</li>
+                    <li>Using Cloudflare Origin CA without proper setup</li>
+                </ul>
+
+                <h3>How to Fix</h3>
+
+                <pre><code># 1. Check certificate validity
+openssl s_client -connect YOUR_ORIGIN_IP:443 -servername yourdomain.com 2>/dev/null | openssl x509 -noout -dates
+
+# 2. Check certificate chain
+openssl s_client -connect YOUR_ORIGIN_IP:443 -servername yourdomain.com -showcerts
+
+# 3. Verify hostname matches
+openssl s_client -connect YOUR_ORIGIN_IP:443 -servername yourdomain.com 2>/dev/null | openssl x509 -noout -text | grep -A1 "Subject Alternative Name"</code></pre>
+
+                <p>Solutions:</p>
+                <ul>
+                    <li><strong>Get a valid certificate</strong> from Let's Encrypt (free)</li>
+                    <li><strong>Use Cloudflare Origin CA</strong> certificates (free, trusted by Cloudflare)</li>
+                    <li><strong>Install intermediate certificates</strong> in the correct order</li>
+                    <li><strong>Renew expired certificates</strong></li>
+                </ul>
+
+                <div class="tip-box">
+                    <div class="flex items-start gap-3">
+                        <span class="material-icons text-primary">lightbulb</span>
+                        <div>
+                            <strong class="text-gray-900">Pro Tip:</strong>
+                            <p class="text-gray-700 mt-1 mb-0">Cloudflare Origin CA certificates are free and valid for 15 years. They're only trusted by Cloudflare, making them perfect for proxied traffic.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="error-527">Error 527: Railgun Error</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">527</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">Railgun Error</h3>
+                            <p class="text-gray-500 text-sm m-0">Railgun connection interrupted or unavailable</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 527 indicates a problem with Cloudflare Railgun, a WAN optimization technology. This is relatively rare since Railgun is being deprecated in favor of Argo.</p>
+
+                <h3>How to Fix</h3>
+                <ol>
+                    <li>Check Railgun Listener status on origin</li>
+                    <li>Verify Railgun configuration</li>
+                    <li>Restart Railgun service</li>
+                    <li>Consider migrating to Argo Smart Routing</li>
+                </ol>
+
+                <h2 id="error-530">Error 530: Site Frozen</h2>
+
+                <div class="error-card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="error-code">530</span>
+                        <div>
+                            <h3 class="font-bold text-gray-900 m-0">Site Frozen</h3>
+                            <p class="text-gray-500 text-sm m-0">Returned with a 1xxx error</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Error 530 is always accompanied by a 1xxx error in the response body. Check the 1xxx error for the actual cause.</p>
+
+                <h2>Debugging Tools</h2>
+
+                <h3>Cloudflare Dashboard</h3>
+                <ul>
+                    <li><strong>Analytics → Traffic</strong> - See error distribution</li>
+                    <li><strong>Analytics → Security</strong> - Check if WAF is blocking</li>
+                    <li><strong>Trace</strong> - Test requests from Cloudflare edge</li>
+                </ul>
+
+                <h3>Useful Commands</h3>
+
+                <pre><code># Get ray ID for support tickets
+curl -I https://yourdomain.com 2>&1 | grep -i cf-ray
+
+# Test with specific Cloudflare datacenter
+curl -I --resolve yourdomain.com:443:CF_IP https://yourdomain.com
+
+# Check if origin is accessible
+curl -v -H "Host: yourdomain.com" https://YOUR_ORIGIN_IP/
+
+# View Cloudflare IP ranges
+curl https://www.cloudflare.com/ips-v4</code></pre>
+
+                <!-- CTA Box -->
+                <div class="glass rounded-2xl p-8 border-2 border-primary/20 my-10 text-center" style="background: linear-gradient(135deg, #fff5f8 0%, #ffe0eb 100%);">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Check Your Site for Cloudflare Errors</h3>
+                    <p class="text-gray-600 mb-6">Test your URLs in bulk to identify any Cloudflare error codes across your site.</p>
+                    <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl transition-all">
+                        <span class="material-icons">speed</span>
+                        Try URL Status Checker
+                    </a>
+                </div>
+
+                <h2>Prevention Best Practices</h2>
+
+                <ol>
+                    <li><strong>Whitelist Cloudflare IPs</strong> in your firewall and update regularly</li>
+                    <li><strong>Use Full (Strict) SSL mode</strong> with valid origin certificates</li>
+                    <li><strong>Monitor origin server health</strong> proactively</li>
+                    <li><strong>Set up Cloudflare notifications</strong> for origin errors</li>
+                    <li><strong>Use Page Rules</strong> to bypass Cloudflare for health checks</li>
+                    <li><strong>Enable Argo Smart Routing</strong> for better reliability</li>
+                    <li><strong>Implement proper timeouts</strong> on your origin application</li>
+                </ol>
+
+                <h2>Conclusion</h2>
+
+                <p>Cloudflare's custom 5xx errors provide valuable diagnostic information about the connection between Cloudflare and your origin server. While they can be frustrating, each error code points to a specific problem:</p>
+
+                <ul>
+                    <li><strong>520</strong> - Origin returned garbage; check logs and response format</li>
+                    <li><strong>521</strong> - Web server not running; start it or fix firewall</li>
+                    <li><strong>522</strong> - Connection timeout; check server load and network</li>
+                    <li><strong>523</strong> - Can't route to origin; verify DNS settings</li>
+                    <li><strong>524</strong> - Origin too slow; optimize or increase timeouts</li>
+                    <li><strong>525</strong> - SSL handshake failed; fix TLS configuration</li>
+                    <li><strong>526</strong> - Invalid SSL cert; get a valid certificate</li>
+                    <li><strong>527</strong> - Railgun issue; restart or migrate to Argo</li>
+                </ul>
+
+                <p>When troubleshooting, always check the Ray ID in error pages—it's essential for Cloudflare support tickets.</p>
+
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-bold text-gray-900 mb-6">Related Articles</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="/blog/how-to-fix-502-bad-gateway-error.html" class="glass rounded-xl p-6 border border-pink-100 hover:shadow-lg transition-all">
+                        <h4 class="font-bold text-gray-900 mb-2">How to Fix 502 Bad Gateway Error</h4>
+                        <p class="text-gray-600 text-sm">Diagnose and resolve 502 errors from proxy issues.</p>
+                    </a>
+                    <a href="/blog/how-to-fix-503-service-unavailable-error.html" class="glass rounded-xl p-6 border border-pink-100 hover:shadow-lg transition-all">
+                        <h4 class="font-bold text-gray-900 mb-2">How to Fix 503 Service Unavailable</h4>
+                        <p class="text-gray-600 text-sm">Troubleshoot server overload and maintenance issues.</p>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-pink-100 mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Status Code Check</h4>
+                    <p class="text-gray-600 text-sm">Comprehensive HTTP status code reference.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/status-codes.html#1xx" class="text-gray-600 hover:text-primary">1xx Informational</a></li>
+                        <li><a href="/status-codes.html#2xx" class="text-gray-600 hover:text-primary">2xx Success</a></li>
+                        <li><a href="/status-codes.html#3xx" class="text-gray-600 hover:text-primary">3xx Redirection</a></li>
+                        <li><a href="/status-codes.html#4xx" class="text-gray-600 hover:text-primary">4xx Client Errors</a></li>
+                        <li><a href="/status-codes.html#5xx" class="text-gray-600 hover:text-primary">5xx Server Errors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Tools</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://urlstatuschecker.com" class="text-gray-600 hover:text-primary">URL Status Checker</a></li>
+                        <li><a href="/blog/" class="text-gray-600 hover:text-primary">Blog & Guides</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html" class="text-gray-600 hover:text-primary">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 text-center text-sm text-gray-600">
+                <p>&copy; 2026 Status Code Check. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Share Functions -->
+    <script>
+        const articleTitle = document.querySelector('h1').textContent;
+        const articleUrl = window.location.href;
+
+        function copyArticleLink() {
+            navigator.clipboard.writeText(articleUrl).then(() => {
+                showToast('Link copied to clipboard!');
+            });
+        }
+
+        function shareOnTwitter() {
+            const text = encodeURIComponent(articleTitle);
+            const url = encodeURIComponent(articleUrl);
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=550,height=420');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(articleUrl);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+        }
+
+        function shareNative() {
+            if (navigator.share) {
+                navigator.share({
+                    title: articleTitle,
+                    url: articleUrl
+                });
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium z-50 animate-fade-in';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

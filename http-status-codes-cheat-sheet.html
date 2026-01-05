@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>HTTP Status Codes Cheat Sheet - Complete Reference Guide 2026 | Print & Download</title>
+    <meta name="description" content="Complete HTTP status codes cheat sheet with all codes explained. Print-friendly PDF reference guide. 1xx, 2xx, 3xx, 4xx, 5xx codes. Best http status code list for developers.">
+    <meta name="keywords" content="http status codes cheat sheet, http status codes list, http status code reference, http error codes, http response codes, http status codes pdf, 404 error, 500 error, 301 redirect, 200 ok, http codes list, status code chart">
+    <meta name="author" content="Status Code Check">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://statuscodecheck.com/http-status-codes-cheat-sheet.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="HTTP Status Codes Cheat Sheet - Complete Reference Guide">
+    <meta property="og:description" content="Print-friendly HTTP status codes reference. All 1xx, 2xx, 3xx, 4xx, 5xx codes explained with examples.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://statuscodecheck.com/http-status-codes-cheat-sheet.html">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "HTTP Status Codes Cheat Sheet - Complete Reference Guide",
+      "description": "Comprehensive HTTP status codes cheat sheet covering all response codes from 1xx to 5xx. Print-friendly reference for developers.",
+      "author": {"@type": "Organization", "name": "Status Code Check"},
+      "publisher": {"@type": "Organization", "name": "Status Code Check"},
+      "datePublished": "2026-01-04",
+      "dateModified": "2026-01-04"
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://statuscodecheck.com"},
+        {"@type": "ListItem", "position": 2, "name": "HTTP Status Codes Cheat Sheet", "item": "https://statuscodecheck.com/http-status-codes-cheat-sheet.html"}
+      ]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass { background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); }
+        .gradient-text { background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Print Styles */
+        @media print {
+            body { background: white !important; }
+            .no-print { display: none !important; }
+            .glass { background: white !important; box-shadow: none !important; }
+            .print-break { page-break-before: always; }
+            header, footer, .no-print { display: none !important; }
+            .code-card { break-inside: avoid; }
+        }
+
+        /* Color coding for status code categories */
+        .code-1xx { border-left: 4px solid #3b82f6; }
+        .code-2xx { border-left: 4px solid #10b981; }
+        .code-3xx { border-left: 4px solid #f59e0b; }
+        .code-4xx { border-left: 4px solid #ef4444; }
+        .code-5xx { border-left: 4px solid #8b5cf6; }
+
+        .badge-1xx { background: #dbeafe; color: #1d4ed8; }
+        .badge-2xx { background: #dcfce7; color: #166534; }
+        .badge-3xx { background: #fef3c7; color: #b45309; }
+        .badge-4xx { background: #fee2e2; color: #dc2626; }
+        .badge-5xx { background: #f3e8ff; color: #7c3aed; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="glass fixed top-0 left-0 right-0 z-50 border-b border-gray-200/50 no-print">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-white text-xl">fact_check</span>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-gray-900">Status Code Check</p>
+                        <p class="text-xs text-gray-500">HTTP Reference Guide</p>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="/" class="text-gray-600 hover:text-primary font-medium">Status Codes</a>
+                    <a href="/faq.html" class="text-gray-600 hover:text-primary font-medium">FAQ</a>
+                    <a href="/blog/" class="text-gray-600 hover:text-primary font-medium">Blog</a>
+                    <a href="https://urlstatuschecker.com" class="px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90">Check URLs FREE</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24 pb-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl sm:text-5xl font-display font-bold text-gray-900 mb-4">
+                    HTTP Status Codes <span class="gradient-text">Cheat Sheet</span>
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+                    Complete reference guide to all HTTP status codes. Print this page or bookmark it for quick reference.
+                </p>
+                <div class="flex justify-center gap-4 no-print">
+                    <button onclick="window.print()" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                        <span class="material-icons">print</span>
+                        Print Cheat Sheet
+                    </button>
+                    <a href="https://urlstatuschecker.com" class="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        <span class="material-icons">check_circle</span>
+                        Check URLs FREE
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Jump -->
+            <div class="glass rounded-2xl p-6 mb-8 shadow-lg no-print">
+                <h2 class="font-bold text-gray-900 mb-4">Quick Jump:</h2>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#1xx" class="px-4 py-2 badge-1xx rounded-lg font-semibold hover:opacity-80">1xx Informational</a>
+                    <a href="#2xx" class="px-4 py-2 badge-2xx rounded-lg font-semibold hover:opacity-80">2xx Success</a>
+                    <a href="#3xx" class="px-4 py-2 badge-3xx rounded-lg font-semibold hover:opacity-80">3xx Redirection</a>
+                    <a href="#4xx" class="px-4 py-2 badge-4xx rounded-lg font-semibold hover:opacity-80">4xx Client Error</a>
+                    <a href="#5xx" class="px-4 py-2 badge-5xx rounded-lg font-semibold hover:opacity-80">5xx Server Error</a>
+                </div>
+            </div>
+
+            <!-- 1xx Informational -->
+            <section id="1xx" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-blue-600 text-2xl">info</span>
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 badge-1xx rounded-full font-bold text-sm">1xx</span>
+                        <h2 class="text-2xl font-display font-bold text-gray-900 mt-1">Informational Responses</h2>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-1xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-blue-600">100</span>
+                            <span class="font-semibold text-gray-900">Continue</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server received request headers, client should proceed with body.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-1xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-blue-600">101</span>
+                            <span class="font-semibold text-gray-900">Switching Protocols</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server is switching to a different protocol (e.g., WebSocket).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-1xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-blue-600">102</span>
+                            <span class="font-semibold text-gray-900">Processing</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server is processing the request (WebDAV).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-1xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-blue-600">103</span>
+                            <span class="font-semibold text-gray-900">Early Hints</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Used for preloading resources while server prepares response.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2xx Success -->
+            <section id="2xx" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-green-600 text-2xl">check_circle</span>
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 badge-2xx rounded-full font-bold text-sm">2xx</span>
+                        <h2 class="text-2xl font-display font-bold text-gray-900 mt-1">Success Responses</h2>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">200</span>
+                            <span class="font-semibold text-gray-900">OK</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Request succeeded. Standard response for successful HTTP requests.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">201</span>
+                            <span class="font-semibold text-gray-900">Created</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Request succeeded and new resource was created (POST/PUT).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">202</span>
+                            <span class="font-semibold text-gray-900">Accepted</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Request accepted for processing but not completed yet.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">203</span>
+                            <span class="font-semibold text-gray-900">Non-Authoritative Info</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Response modified by a proxy/intermediate server.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">204</span>
+                            <span class="font-semibold text-gray-900">No Content</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Request succeeded but no content to return (DELETE operations).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">205</span>
+                            <span class="font-semibold text-gray-900">Reset Content</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Client should reset the document view (clear form data).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">206</span>
+                            <span class="font-semibold text-gray-900">Partial Content</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server delivering part of resource (Range header requests).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-2xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-green-600">207</span>
+                            <span class="font-semibold text-gray-900">Multi-Status</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Multiple status codes for multiple resources (WebDAV).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3xx Redirection -->
+            <section id="3xx" class="mb-12 print-break">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-yellow-600 text-2xl">redo</span>
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 badge-3xx rounded-full font-bold text-sm">3xx</span>
+                        <h2 class="text-2xl font-display font-bold text-gray-900 mt-1">Redirection Messages</h2>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-3xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-yellow-600">300</span>
+                            <span class="font-semibold text-gray-900">Multiple Choices</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Multiple options available for the resource.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-3xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-yellow-600">301</span>
+                            <span class="font-semibold text-gray-900">Moved Permanently</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Resource permanently moved. Search engines update their index. <strong>SEO: Passes link juice.</strong></p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-3xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-yellow-600">302</span>
+                            <span class="font-semibold text-gray-900">Found (Temporary)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Resource temporarily at different URI. <strong>SEO: Use 301 for permanent moves.</strong></p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-3xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-yellow-600">303</span>
+                            <span class="font-semibold text-gray-900">See Other</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Response to POST - redirect to GET another resource.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-3xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-yellow-600">304</span>
+                            <span class="font-semibold text-gray-900">Not Modified</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Cached version is still valid. Saves bandwidth.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-3xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-yellow-600">307</span>
+                            <span class="font-semibold text-gray-900">Temporary Redirect</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Like 302 but method/body must not change.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-3xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-yellow-600">308</span>
+                            <span class="font-semibold text-gray-900">Permanent Redirect</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Like 301 but method/body must not change.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4xx Client Error -->
+            <section id="4xx" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-red-600 text-2xl">error</span>
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 badge-4xx rounded-full font-bold text-sm">4xx</span>
+                        <h2 class="text-2xl font-display font-bold text-gray-900 mt-1">Client Error Responses</h2>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">400</span>
+                            <span class="font-semibold text-gray-900">Bad Request</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Malformed request syntax. Check request parameters.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">401</span>
+                            <span class="font-semibold text-gray-900">Unauthorized</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Authentication required. Login or provide valid credentials.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">402</span>
+                            <span class="font-semibold text-gray-900">Payment Required</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Reserved for future use. Sometimes used by APIs for billing.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">403</span>
+                            <span class="font-semibold text-gray-900">Forbidden</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Access denied. You don't have permission to access this resource.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">404</span>
+                            <span class="font-semibold text-gray-900">Not Found</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Resource doesn't exist. <strong>SEO: Fix broken links immediately!</strong></p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">405</span>
+                            <span class="font-semibold text-gray-900">Method Not Allowed</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">HTTP method not supported (e.g., POST on GET-only endpoint).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">406</span>
+                            <span class="font-semibold text-gray-900">Not Acceptable</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server can't produce content matching Accept headers.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">408</span>
+                            <span class="font-semibold text-gray-900">Request Timeout</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Client took too long to send the request.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">409</span>
+                            <span class="font-semibold text-gray-900">Conflict</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Request conflicts with current state (e.g., duplicate entry).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">410</span>
+                            <span class="font-semibold text-gray-900">Gone</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Resource permanently deleted. <strong>SEO: Better than 404 for removed pages.</strong></p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">413</span>
+                            <span class="font-semibold text-gray-900">Payload Too Large</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Request body exceeds server limits.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">414</span>
+                            <span class="font-semibold text-gray-900">URI Too Long</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">URL is too long for server to process.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">415</span>
+                            <span class="font-semibold text-gray-900">Unsupported Media</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server doesn't support the Content-Type sent.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">429</span>
+                            <span class="font-semibold text-gray-900">Too Many Requests</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Rate limiting. You're sending too many requests.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-4xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-red-600">451</span>
+                            <span class="font-semibold text-gray-900">Unavailable For Legal</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Blocked for legal reasons (DMCA, government censorship).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5xx Server Error -->
+            <section id="5xx" class="mb-12 print-break">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-purple-600 text-2xl">cloud_off</span>
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 badge-5xx rounded-full font-bold text-sm">5xx</span>
+                        <h2 class="text-2xl font-display font-bold text-gray-900 mt-1">Server Error Responses</h2>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">500</span>
+                            <span class="font-semibold text-gray-900">Internal Server Error</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Generic server error. Check server logs for details.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">501</span>
+                            <span class="font-semibold text-gray-900">Not Implemented</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server doesn't support the functionality required.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">502</span>
+                            <span class="font-semibold text-gray-900">Bad Gateway</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Upstream server returned invalid response. Check proxy/origin server.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">503</span>
+                            <span class="font-semibold text-gray-900">Service Unavailable</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server overloaded or under maintenance. Try again later.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">504</span>
+                            <span class="font-semibold text-gray-900">Gateway Timeout</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Upstream server didn't respond in time.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">505</span>
+                            <span class="font-semibold text-gray-900">HTTP Version Not Supported</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server doesn't support the HTTP version used.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">507</span>
+                            <span class="font-semibold text-gray-900">Insufficient Storage</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Server cannot store the representation needed (WebDAV).</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card code-5xx">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-purple-600">508</span>
+                            <span class="font-semibold text-gray-900">Loop Detected</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Infinite loop detected while processing request (WebDAV).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cloudflare Codes -->
+            <section id="cloudflare" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-orange-600 text-2xl">cloud</span>
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full font-bold text-sm">5xx</span>
+                        <h2 class="text-2xl font-display font-bold text-gray-900 mt-1">Cloudflare-Specific Errors</h2>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">520</span>
+                            <span class="font-semibold text-gray-900">Unknown Error</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Origin server returned unexpected response to Cloudflare.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">521</span>
+                            <span class="font-semibold text-gray-900">Web Server Is Down</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Origin server refused connection from Cloudflare.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">522</span>
+                            <span class="font-semibold text-gray-900">Connection Timed Out</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Cloudflare couldn't establish TCP connection to origin.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">523</span>
+                            <span class="font-semibold text-gray-900">Origin Is Unreachable</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">DNS error or origin server is offline.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">524</span>
+                            <span class="font-semibold text-gray-900">A Timeout Occurred</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">TCP connection established but origin didn't respond in time.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">525</span>
+                            <span class="font-semibold text-gray-900">SSL Handshake Failed</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">SSL/TLS handshake with origin server failed.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">526</span>
+                            <span class="font-semibold text-gray-900">Invalid SSL Certificate</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Origin SSL certificate is invalid or expired.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5 shadow-lg code-card" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl font-bold text-orange-600">527</span>
+                            <span class="font-semibold text-gray-900">Railgun Error</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Cloudflare Railgun connection interrupted.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <div class="glass rounded-2xl p-8 text-center shadow-xl no-print">
+                <h2 class="text-2xl font-display font-bold text-gray-900 mb-4">Check Your URLs for Errors</h2>
+                <p class="text-gray-600 mb-6">Found a status code you need to fix? Use our FREE bulk URL checker to scan up to 100 URLs at once.</p>
+                <a href="https://urlstatuschecker.com" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all">
+                    <span class="material-icons">check_circle</span>
+                    Check URLs FREE - No Signup
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 no-print">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-display font-bold text-lg mb-4">Status Code Check</h3>
+                    <p class="text-gray-400 text-sm">Complete HTTP status codes reference guide for developers and SEO professionals.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="/" class="hover:text-white">HTTP Status Codes List</a></li>
+                        <li><a href="/http-status-codes-cheat-sheet.html" class="hover:text-white">Cheat Sheet</a></li>
+                        <li><a href="/faq.html" class="hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Blog</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="/blog/understanding-404-errors-and-seo.html" class="hover:text-white">404 Errors & SEO</a></li>
+                        <li><a href="/blog/301-vs-302-redirects-guide.html" class="hover:text-white">301 vs 302 Redirects</a></li>
+                        <li><a href="/blog/troubleshooting-500-internal-server-errors.html" class="hover:text-white">Fix 500 Errors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Tools</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="https://urlstatuschecker.com" class="hover:text-white">URL Status Checker</a></li>
+                        <li><a href="https://urlstatuschecker.com/dns-checker.html" class="hover:text-white">DNS Checker</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Status Code Check. HTTP Status Codes Cheat Sheet - Free Reference Guide.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

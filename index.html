@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Status Code Check - Complete HTTP Status Code Reference & Directory</title>
-    <meta name="description" content="Comprehensive HTTP status code reference guide with definitions, causes, and solutions for every status code. Learn about 1xx, 2xx, 3xx, 4xx, and 5xx status codes with examples and fixes.">
-    <meta name="keywords" content="HTTP status codes, 404 error, 500 error, status code reference, HTTP error codes, web development, API status codes, troubleshooting">
+    <title>HTTP Status Codes List - Complete Reference Guide | Free Status Code Checker</title>
+    <meta name="description" content="Complete HTTP status codes list with 60+ codes explained. Free bulk URL status checker, 404/500/503 error fixes, redirect checker. The best http status code reference for developers & SEO pros.">
+    <meta name="keywords" content="HTTP status codes, http status codes list, http status checker, bulk http status checker, 404 error fix, 500 error fix, http status code checker free, url status checker, redirect checker, http error codes, status code reference, bulk 404 checker, check multiple urls">
     <meta name="author" content="Status Code Check">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://statuscodecheck.com">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Status Code Check - Complete HTTP Status Code Reference">
-    <meta property="og:description" content="Comprehensive guide to all HTTP status codes with definitions, causes, and solutions. Learn to troubleshoot 404, 500, and other errors.">
+    <meta property="og:title" content="HTTP Status Codes List - Free Bulk Status Checker & Reference">
+    <meta property="og:description" content="60+ HTTP status codes explained. Free bulk URL checker, redirect chain analyzer, 404/500 error fixes. The complete http status code list for developers.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://statuscodecheck.com">
     <meta property="og:image" content="https://statuscodecheck.com/og-image.png">
@@ -93,9 +93,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
 
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Fonts & Icons with display swap for faster text render -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS - Production Build -->
     <link rel="stylesheet" href="/assets/styles.css?v=1.0.0">
@@ -195,61 +200,18 @@
             border-bottom: 2px solid rgba(255, 0, 110, 0.1);
         }
 
-        .status-category-card {
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            background: #ffffff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .status-category-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 0, 110, 0.05), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .status-category-card:hover::before {
-            left: 100%;
-        }
-
-        .status-category-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(255, 0, 110, 0.25), 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-color: #ff006e !important;
-        }
-
         .status-code-item {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: #ffffff;
             position: relative;
-        }
-
-        .status-code-item::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 0;
-            background: #ff006e;
-            transition: height 0.3s ease;
-        }
-
-        .status-code-item:hover::after {
-            height: 80%;
+            border-left: 4px solid transparent;
+            padding-left: 1rem;
         }
 
         .status-code-item:hover {
-            background: linear-gradient(90deg, rgba(255, 0, 110, 0.03), transparent);
-            transform: translateX(12px);
-            box-shadow: 0 4px 12px rgba(255, 0, 110, 0.15);
+            background: linear-gradient(90deg, rgba(255, 0, 110, 0.05), transparent);
+            border-left-color: #ff006e;
+            box-shadow: 0 4px 12px rgba(255, 0, 110, 0.1);
         }
 
         .btn-primary {
@@ -486,28 +448,36 @@
                 </div>
             </div>
 
-            <!-- Quick Stats -->
-            <div class="grid grid-cols-3 gap-6 sm:gap-10 mt-10 sm:mt-14 max-w-4xl mx-auto px-4">
-                <div class="text-center fade-in">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center bg-white/10 border border-white/20">
-                        <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">code</span>
+            <!-- Quick Stats - Horizontal on desktop, vertical on mobile -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-12 mt-10 sm:mt-14 max-w-4xl mx-auto px-4">
+                <div class="flex items-center gap-3 fade-in">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-white/10 border border-white/20">
+                        <span class="material-icons text-[#ff006e] text-2xl">code</span>
                     </div>
-                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">60+</div>
-                    <div class="text-sm text-white/70 font-semibold">Status Codes</div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-white leading-tight">60+</div>
+                        <div class="text-xs sm:text-sm text-white/70 font-semibold">Status Codes</div>
+                    </div>
                 </div>
-                <div class="text-center fade-in" style="animation-delay: 0.1s;">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center bg-white/10 border border-white/20">
-                        <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">category</span>
+                <div class="hidden sm:block w-px h-12 bg-white/20"></div>
+                <div class="flex items-center gap-3 fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-white/10 border border-white/20">
+                        <span class="material-icons text-[#ff006e] text-2xl">category</span>
                     </div>
-                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">5</div>
-                    <div class="text-sm text-white/70 font-semibold">Categories</div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-white leading-tight">5</div>
+                        <div class="text-xs sm:text-sm text-white/70 font-semibold">Categories</div>
+                    </div>
                 </div>
-                <div class="text-center fade-in" style="animation-delay: 0.2s;">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center bg-white/10 border border-white/20">
-                        <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">favorite</span>
+                <div class="hidden sm:block w-px h-12 bg-white/20"></div>
+                <div class="flex items-center gap-3 fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-white/10 border border-white/20">
+                        <span class="material-icons text-[#ff006e] text-2xl">favorite</span>
                     </div>
-                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">100%</div>
-                    <div class="text-sm text-white/70 font-semibold">Free Forever</div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-white leading-tight">100%</div>
+                        <div class="text-xs sm:text-sm text-white/70 font-semibold">Free Forever</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -530,111 +500,138 @@
         </div>
 
         <!-- Status Code Categories -->
-        <div id="category-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div id="category-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-10 sm:mb-14">
             <!-- 1xx Informational -->
-            <div onclick="window.location.href='/status-codes.html#1xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-[#1e3a8a] hover:border-l-[#ff006e] bg-white">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 bg-[#1e3a8a] rounded-xl flex items-center justify-center shadow-md">
+            <a href="/status-codes.html#1xx" class="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#1e3a8a] hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <span class="material-icons text-white text-2xl">info</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">1xx Informational</h3>
+                    <div>
+                        <span class="text-xs font-bold text-[#1e3a8a] uppercase tracking-wider">Informational</span>
+                        <h3 class="text-2xl font-black text-gray-900">1xx</h3>
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-3 text-sm">Request received, continuing process</p>
-                <p class="text-xs text-gray-400 font-medium mb-3">100 Continue, 101 Switching Protocols</p>
-                <a href="/status-codes.html#1xx" class="inline-flex items-center gap-1 text-[#1e3a8a] hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
-                </a>
-            </div>
+                <p class="text-gray-600 mb-3 text-sm leading-relaxed">Request received, continuing process</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-lg">100</span>
+                    <span class="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-lg">101</span>
+                    <span class="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-lg">102</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[#1e3a8a] font-bold text-sm group-hover:gap-2 transition-all">
+                    View All <span class="material-icons text-sm">arrow_forward</span>
+                </span>
+            </a>
 
             <!-- 2xx Success -->
-            <div onclick="window.location.href='/status-codes.html#2xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-green-500 hover:border-l-[#ff006e] bg-white">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-md">
+            <a href="/status-codes.html#2xx" class="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-green-500 hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <span class="material-icons text-white text-2xl">check_circle</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">2xx Success</h3>
+                    <div>
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Success</span>
+                        <h3 class="text-2xl font-black text-gray-900">2xx</h3>
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-3 text-sm">Request successfully received and accepted</p>
-                <p class="text-xs text-gray-400 font-medium mb-3">200 OK, 201 Created, 204 No Content</p>
-                <a href="/status-codes.html#2xx" class="inline-flex items-center gap-1 text-green-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
-                </a>
-            </div>
+                <p class="text-gray-600 mb-3 text-sm leading-relaxed">Request successfully received and accepted</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded-lg">200</span>
+                    <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded-lg">201</span>
+                    <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded-lg">204</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-green-600 font-bold text-sm group-hover:gap-2 transition-all">
+                    View All <span class="material-icons text-sm">arrow_forward</span>
+                </span>
+            </a>
 
             <!-- 3xx Redirection -->
-            <div onclick="window.location.href='/status-codes.html#3xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-yellow-500 hover:border-l-[#ff006e] bg-white">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center shadow-md">
+            <a href="/status-codes.html#3xx" class="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-yellow-500 hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-amber-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <span class="material-icons text-white text-2xl">redo</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">3xx Redirection</h3>
+                    <div>
+                        <span class="text-xs font-bold text-yellow-600 uppercase tracking-wider">Redirection</span>
+                        <h3 class="text-2xl font-black text-gray-900">3xx</h3>
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-3 text-sm">Further action needed to complete request</p>
-                <p class="text-xs text-gray-400 font-medium mb-3">301 Moved, 302 Found, 304 Not Modified</p>
-                <a href="/status-codes.html#3xx" class="inline-flex items-center gap-1 text-yellow-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
-                </a>
-            </div>
+                <p class="text-gray-600 mb-3 text-sm leading-relaxed">Further action needed to complete request</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-yellow-50 text-yellow-700 text-xs font-semibold rounded-lg">301</span>
+                    <span class="px-2 py-1 bg-yellow-50 text-yellow-700 text-xs font-semibold rounded-lg">302</span>
+                    <span class="px-2 py-1 bg-yellow-50 text-yellow-700 text-xs font-semibold rounded-lg">304</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-yellow-600 font-bold text-sm group-hover:gap-2 transition-all">
+                    View All <span class="material-icons text-sm">arrow_forward</span>
+                </span>
+            </a>
 
             <!-- 4xx Client Errors -->
-            <div onclick="window.location.href='/status-codes.html#4xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-orange-500 hover:border-l-[#ff006e] bg-white">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-md">
+            <a href="/status-codes.html#4xx" class="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-orange-500 hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <span class="material-icons text-white text-2xl">warning</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">4xx Client Errors</h3>
+                    <div>
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Client Errors</span>
+                        <h3 class="text-2xl font-black text-gray-900">4xx</h3>
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-3 text-sm">Request contains bad syntax or cannot be fulfilled</p>
-                <p class="text-xs text-gray-400 font-medium mb-3">400 Bad Request, 404 Not Found, 403 Forbidden</p>
-                <a href="/status-codes.html#4xx" class="inline-flex items-center gap-1 text-orange-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
-                </a>
-            </div>
+                <p class="text-gray-600 mb-3 text-sm leading-relaxed">Request contains bad syntax or cannot be fulfilled</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-orange-50 text-orange-700 text-xs font-semibold rounded-lg">400</span>
+                    <span class="px-2 py-1 bg-orange-50 text-orange-700 text-xs font-semibold rounded-lg">404</span>
+                    <span class="px-2 py-1 bg-orange-50 text-orange-700 text-xs font-semibold rounded-lg">403</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-orange-600 font-bold text-sm group-hover:gap-2 transition-all">
+                    View All <span class="material-icons text-sm">arrow_forward</span>
+                </span>
+            </a>
 
             <!-- 5xx Server Errors -->
-            <div onclick="window.location.href='/status-codes.html#5xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-red-500 hover:border-l-[#ff006e] bg-white">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center shadow-md">
+            <a href="/status-codes.html#5xx" class="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-red-500 hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <span class="material-icons text-white text-2xl">error</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">5xx Server Errors</h3>
-                </div>
-                <p class="text-gray-600 mb-3 text-sm">Server failed to fulfill a valid request</p>
-                <p class="text-xs text-gray-400 font-medium mb-3">500 Internal Error, 502 Bad Gateway, 503 Unavailable</p>
-                <a href="/status-codes.html#5xx" class="inline-flex items-center gap-1 text-red-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
-                </a>
-            </div>
-
-            <!-- FAQ -->
-            <div onclick="window.location.href='/faq.html'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-[#ff006e] hover:border-l-[#ff006e] bg-white">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 bg-[#ff006e] rounded-xl flex items-center justify-center shadow-md">
-                        <span class="material-icons text-white text-2xl">help</span>
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wider">Server Errors</span>
+                        <h3 class="text-2xl font-black text-gray-900">5xx</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">FAQ</h3>
                 </div>
-                <p class="text-gray-600 mb-3 text-sm">Common questions about HTTP status codes</p>
-                <p class="text-xs text-gray-400 font-medium mb-3">404 errors, redirects, server errors, and more</p>
-                <a href="/faq.html" class="inline-flex items-center gap-1 text-[#ff006e] hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View FAQs <span class="material-icons text-sm">arrow_forward</span>
-                </a>
-            </div>
+                <p class="text-gray-600 mb-3 text-sm leading-relaxed">Server failed to fulfill a valid request</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2 py-1 bg-red-50 text-red-700 text-xs font-semibold rounded-lg">500</span>
+                    <span class="px-2 py-1 bg-red-50 text-red-700 text-xs font-semibold rounded-lg">502</span>
+                    <span class="px-2 py-1 bg-red-50 text-red-700 text-xs font-semibold rounded-lg">503</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-red-600 font-bold text-sm group-hover:gap-2 transition-all">
+                    View All <span class="material-icons text-sm">arrow_forward</span>
+                </span>
+            </a>
 
-            <!-- Blog/Resources -->
-            <div onclick="window.location.href='/blog'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-[#1e3a8a] hover:border-l-[#ff006e] bg-white sm:col-span-2 lg:col-span-1">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-12 h-12 bg-[#1e3a8a] rounded-xl flex items-center justify-center shadow-md">
-                        <span class="material-icons text-white text-2xl">article</span>
+            <!-- Resources Card (FAQ + Blog) -->
+            <a href="/blog/" class="group block bg-gradient-to-br from-[#ff006e] to-[#ff4081] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-icons text-white text-2xl">library_books</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">Blog & Guides</h3>
+                    <div>
+                        <span class="text-xs font-bold text-white/80 uppercase tracking-wider">Resources</span>
+                        <h3 class="text-2xl font-black text-white">Guides</h3>
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-3 text-sm">In-depth articles and troubleshooting guides</p>
-                <p class="text-xs text-gray-400 font-medium mb-3">SEO tips, troubleshooting, best practices</p>
-                <a href="/blog" class="inline-flex items-center gap-1 text-[#1e3a8a] hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View Articles <span class="material-icons text-sm">arrow_forward</span>
-                </a>
-            </div>
+                <p class="text-white/90 mb-4 text-sm leading-relaxed">7 in-depth articles, FAQs, and troubleshooting guides</p>
+                <div class="flex gap-3 mb-4">
+                    <span class="px-3 py-1.5 bg-white/20 text-white text-xs font-semibold rounded-lg">Blog</span>
+                    <span class="px-3 py-1.5 bg-white/20 text-white text-xs font-semibold rounded-lg">FAQ</span>
+                    <span class="px-3 py-1.5 bg-white/20 text-white text-xs font-semibold rounded-lg">How-To</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-white font-bold text-sm group-hover:gap-2 transition-all">
+                    Browse Resources <span class="material-icons text-sm">arrow_forward</span>
+                </span>
+            </a>
         </div>
 
         <!-- Quick Reference Section -->
@@ -662,12 +659,12 @@
                     </div>
 
                     <h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 sm:mb-5 leading-tight">
-                        Check Your URLs<br/>
-                        <span class="gradient-text">Instantly & Free</span>
+                        Find & Fix URL Errors<br/>
+                        <span class="gradient-text">Before Your Users Do</span>
                     </h3>
 
                     <p class="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
-                        Test up to 100 URLs at once, check DNS propagation, analyze redirect chains, and identify issues in seconds with our powerful free tool.
+                        Instantly detect broken links, slow pages, and DNS issues. Scan 100 URLs at once - no signup required. Used by 10,000+ developers and SEO professionals.
                     </p>
 
                     <!-- Features Grid -->
@@ -687,13 +684,13 @@
                     </div>
 
                     <a href="https://urlstatuschecker.com" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold transition-all shadow-xl hover:shadow-2xl" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%); color: white;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 110, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.3)';">
-                        <span class="material-icons text-xl sm:text-2xl">speed</span>
-                        <span>Try URL Status Checker Free</span>
+                        <span class="material-icons text-xl sm:text-2xl">bolt</span>
+                        <span>Scan My URLs Free - No Signup</span>
                         <span class="material-icons text-xl sm:text-2xl">arrow_forward</span>
                     </a>
 
                     <p class="text-gray-600 text-sm sm:text-base mt-5 font-semibold">
-                        No signup required • Free forever • Instant results
+                        ✓ 100 URLs per scan • ✓ DNS propagation check • ✓ Instant results
                     </p>
                 </div>
             </div>
@@ -703,92 +700,75 @@
 
 
     <!-- Footer -->
-    <footer style="background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%); margin-top: 80px; position: relative;">
-        <!-- Gradient line at top -->
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, #ff006e, #ff4081, #ff006e, transparent);"></div>
+    <footer style="background: #000000; margin-top: 80px; position: relative; overflow: hidden;">
+        <!-- Gradient overlay for depth -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #ff006e, transparent);"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-            <!-- Main Brand Section -->
-            <div class="text-center mb-10 sm:mb-12 pb-8 border-b border-gray-800">
-                <div class="inline-flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-xl" style="background: linear-gradient(135deg, #ff006e 0%, #ff4081 100%);">
-                        <span class="material-icons text-white text-2xl">code</span>
-                    </div>
-                    <h3 class="text-2xl sm:text-3xl font-black gradient-text">Status Code Check</h3>
-                </div>
-                <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
-                    Professional HTTP status code reference and URL checking tools for developers worldwide.
-                </p>
-            </div>
-
+        <div style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 32px;">
             <!-- Links Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px; margin-bottom: 48px;">
                 <!-- SNAPIT SUITE -->
                 <div>
-                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
-                        <span style="color: #ff006e;">●</span> SNAPIT SUITE
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        SNAPIT SUITE
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
                     </h4>
-                    <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="https://snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Software</a></li>
-                        <li><a href="https://snapitforms.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Forms</a></li>
-                        <li><a href="https://snapitanalytics.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Analytics</a></li>
-                        <li><a href="https://snapitagent.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Agent</a></li>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="https://snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Software</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitforms.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Forms</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitanalytics.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Analytics</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitagent.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Agent</a></li>
                     </ul>
                 </div>
 
                 <!-- TOOLS & UTILITIES -->
                 <div>
-                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
-                        <span style="color: #ff006e;">●</span> TOOLS
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        TOOLS & UTILITIES
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
                     </h4>
-                    <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="https://burn.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Burn</a></li>
-                        <li><a href="https://polls.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT Polls</a></li>
-                        <li><a href="https://snapitqr.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT QR</a></li>
-                        <li><a href="https://snapiturl.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">SnapIT URL</a></li>
-                        <li><a href="https://urlstatuschecker.com" target="_blank" class="text-[#ff006e] hover:text-[#ff4081] transition-all duration-300 hover:translate-x-1 inline-block font-bold">URL Status Checker</a></li>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="https://burn.snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Burn</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://polls.snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Polls</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapitqr.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT QR</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://snapiturl.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT URL</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://urlstatuschecker.com" target="_blank" style="color: #ff006e; text-decoration: none; font-size: 15px; font-weight: 600; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.transform='translateX(5px)';" onmouseout="this.style.transform='translateX(0)';">URL Status Checker</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://statuscodecheck.com" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Status Code Check</a></li>
                     </ul>
                 </div>
 
                 <!-- RESOURCES -->
                 <div>
-                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
-                        <span style="color: #ff006e;">●</span> RESOURCES
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        RESOURCES
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
                     </h4>
-                    <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="/status-codes.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">All Status Codes</a></li>
-                        <li><a href="/faq.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">FAQ</a></li>
-                        <li><a href="/blog" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Blog</a></li>
-                        <li><a href="https://pdf.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">PDF Tools</a></li>
-                        <li><a href="https://forum.snapitsoftware.com" target="_blank" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Forum</a></li>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="/status-codes.html" style="color: #ff006e; text-decoration: none; font-size: 15px; font-weight: 600; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.transform='translateX(5px)';" onmouseout="this.style.transform='translateX(0)';">All Status Codes</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/faq.html" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">FAQ</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/blog/" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Blog & Guides</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://pdf.snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">PDF Tools</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://forum.snapitsoftware.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">SnapIT Forum</a></li>
                     </ul>
                 </div>
 
                 <!-- LEGAL & SUPPORT -->
                 <div>
-                    <h4 class="font-black text-white mb-3 text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
-                        <span style="color: #ff006e;">●</span> SUPPORT
+                    <h4 style="color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; position: relative; display: inline-block;">
+                        LEGAL & SUPPORT
+                        <div style="position: absolute; bottom: -8px; left: 0; width: 40px; height: 2px; background: #ff006e;"></div>
                     </h4>
-                    <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="/terms-of-service.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block">Privacy Policy</a></li>
-                        <li><button onclick="openContactForm()" class="text-gray-400 hover:text-[#ff006e] transition-all duration-300 hover:translate-x-1 inline-block bg-transparent border-0 p-0 cursor-pointer text-xs sm:text-sm">Send Feedback</button></li>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-top: 24px;">
+                        <li style="margin-bottom: 12px;"><a href="/terms-of-service.html" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Terms of Service</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/privacy-policy.html" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Privacy Policy</a></li>
+                        <li style="margin-bottom: 12px;"><a href="javascript:void(0)" onclick="openContactForm()" style="color: #ffffff; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: inline-block; cursor: pointer;" onmouseover="this.style.color='#ff006e'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#ffffff'; this.style.transform='translateX(0)';">Send Feedback</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Bar -->
-            <div class="border-t border-gray-800 pt-6 sm:pt-8">
-                <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-                    <p class="text-gray-500 text-xs sm:text-sm">
-                        &copy; 2025 SnapIT Software. All rights reserved.
-                    </p>
-                    <div class="flex items-center gap-3 sm:gap-4">
-                        <a href="https://urlstatuschecker.com" target="_blank" class="text-gray-500 hover:text-[#ff006e] transition-all text-xs sm:text-sm font-semibold">Check URLs</a>
-                        <span class="text-gray-700">•</span>
-                        <a href="/status-codes.html" class="text-gray-500 hover:text-[#ff006e] transition-all text-xs sm:text-sm font-semibold">Browse Codes</a>
-                    </div>
-                </div>
+            <div style="border-top: 1px solid #1a1a1a; padding-top: 32px; text-align: center;">
+                <p style="color: #666666; font-size: 14px; margin: 0;">&copy; 2025 <span style="color: #ff006e; font-weight: 600;">SnapIT Software</span>. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -893,44 +873,33 @@
                 const categoryData = statusCodesData[item.category];
                 const codeData = categoryData.codes[item.code];
 
-                const colorClasses = {
-                    'green': 'border-green-200 hover:border-green-400',
-                    'yellow': 'border-yellow-200 hover:border-yellow-400',
-                    'orange': 'border-orange-200 hover:border-orange-400',
-                    'red': 'border-red-200 hover:border-red-400'
+                const badgeColors = {
+                    'green': 'bg-green-100 text-green-700',
+                    'yellow': 'bg-yellow-100 text-yellow-700',
+                    'orange': 'bg-orange-100 text-orange-700',
+                    'red': 'bg-red-100 text-red-700'
                 };
 
                 html += `
-                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-5 py-3 rounded-r-xl cursor-pointer" data-code="${item.code}">
-                        <div class="flex items-start justify-between">
-                            <div class="flex-1">
-                                <h4 class="text-lg font-bold text-gray-900 mb-1">
+                    <a href="/status-codes.html#${item.code}" class="status-code-item block py-4 rounded-xl cursor-pointer" data-code="${item.code}">
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-base sm:text-lg font-bold text-gray-900 mb-1">
                                     ${item.code} ${codeData.name}
                                 </h4>
-                                <p class="text-sm text-gray-600 mb-1">${codeData.description}</p>
-                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-1 text-primary font-semibold text-xs transition-all">
-                                    Learn More →
-                                </a>
+                                <p class="text-sm text-gray-600 truncate">${codeData.description}</p>
                             </div>
-                            <div class="ml-3">
-                                <span class="inline-flex items-center justify-center w-10 h-10 bg-${item.color}-100 rounded-xl">
-                                    <span class="text-lg font-bold text-${item.color}-600">${item.code}</span>
+                            <div class="flex-shrink-0">
+                                <span class="inline-flex items-center justify-center px-3 py-1.5 ${badgeColors[item.color]} rounded-lg font-bold text-sm">
+                                    ${item.code}
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `;
             });
 
             container.innerHTML = html;
-
-            // Add click handlers
-            document.querySelectorAll('.status-code-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const code = this.getAttribute('data-code');
-                    window.location.href = `/status-codes.html#${code}`;
-                });
-            });
         }
 
         // Search functionality
@@ -984,45 +953,34 @@
             let html = `<p class="text-sm text-gray-500 mb-4">Found ${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"</p>`;
 
             results.forEach(item => {
-                const colorClasses = {
-                    'blue': 'border-blue-200 hover:border-blue-400',
-                    'green': 'border-green-200 hover:border-green-400',
-                    'yellow': 'border-yellow-200 hover:border-yellow-400',
-                    'orange': 'border-orange-200 hover:border-orange-400',
-                    'red': 'border-red-200 hover:border-red-400'
+                const badgeColors = {
+                    'blue': 'bg-blue-100 text-blue-700',
+                    'green': 'bg-green-100 text-green-700',
+                    'yellow': 'bg-yellow-100 text-yellow-700',
+                    'orange': 'bg-orange-100 text-orange-700',
+                    'red': 'bg-red-100 text-red-700'
                 };
 
                 html += `
-                    <div class="status-code-item border-l-4 ${colorClasses[item.color]} pl-5 py-3 rounded-r-xl cursor-pointer mb-3" data-code="${item.code}">
-                        <div class="flex items-start justify-between">
-                            <div class="flex-1">
-                                <h4 class="text-lg font-bold text-gray-900 mb-1">
+                    <a href="/status-codes.html#${item.code}" class="status-code-item block py-4 rounded-xl cursor-pointer mb-2">
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-base sm:text-lg font-bold text-gray-900 mb-1">
                                     ${item.code} ${item.data.name}
                                 </h4>
-                                <p class="text-sm text-gray-600 mb-1">${item.data.description}</p>
-                                <a href="/status-codes.html#${item.code}" class="inline-flex items-center gap-1 text-primary font-semibold text-xs transition-all">
-                                    Learn More →
-                                </a>
+                                <p class="text-sm text-gray-600 truncate">${item.data.description}</p>
                             </div>
-                            <div class="ml-3">
-                                <span class="inline-flex items-center justify-center px-2 py-1 bg-${item.color}-100 rounded-xl">
-                                    <span class="text-sm font-bold text-${item.color}-600">${item.category}</span>
+                            <div class="flex-shrink-0">
+                                <span class="inline-flex items-center justify-center px-3 py-1.5 ${badgeColors[item.color]} rounded-lg font-bold text-sm">
+                                    ${item.code}
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `;
             });
 
             searchResultsContainer.innerHTML = html;
-
-            // Add click handlers
-            document.querySelectorAll('.status-code-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const code = this.getAttribute('data-code');
-                    window.location.href = `/status-codes.html#${code}`;
-                });
-            });
         });
 
         // Initialize on page load
