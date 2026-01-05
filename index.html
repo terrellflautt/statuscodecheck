@@ -487,18 +487,27 @@
             </div>
 
             <!-- Quick Stats -->
-            <div class="flex flex-wrap justify-center gap-6 sm:gap-8 mt-8 sm:mt-12">
+            <div class="grid grid-cols-3 gap-6 sm:gap-10 mt-10 sm:mt-14 max-w-4xl mx-auto px-4">
                 <div class="text-center fade-in">
-                    <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">60+</div>
-                    <div class="text-xs sm:text-sm text-white/70 font-semibold">Status Codes</div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center bg-white/10 border border-white/20">
+                        <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">code</span>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">60+</div>
+                    <div class="text-sm text-white/70 font-semibold">Status Codes</div>
                 </div>
                 <div class="text-center fade-in" style="animation-delay: 0.1s;">
-                    <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">5</div>
-                    <div class="text-xs sm:text-sm text-white/70 font-semibold">Categories</div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center bg-white/10 border border-white/20">
+                        <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">category</span>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">5</div>
+                    <div class="text-sm text-white/70 font-semibold">Categories</div>
                 </div>
                 <div class="text-center fade-in" style="animation-delay: 0.2s;">
-                    <div class="text-3xl sm:text-4xl font-black text-[#ff006e] mb-1">100%</div>
-                    <div class="text-xs sm:text-sm text-white/70 font-semibold">Free Forever</div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center bg-white/10 border border-white/20">
+                        <span class="material-icons text-[#ff006e] text-2xl sm:text-3xl">favorite</span>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">100%</div>
+                    <div class="text-sm text-white/70 font-semibold">Free Forever</div>
                 </div>
             </div>
         </div>
@@ -523,122 +532,108 @@
         <!-- Status Code Categories -->
         <div id="category-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             <!-- 1xx Informational -->
-            <div onclick="window.location.href='/status-codes.html#1xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-[#1e3a8a] hover:border-[#ff006e]">
-                <div class="w-20 h-20 bg-[#1e3a8a] rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                    </svg>
+            <div onclick="window.location.href='/status-codes.html#1xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-[#1e3a8a] hover:border-l-[#ff006e] bg-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-[#1e3a8a] rounded-xl flex items-center justify-center shadow-md">
+                        <span class="material-icons text-white text-2xl">info</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">1xx Informational</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">1xx Informational</h3>
-                <p class="text-gray-600 mb-4 text-sm">Request received, continuing process</p>
-                <a href="/status-codes.html#1xx" class="inline-flex items-center gap-2 text-[#1e3a8a] hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes →
+                <p class="text-gray-600 mb-3 text-sm">Request received, continuing process</p>
+                <p class="text-xs text-gray-400 font-medium mb-3">100 Continue, 101 Switching Protocols</p>
+                <a href="/status-codes.html#1xx" class="inline-flex items-center gap-1 text-[#1e3a8a] hover:text-[#ff006e] font-bold transition-all text-sm">
+                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                    <p class="text-xs text-gray-500 font-medium">100 Continue, 101 Switching Protocols</p>
-                </div>
             </div>
 
             <!-- 2xx Success -->
-            <div onclick="window.location.href='/status-codes.html#2xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-green-400 hover:border-[#ff006e]">
-                <div class="w-20 h-20 bg-green-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
+            <div onclick="window.location.href='/status-codes.html#2xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-green-500 hover:border-l-[#ff006e] bg-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-md">
+                        <span class="material-icons text-white text-2xl">check_circle</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">2xx Success</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">2xx Success</h3>
-                <p class="text-gray-600 mb-4 text-sm">Request successfully received and accepted</p>
-                <a href="/status-codes.html#2xx" class="inline-flex items-center gap-2 text-green-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes →
+                <p class="text-gray-600 mb-3 text-sm">Request successfully received and accepted</p>
+                <p class="text-xs text-gray-400 font-medium mb-3">200 OK, 201 Created, 204 No Content</p>
+                <a href="/status-codes.html#2xx" class="inline-flex items-center gap-1 text-green-600 hover:text-[#ff006e] font-bold transition-all text-sm">
+                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                    <p class="text-xs text-gray-500 font-medium">200 OK, 201 Created, 204 No Content</p>
-                </div>
             </div>
 
             <!-- 3xx Redirection -->
-            <div onclick="window.location.href='/status-codes.html#3xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-yellow-400 hover:border-[#ff006e]">
-                <div class="w-20 h-20 bg-yellow-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
-                    </svg>
+            <div onclick="window.location.href='/status-codes.html#3xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-yellow-500 hover:border-l-[#ff006e] bg-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center shadow-md">
+                        <span class="material-icons text-white text-2xl">redo</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">3xx Redirection</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">3xx Redirection</h3>
-                <p class="text-gray-600 mb-4 text-sm">Further action needed to complete request</p>
-                <a href="/status-codes.html#3xx" class="inline-flex items-center gap-2 text-yellow-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes →
+                <p class="text-gray-600 mb-3 text-sm">Further action needed to complete request</p>
+                <p class="text-xs text-gray-400 font-medium mb-3">301 Moved, 302 Found, 304 Not Modified</p>
+                <a href="/status-codes.html#3xx" class="inline-flex items-center gap-1 text-yellow-600 hover:text-[#ff006e] font-bold transition-all text-sm">
+                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                    <p class="text-xs text-gray-500 font-medium">301 Moved, 302 Found, 304 Not Modified</p>
-                </div>
             </div>
 
             <!-- 4xx Client Errors -->
-            <div onclick="window.location.href='/status-codes.html#4xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-orange-400 hover:border-[#ff006e]">
-                <div class="w-20 h-20 bg-orange-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                    </svg>
+            <div onclick="window.location.href='/status-codes.html#4xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-orange-500 hover:border-l-[#ff006e] bg-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-md">
+                        <span class="material-icons text-white text-2xl">warning</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">4xx Client Errors</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">4xx Client Errors</h3>
-                <p class="text-gray-600 mb-4 text-sm">Request contains bad syntax or cannot be fulfilled</p>
-                <a href="/status-codes.html#4xx" class="inline-flex items-center gap-2 text-orange-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes →
+                <p class="text-gray-600 mb-3 text-sm">Request contains bad syntax or cannot be fulfilled</p>
+                <p class="text-xs text-gray-400 font-medium mb-3">400 Bad Request, 404 Not Found, 403 Forbidden</p>
+                <a href="/status-codes.html#4xx" class="inline-flex items-center gap-1 text-orange-600 hover:text-[#ff006e] font-bold transition-all text-sm">
+                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                    <p class="text-xs text-gray-500 font-medium">400 Bad Request, 404 Not Found, 403 Forbidden</p>
-                </div>
             </div>
 
             <!-- 5xx Server Errors -->
-            <div onclick="window.location.href='/status-codes.html#5xx'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-red-400 hover:border-[#ff006e]">
-                <div class="w-20 h-20 bg-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-                    </svg>
+            <div onclick="window.location.href='/status-codes.html#5xx'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-red-500 hover:border-l-[#ff006e] bg-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center shadow-md">
+                        <span class="material-icons text-white text-2xl">error</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">5xx Server Errors</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">5xx Server Errors</h3>
-                <p class="text-gray-600 mb-4 text-sm">Server failed to fulfill a valid request</p>
-                <a href="/status-codes.html#5xx" class="inline-flex items-center gap-2 text-red-600 hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View All Codes →
+                <p class="text-gray-600 mb-3 text-sm">Server failed to fulfill a valid request</p>
+                <p class="text-xs text-gray-400 font-medium mb-3">500 Internal Error, 502 Bad Gateway, 503 Unavailable</p>
+                <a href="/status-codes.html#5xx" class="inline-flex items-center gap-1 text-red-600 hover:text-[#ff006e] font-bold transition-all text-sm">
+                    View All Codes <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                    <p class="text-xs text-gray-500 font-medium">500 Internal Error, 502 Bad Gateway, 503 Unavailable</p>
-                </div>
             </div>
 
             <!-- FAQ -->
-            <div onclick="window.location.href='/faq.html'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-[#ff006e] hover:border-[#ff006e]">
-                <div class="w-20 h-20 bg-[#ff006e] rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
-                    </svg>
+            <div onclick="window.location.href='/faq.html'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-[#ff006e] hover:border-l-[#ff006e] bg-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-[#ff006e] rounded-xl flex items-center justify-center shadow-md">
+                        <span class="material-icons text-white text-2xl">help</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">FAQ</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">FAQ</h3>
-                <p class="text-gray-600 mb-4 text-sm">Common questions about HTTP status codes</p>
-                <a href="/faq.html" class="inline-flex items-center gap-2 text-[#ff006e] hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View FAQs →
+                <p class="text-gray-600 mb-3 text-sm">Common questions about HTTP status codes</p>
+                <p class="text-xs text-gray-400 font-medium mb-3">404 errors, redirects, server errors, and more</p>
+                <a href="/faq.html" class="inline-flex items-center gap-1 text-[#ff006e] hover:text-[#ff006e] font-bold transition-all text-sm">
+                    View FAQs <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                    <p class="text-sm text-gray-500 font-medium">404 errors, redirects, server errors, and more</p>
-                </div>
             </div>
 
             <!-- Blog/Resources -->
-            <div onclick="window.location.href='/blog'" class="status-category-card glass rounded-2xl shadow-xl p-4 sm:p-6 border-3 border-[#1e3a8a] hover:border-[#ff006e]">
-                <div class="w-20 h-20 bg-[#1e3a8a] rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
+            <div onclick="window.location.href='/blog'" class="status-category-card rounded-2xl shadow-xl p-5 sm:p-6 border-l-4 border-[#1e3a8a] hover:border-l-[#ff006e] bg-white sm:col-span-2 lg:col-span-1">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-[#1e3a8a] rounded-xl flex items-center justify-center shadow-md">
+                        <span class="material-icons text-white text-2xl">article</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">Blog & Guides</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Blog & Guides</h3>
-                <p class="text-gray-600 mb-4 text-sm">In-depth articles and troubleshooting guides</p>
-                <a href="/blog" class="inline-flex items-center gap-2 text-[#1e3a8a] hover:text-[#ff006e] font-bold transition-all text-sm">
-                    View Articles →
+                <p class="text-gray-600 mb-3 text-sm">In-depth articles and troubleshooting guides</p>
+                <p class="text-xs text-gray-400 font-medium mb-3">SEO tips, troubleshooting, best practices</p>
+                <a href="/blog" class="inline-flex items-center gap-1 text-[#1e3a8a] hover:text-[#ff006e] font-bold transition-all text-sm">
+                    View Articles <span class="material-icons text-sm">arrow_forward</span>
                 </a>
-                <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                    <p class="text-sm text-gray-500 font-medium">SEO tips, troubleshooting, best practices</p>
-                </div>
             </div>
         </div>
 

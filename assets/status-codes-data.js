@@ -1179,6 +1179,223 @@ const statusCodesData = {
           "Contact network administrator if unable to authenticate"
         ],
         "relatedCodes": ["401", "407"]
+      },
+      "520": {
+        "name": "Web Server Returned Unknown Error",
+        "description": "Cloudflare received an empty, unknown, or unexpected response from the origin server.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When Cloudflare cannot interpret the response from your origin server",
+        "commonCauses": [
+          "Origin server crashed or returned empty response",
+          "Connection reset by origin server",
+          "Response headers exceed Cloudflare limits (16KB)",
+          "Origin server returning invalid HTTP response",
+          "Application error causing malformed response"
+        ],
+        "howToFix": [
+          "Check origin server error logs for crashes",
+          "Ensure origin server is running and healthy",
+          "Verify response headers don't exceed 16KB",
+          "Test direct connection to origin (bypass Cloudflare)",
+          "Check for infinite loops or application errors",
+          "Review server resource limits (memory, connections)"
+        ],
+        "relatedCodes": ["521", "522", "500"]
+      },
+      "521": {
+        "name": "Web Server Is Down",
+        "description": "The origin web server refused the connection from Cloudflare.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When Cloudflare cannot establish a TCP connection to your origin",
+        "commonCauses": [
+          "Origin web server is down or stopped",
+          "Firewall blocking Cloudflare IP addresses",
+          "Origin server overloaded and refusing connections",
+          "Wrong origin IP configured in Cloudflare DNS",
+          "Web server not listening on expected port (80/443)"
+        ],
+        "howToFix": [
+          "Verify origin web server is running (systemctl status nginx)",
+          "Whitelist all Cloudflare IP ranges in firewall",
+          "Check origin server is listening on correct ports",
+          "Verify DNS A record points to correct origin IP",
+          "Check for rate limiting blocking Cloudflare requests",
+          "Test: curl -I http://your-origin-ip directly"
+        ],
+        "relatedCodes": ["520", "522", "503"]
+      },
+      "522": {
+        "name": "Connection Timed Out",
+        "description": "Cloudflare could not complete a TCP handshake with the origin server.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When the origin server takes too long to respond to Cloudflare's connection attempt",
+        "commonCauses": [
+          "Origin server overloaded with requests",
+          "Network congestion between Cloudflare and origin",
+          "Firewall silently dropping packets (not rejecting)",
+          "Origin server in different geographic region (high latency)",
+          "TCP SYN packets being blocked or dropped"
+        ],
+        "howToFix": [
+          "Check origin server CPU/memory usage",
+          "Ensure firewall ALLOWs (not just doesn't block) Cloudflare IPs",
+          "Increase server connection limits and timeouts",
+          "Consider using Cloudflare Argo for faster routing",
+          "Check hosting provider for network issues",
+          "Reduce origin server geographic distance if possible"
+        ],
+        "relatedCodes": ["521", "524", "504"]
+      },
+      "523": {
+        "name": "Origin Is Unreachable",
+        "description": "Cloudflare could not reach the origin server, likely due to DNS or routing issues.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When Cloudflare cannot resolve or route to your origin IP address",
+        "commonCauses": [
+          "DNS records pointing to invalid or unreachable IP",
+          "Origin IP address has changed but DNS not updated",
+          "Origin server's IP is blackholed or unreachable",
+          "Routing issues between Cloudflare and origin network",
+          "Origin is on a private/internal IP (not publicly routable)"
+        ],
+        "howToFix": [
+          "Verify DNS A/AAAA records point to correct origin IP",
+          "Ensure origin IP is publicly accessible",
+          "Test origin accessibility: ping your-origin-ip",
+          "Check with hosting provider for routing issues",
+          "Verify origin isn't using internal/private IP ranges",
+          "Update Cloudflare DNS if origin IP changed"
+        ],
+        "relatedCodes": ["521", "522", "502"]
+      },
+      "524": {
+        "name": "A Timeout Occurred",
+        "description": "Cloudflare established a TCP connection but the origin didn't respond with an HTTP response in time.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When origin server takes longer than 100 seconds to send HTTP headers",
+        "commonCauses": [
+          "Long-running scripts or database queries",
+          "Origin server processing complex operations",
+          "PHP/Node.js script timing out",
+          "Database connection pool exhaustion",
+          "Deadlocks or infinite loops in application code"
+        ],
+        "howToFix": [
+          "Optimize slow database queries",
+          "Implement background job processing for long tasks",
+          "Increase PHP/application max_execution_time",
+          "Use Cloudflare Enterprise for extended timeouts",
+          "Add caching to reduce origin processing time",
+          "Consider breaking long operations into smaller chunks",
+          "Monitor and fix application performance issues"
+        ],
+        "relatedCodes": ["522", "504", "408"]
+      },
+      "525": {
+        "name": "SSL Handshake Failed",
+        "description": "Cloudflare could not complete an SSL/TLS handshake with the origin server.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When using Full or Full (Strict) SSL mode and origin SSL is misconfigured",
+        "commonCauses": [
+          "Expired SSL certificate on origin server",
+          "Self-signed certificate (with Full Strict mode)",
+          "SSL/TLS version mismatch",
+          "Origin not serving SSL on port 443",
+          "Cipher suite incompatibility",
+          "Missing intermediate certificates"
+        ],
+        "howToFix": [
+          "Verify origin SSL certificate is valid and not expired",
+          "Install Cloudflare Origin CA certificate (free)",
+          "Ensure full certificate chain is installed",
+          "Check origin server SSL configuration (ssl-labs.com)",
+          "Temporarily test with 'Flexible' SSL mode",
+          "Update origin server TLS to 1.2 or higher"
+        ],
+        "relatedCodes": ["526", "502"]
+      },
+      "526": {
+        "name": "Invalid SSL Certificate",
+        "description": "Cloudflare could not validate the SSL certificate on the origin server.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When using Full (Strict) SSL mode and origin certificate is untrusted",
+        "commonCauses": [
+          "Self-signed SSL certificate on origin",
+          "Origin certificate not signed by trusted CA",
+          "Certificate hostname mismatch",
+          "Expired origin SSL certificate",
+          "Missing or incorrect certificate chain"
+        ],
+        "howToFix": [
+          "Install a valid SSL certificate from trusted CA",
+          "Use Cloudflare Origin CA certificate (trusted by Cloudflare)",
+          "Switch to 'Full' SSL mode (less strict) temporarily",
+          "Ensure certificate matches your domain name",
+          "Renew expired certificate",
+          "Install complete certificate chain including intermediates"
+        ],
+        "relatedCodes": ["525", "502"]
+      },
+      "527": {
+        "name": "Railgun Error",
+        "description": "Connection issues between Cloudflare and the Railgun server.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When Cloudflare Railgun (legacy optimization) encounters connection issues",
+        "commonCauses": [
+          "Railgun Listener not running on origin",
+          "Firewall blocking Railgun port (2408)",
+          "Railgun token mismatch",
+          "Network connectivity issues to Railgun server"
+        ],
+        "howToFix": [
+          "Verify Railgun Listener is running",
+          "Check Railgun configuration and tokens",
+          "Open port 2408 in firewall",
+          "Consider disabling Railgun (deprecated feature)",
+          "Contact Cloudflare support for Railgun issues"
+        ],
+        "relatedCodes": ["520", "522"]
+      },
+      "530": {
+        "name": "Origin DNS Error",
+        "description": "Error 530 is returned alongside a 1XXX error from Cloudflare.",
+        "vendor": "Cloudflare",
+        "whenItOccurs": "When there's a DNS resolution issue combined with other Cloudflare errors",
+        "commonCauses": [
+          "Site frozen or suspended by hosting provider",
+          "DNS configuration error",
+          "Domain suspended or expired",
+          "Accompanying 1XXX Cloudflare error"
+        ],
+        "howToFix": [
+          "Check for accompanying 1XXX error code for details",
+          "Verify domain registration is active",
+          "Check DNS records in Cloudflare dashboard",
+          "Contact hosting provider if site is frozen",
+          "Review Cloudflare community for 1XXX error solutions"
+        ],
+        "relatedCodes": ["523", "521"]
+      },
+      "499": {
+        "name": "Client Closed Request",
+        "description": "The client closed the connection before the server could send a response.",
+        "vendor": "Nginx",
+        "whenItOccurs": "When a client (browser, app) terminates the request early",
+        "commonCauses": [
+          "User clicked away or closed browser before response",
+          "Client-side timeout exceeded",
+          "Mobile network connection dropped",
+          "Slow server response causing client to give up",
+          "Load balancer health check timeout"
+        ],
+        "howToFix": [
+          "Optimize server response times",
+          "Increase client-side timeout settings",
+          "Improve network reliability",
+          "Usually not a server-side issue to fix",
+          "Monitor frequency - high rates indicate slow responses"
+        ],
+        "relatedCodes": ["408", "504"]
       }
     }
   }

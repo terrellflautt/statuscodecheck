@@ -50,10 +50,10 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+<body class="min-h-screen" style="background: #faf0e6;">
 
     <!-- Header -->
-    <header class="glass border-b border-indigo-100 sticky top-0 z-40 shadow-sm">
+    <header class="glass border-b border-pink-100 sticky top-0 z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-6">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-4">
@@ -90,7 +90,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Article 1 -->
-            <article class="blog-card glass rounded-3xl shadow-xl overflow-hidden border border-indigo-100">
+            <article class="blog-card glass rounded-3xl shadow-xl overflow-hidden border border-pink-100">
                 <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
                     <span class="material-icons text-white text-6xl">error_outline</span>
                 </div>
@@ -117,7 +117,7 @@
             </article>
 
             <!-- Article 2 -->
-            <article class="blog-card glass rounded-3xl shadow-xl overflow-hidden border border-indigo-100">
+            <article class="blog-card glass rounded-3xl shadow-xl overflow-hidden border border-pink-100">
                 <div class="h-48 bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center">
                     <span class="material-icons text-white text-6xl">sync_alt</span>
                 </div>
@@ -144,7 +144,7 @@
             </article>
 
             <!-- Article 3 -->
-            <article class="blog-card glass rounded-3xl shadow-xl overflow-hidden border border-indigo-100">
+            <article class="blog-card glass rounded-3xl shadow-xl overflow-hidden border border-pink-100">
                 <div class="h-48 bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center">
                     <span class="material-icons text-white text-6xl">report_problem</span>
                 </div>
@@ -170,10 +170,37 @@
                 </div>
             </article>
 
+            <!-- Article 4 - NEW -->
+            <article class="blog-card glass rounded-3xl shadow-xl overflow-hidden border border-pink-100">
+                <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                    <span class="material-icons text-white text-6xl">block</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                        <span class="material-icons text-xs">calendar_today</span>
+                        <time datetime="2026-01-05">January 5, 2026</time>
+                        <span class="mx-2">•</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                        <a href="/blog/how-to-fix-403-forbidden-error.html" class="hover:text-primary transition-colors">
+                            How to Fix 403 Forbidden Error: Complete Guide
+                        </a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        Step-by-step troubleshooting for file permissions, .htaccess issues, IP blocks, and more.
+                    </p>
+                    <a href="/blog/how-to-fix-403-forbidden-error.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+                        Read More
+                        <span class="material-icons text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
         </div>
 
         <!-- CTA Section -->
-        <div class="mt-16 glass rounded-3xl shadow-2xl p-12 border-2 border-primary/20 text-center bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="mt-16 glass rounded-3xl shadow-2xl p-12 border-2 border-primary/20 text-center" style="background: linear-gradient(135deg, #fff5f8 0%, #ffe0eb 100%);">
             <h3 class="text-4xl font-extrabold text-gray-900 mb-4">
                 Check Your Website Status Codes
             </h3>
@@ -189,7 +216,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="glass border-t border-indigo-100 mt-20">
+    <footer class="glass border-t border-pink-100 mt-20">
         <div class="max-w-7xl mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
@@ -234,7 +261,7 @@
 
     <!-- Contact Form Modal -->
     <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" style="display: none;">
-        <div class="glass rounded-3xl shadow-2xl p-8 max-w-lg w-full mx-4 border border-indigo-200 relative">
+        <div class="glass rounded-3xl shadow-2xl p-8 max-w-lg w-full mx-4 border border-pink-200 relative">
             <button onclick="closeContactForm()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
                 <span class="material-icons">close</span>
             </button>
@@ -250,21 +277,21 @@
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
                     <input type="text" id="name" name="name" required
-                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
+                        class="w-full px-4 py-2 border-2 border-pink-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
                         placeholder="Your name">
                 </div>
 
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                     <input type="email" id="email" name="email" required
-                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
+                        class="w-full px-4 py-2 border-2 border-pink-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all"
                         placeholder="your@email.com">
                 </div>
 
                 <div>
                     <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
                     <textarea id="message" name="message" required rows="4"
-                        class="w-full px-4 py-2 border-2 border-indigo-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all resize-none"
+                        class="w-full px-4 py-2 border-2 border-pink-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all resize-none"
                         placeholder="Your message..."></textarea>
                 </div>
 
